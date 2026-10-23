@@ -15,7 +15,7 @@
             flex-direction: column;
         }
 
-        /* --- ФОН (НЕ ТРОГАЕМ) --- */
+        /* --- ФОН (КАК НА СКРИНШОТЕ) --- */
         .bg-icons {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -24,35 +24,39 @@
             overflow: hidden;
         }
         
-        .bg-icon { position: absolute; fill: #000000; opacity: 0.04; }
+        .bg-icon {
+            position: absolute;
+            fill: #000000;
+            opacity: 0.04; 
+        }
+
         .top-left { width: 140px; height: 140px; top: 10%; left: 5%; transform: rotate(-15deg); }
         .top-right { width: 130px; height: 130px; top: 15%; right: 5%; transform: rotate(15deg); }
         .bottom-left { width: 130px; height: 130px; bottom: 15%; left: 5%; transform: rotate(-10deg); }
         .bottom-right { width: 140px; height: 140px; bottom: 10%; right: 5%; transform: rotate(20deg); }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ (ТОЧНЫЕ ОТСТУПЫ) --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ --- */
         .top-tabs {
             display: flex; 
-            justify-content: space-around;
-            padding: 30px 15px 0 15px; /* Опустил чуть ниже, но сделал компактнее */
-            font-size: 15px;
+            justify-content: space-between;
+            padding: 20px 25px 0 25px; 
+            font-size: 16px;
             z-index: 1;
         }
         
         .tab { 
-            padding-bottom: 8px; 
+            padding-bottom: 10px; 
             cursor: pointer;
-            font-weight: 500;
+            font-weight: bold;
             color: #888; 
         }
         
         .tab.active { 
-            font-weight: bold;
             color: #000; 
-            border-bottom: 2px solid #FFC107; /* Тонкая полоска */
+            border-bottom: 3px solid #FFC107; 
         }
 
-        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ (ПОДНЯТА ВЫШЕ) --- */
+        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ --- */
         .main-content {
             flex: 1;
             display: flex;
@@ -61,80 +65,107 @@
             align-items: center;
             z-index: 1;
             padding: 0 20px;
-            padding-bottom: 15%; /* Сдвигает контент чуть выше центра */
         }
 
         .logo { 
-            font-size: 36px; /* Компактный логотип */
+            font-size: 42px; 
             font-weight: 900; 
             color: #FFC107; 
-            margin-bottom: 25px; 
+            margin-bottom: 30px; 
             letter-spacing: -0.5px; 
         }
         
-        /* --- СТРОКА ПОИСКА (КАК ТЫ ПРОСИЛ) --- */
+        /* --- СТРОКА ПОИСКА (БЕЗ ЖЕЛТОЙ ЛУПЫ) --- */
         .search-box {
             display: flex; 
             align-items: center;
             border: 1px solid #dcdcdc; 
             border-radius: 30px;
-            padding: 0 18px; 
+            padding: 0 20px; 
             width: 95%; 
             background: #fff;
-            height: 52px; /* Сделал чуть ниже */
+            height: 56px;
             cursor: text;
         }
         
         .search-icon-left { 
-            width: 20px; 
-            height: 20px; 
-            margin-right: 12px; 
+            width: 24px; 
+            height: 24px; 
+            margin-right: 15px; 
             fill: none; 
             stroke: #888; 
-            stroke-width: 1.5;
+            stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
         
         .search-input { 
-            flex: 1; height: 100%; border: none; outline: none; 
-            font-size: 15px; color: #666; background: transparent; 
+            flex: 1;
+            height: 100%;
+            border: none; 
+            outline: none; 
+            font-size: 16px; 
+            color: #666; 
+            background: transparent; 
         }
 
-        /* --- НИЖНЕЕ МЕНЮ (ТОНКОЕ, КАК НА ОРИГИНАЛЕ) --- */
+        /* --- НИЖНЕЕ МЕНЮ (ТОЧНЫЕ ИКОНКИ) --- */
         .bottom-nav {
             display: flex; 
             justify-content: space-around; 
-            padding: 10px 0 15px 0; /* Минимальный отступ */
+            padding: 12px 0;
             border-top: 1px solid #f0f0f0; 
             background-color: #ffffff;
             z-index: 10;
         }
         
         .nav-item { 
-            display: flex; flex-direction: column; align-items: center; 
-            font-size: 11px; /* Мелкий шрифт */
-            color: #888; cursor: pointer; font-weight: 500;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            font-size: 12px; 
+            color: #888; 
+            cursor: pointer; 
+            font-weight: bold;
         }
         
-        .nav-item.active { font-weight: bold; color: #000; }
+        .nav-item.active { 
+            color: #000; 
+        }
         
         .nav-icon { 
-            width: 22px; height: 22px; /* Компактные иконки */
-            margin-bottom: 4px; fill: none; stroke: #888; stroke-width: 1.5;
+            width: 24px; 
+            height: 24px; 
+            margin-bottom: 5px; 
+            fill: none; 
+            stroke: #888; 
+            stroke-width: 2;
         }
         
-        .nav-item.active .nav-icon { stroke: #000; }
+        .nav-item.active .nav-icon { 
+            stroke: #000; 
+        }
     </style>
 </head>
 <body>
 
     <!-- ФОН -->
     <div class="bg-icons">
-        <svg class="bg-icon top-left" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        <svg class="bg-icon top-right" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-        <svg class="bg-icon bottom-left" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-        <svg class="bg-icon bottom-right" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <svg class="bg-icon top-left" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        
+        <svg class="bg-icon top-right" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        </svg>
+        
+        <svg class="bg-icon bottom-left" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        </svg>
+        
+        <svg class="bg-icon bottom-right" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
     </div>
 
     <!-- ВЕРХНИЕ ВКЛАДКИ -->
@@ -147,6 +178,8 @@
     <!-- ЦЕНТР -->
     <div class="main-content">
         <div class="logo">Snaptube</div>
+        
+        <!-- СТРОКА ПОИСКА (БЕЗ ЛУПЫ) -->
         <div class="search-box" onclick="document.getElementById('search-input').focus();">
             <svg class="search-icon-left" viewBox="0 0 24 24">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -159,6 +192,7 @@
 
     <!-- НИЖНЕЕ МЕНЮ -->
     <div class="bottom-nav">
+        <!-- Загрузить (Лупа) -->
         <div class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -167,6 +201,7 @@
             <div>Загрузить</div>
         </div>
         
+        <!-- Воспроизведение (Видеотека с полосочкой) -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <rect x="6" y="4" width="16" height="16" rx="2" ry="2"></rect>
@@ -176,6 +211,7 @@
             <div>Воспроизведение</div>
         </div>
         
+        <!-- Настройки (Шестеренка) -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"></circle>
