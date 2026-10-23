@@ -15,7 +15,7 @@
             flex-direction: column;
         }
 
-        /* --- 1. ФОН (С ПЕРВОГО СКРИНШОТА) --- */
+        /* --- ФОН (С ПЕРВОГО СКРИНШОТА) --- */
         .bg-icons {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -35,11 +35,11 @@
         .bottom-left { width: 130px; height: 130px; bottom: 15%; left: 5%; transform: rotate(-10deg); }
         .bottom-right { width: 140px; height: 140px; bottom: 10%; right: 5%; transform: rotate(20deg); }
 
-        /* --- 2. ВЕРХНИЕ ВКЛАДКИ (СО ВТОРОГО СКРИНШОТА) --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ (ОПУЩЕНЫ, СТАНДАРТНЫЙ РАЗМЕР) --- */
         .top-tabs {
             display: flex; 
             justify-content: space-between;
-            padding: 20px 25px 0 25px; 
+            padding: 45px 25px 0 25px; 
             font-size: 16px;
             z-index: 1;
         }
@@ -47,11 +47,12 @@
         .tab { 
             padding-bottom: 10px; 
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 500;
             color: #888; 
         }
         
         .tab.active { 
+            font-weight: bold;
             color: #000; 
             border-bottom: 3px solid #FFC107; 
         }
@@ -65,7 +66,6 @@
             align-items: center;
             z-index: 1;
             padding: 0 20px;
-            margin-top: -20px;
         }
 
         .logo { 
@@ -76,7 +76,7 @@
             letter-spacing: -0.5px; 
         }
         
-        /* --- 3. СТРОКА ПОИСКА (С ПЕРВОГО СКРИНШОТА, БЕЗ ЛУПЫ) --- */
+        /* --- СТРОКА ПОИСКА (БЕЗ ЖЕЛТОЙ ЛУПЫ) --- */
         .search-box {
             display: flex; 
             align-items: center;
@@ -110,11 +110,11 @@
             background: transparent; 
         }
 
-        /* --- 4. НИЖНЕЕ МЕНЮ (СО ВТОРОГО СКРИНШОТА) --- */
+        /* --- НИЖНЕЕ МЕНЮ (БЕЗ ЛИШНЕГО ОТСТУПА СНИЗУ) --- */
         .bottom-nav {
             display: flex; 
             justify-content: space-around; 
-            padding: 12px 0 20px 0;
+            padding: 12px 0; /* Вернул стандартный отступ */
             border-top: 1px solid #f0f0f0; 
             background-color: #ffffff;
             z-index: 10;
@@ -127,10 +127,11 @@
             font-size: 12px; 
             color: #888; 
             cursor: pointer; 
-            font-weight: bold;
+            font-weight: 500;
         }
         
         .nav-item.active { 
+            font-weight: bold;
             color: #000; 
         }
         
@@ -205,8 +206,9 @@
         <!-- Воспроизведение -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
-                <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                <polygon points="10 9 15 12 10 15 10 9" fill="currentColor"></polygon>
+                <rect x="6" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <polygon points="11 9 15 12 11 15 11 9" fill="currentColor"></polygon>
+                <line x1="2" y1="6" x2="2" y2="18"></line>
             </svg>
             <div>Воспроизведение</div>
         </div>
