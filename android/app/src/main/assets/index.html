@@ -45,16 +45,15 @@
         .header-section { text-align: center; padding: 40px 20px; z-index: 1; }
         .logo { font-size: 42px; font-weight: 900; color: #FFC107; margin-bottom: 40px; letter-spacing: -1px; }
         
-        /* ИДЕАЛЬНАЯ СТРОКА ПОИСКА БЕЗ КНОПКИ */
+        /* АБСОЛЮТНО ПУСТАЯ СТРОКА ПОИСКА */
         .search-box {
             display: flex; align-items: center;
             border: 1px solid #ccc; border-radius: 30px;
-            padding: 15px 20px; /* Сделал отступы побольше, чтобы было красиво без кнопки */
+            padding: 20px 25px; /* Отступы, чтобы полоска была потолще и удобнее */
             margin: 0 auto; width: 95%; background: #fff;
         }
-        .search-icon-left { width: 24px; height: 24px; margin-right: 15px; fill: #888; }
         .search-input { 
-            flex: 1; border: none; outline: none; 
+            width: 100%; border: none; outline: none; 
             font-size: 16px; color: #333; background: transparent; 
         }
 
@@ -68,7 +67,6 @@
             border-bottom: 1px solid #f5f5f5; font-size: 16px; color: #333;
         }
         .settings-icon { width: 24px; height: 24px; fill: #888; margin-right: 15px; }
-        /* Пустое место для значения */
         .settings-value { margin-left: auto; color: #aaa; font-size: 14px; margin-right: 10px; }
         .arrow { color: #ccc; font-size: 20px; font-weight: bold; }
 
@@ -104,10 +102,9 @@
 
         <div class="header-section">
             <div class="logo">Snaptube</div>
+            <!-- Абсолютно пустая полоса, только рамка и поле ввода -->
             <div class="search-box">
-                <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                <!-- Кнопка убрана, только поле ввода -->
-                <input type="text" class="search-input" placeholder="Поищи, что скачать...">
+                <input type="text" class="search-input">
             </div>
         </div>
     </div>
@@ -138,7 +135,6 @@
             <div class="settings-item">
                 <svg class="settings-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 Уч. запись
-                <!-- Тут теперь пусто -->
                 <span class="settings-value"></span>
                 <span class="arrow">›</span>
             </div>
