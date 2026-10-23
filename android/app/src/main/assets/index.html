@@ -1,237 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Snaptube Clone</title>
+<style>
+  /* Базовый сброс */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent;}
+  
+  body { 
+    background-color: #FFFFFF; /* ЧИСТЫЙ БЕЛЫЙ ФОН, БЕЗ ПЯТЕН */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
 
-        /* --- ФОН --- */
-        .bg-blobs {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        .blob {
-            position: absolute;
-            border-radius: 35%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            filter: blur(2vw);
-            opacity: 0.6;
-        }
+  /* 1. Верхние табы */
+  .top-tabs {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 16px;
+    height: 48px;
+    align-items: center;
+    margin-top: 24px;
+  }
+  .tab {
+    font-size: 16px;
+    font-weight: 500;
+    color: #888888;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+  }
+  .tab.active {
+    color: #111111;
+    font-weight: 700;
+  }
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FFC107;
+    border-radius: 3px 3px 0 0;
+  }
 
-        .blob svg { width: 50%; height: 50%; fill: #ffffff; opacity: 0.8; }
+  /* 2. Логотип */
+  .logo-container {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+  .logo {
+    font-size: 46px; 
+    font-weight: 900;
+    color: #FFC107;
+    letter-spacing: -1px;
+  }
 
-        .b1 { width: 35vw; height: 35vw; background: #f3e5f5; top: 12%; left: 5%; transform: rotate(-15deg); }
-        .b2 { width: 30vw; height: 30vw; background: #fce4ec; top: 15%; left: 40%; transform: rotate(10deg); }
-        .b3 { width: 38vw; height: 38vw; background: #fff9c4; top: 10%; right: 5%; transform: rotate(15deg); }
-        .b4 { width: 33vw; height: 33vw; background: #e0f7fa; top: 40%; left: 10%; transform: rotate(-10deg); }
-        .b5 { width: 35vw; height: 35vw; background: #e3f2fd; top: 45%; right: 5%; transform: rotate(20deg); }
+  /* 3. Поисковая строка */
+  .search-container {
+    margin: 0 24px;
+    height: 58px;
+    border: 1px solid #CCCCCC;
+    border-radius: 29px; 
+    display: flex;
+    align-items: center;
+    padding: 0 6px 0 16px;
+    background: #FFFFFF;
+  }
+  .search-icon-left { color: #999; margin-right: 12px; }
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+  }
+  .search-input::placeholder { color: #999; }
+  .search-btn {
+    width: 46px;
+    height: 46px;
+    background-color: #FFC107;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ (8% СВЕРХУ) --- */
-        .top-tabs {
-            position: absolute;
-            top: 8vh; /* Жесткая привязка к высоте экрана */
-            width: 100%;
-            display: flex; 
-            justify-content: space-between;
-            padding: 0 6vw;
-            font-size: 4.2vw;
-            z-index: 10;
-        }
-        
-        .tab { 
-            padding-bottom: 1.5vw; 
-            cursor: pointer;
-            font-weight: 500;
-            color: #888; 
-        }
-        
-        .tab.active { 
-            font-weight: bold;
-            color: #000; 
-            border-bottom: 0.7vw solid #FFC107; 
-        }
-
-        /* --- ЛОГОТИП --- */
-        .logo-container {
-            position: absolute;
-            top: 25vh; /* Четверть экрана */
-            width: 100%;
-            text-align: center;
-            z-index: 10;
-        }
-
-        .logo { 
-            font-size: 11vw; 
-            font-weight: 900; 
-            color: #FFC107; 
-            letter-spacing: -0.2vw; 
-        }
-
-        /* --- СТРОКА ПОИСКА (36% СВЕРХУ) --- */
-        .search-container {
-            position: absolute;
-            top: 36vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 10;
-        }
-
-        .search-box {
-            display: flex; 
-            align-items: center;
-            border: 1px solid #dcdcdc; 
-            border-radius: 8vw; 
-            padding: 0 5vw; 
-            width: 90%; 
-            background: #fff;
-            height: 14vw; 
-            cursor: text;
-        }
-        
-        .search-icon-left { 
-            width: 6vw; 
-            height: 6vw; 
-            margin-right: 4vw; 
-            fill: none; 
-            stroke: #888; 
-            stroke-width: 0.6vw;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            flex-shrink: 0; 
-        }
-        
-        .search-input { 
-            flex: 1;
-            height: 100%;
-            border: none; 
-            outline: none; 
-            font-size: 4.5vw; 
-            color: #666; 
-            background: transparent; 
-        }
-
-        /* --- НИЖНЕЕ МЕНЮ (ПРИПОДНЯТО НА 4%) --- */
-        .bottom-nav {
-            position: absolute;
-            bottom: 4vh; /* Отступ от самого низа */
-            width: 100%;
-            display: flex; 
-            justify-content: space-around; 
-            padding: 3vw 0; 
-            border-top: 1px solid #f0f0f0; 
-            background-color: #ffffff;
-            z-index: 10;
-        }
-        
-        .nav-item { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            font-size: 3.5vw; 
-            color: #888; 
-            cursor: pointer; 
-            font-weight: 500;
-        }
-        
-        .nav-item.active { 
-            font-weight: bold;
-            color: #000; 
-        }
-        
-        .nav-icon { 
-            width: 7vw; 
-            height: 7vw; 
-            margin-bottom: 1.5vw; 
-            fill: none; 
-            stroke: #888; 
-            stroke-width: 0.6vw;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        
-        .nav-item.active .nav-icon { 
-            stroke: #000; 
-        }
-    </style>
+  /* 4. Нижнее меню */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    background: #FFFFFF;
+    border-top: 1px solid #EEEEEE;
+    padding-bottom: 10px;
+  }
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #888888;
+    text-decoration: none;
+    width: 33%;
+  }
+  .nav-item svg { margin-bottom: 6px; }
+  .nav-item span { font-size: 12px; font-weight: 500; }
+  
+  .nav-item.active { color: #111111; }
+  .nav-item.active span { font-weight: 700; }
+</style>
 </head>
 <body>
 
-    <!-- ФОН -->
-    <div class="bg-blobs">
-        <div class="blob b1"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></div>
-        <div class="blob b2"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.09-6.37c-.22-.11-1.31-.65-1.51-.72-.2-.08-.35-.11-.49.11-.15.22-.57.72-.7.87-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.77-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.49-1.18-.67-1.62-.18-.43-.36-.37-.49-.38h-.42c-.15 0-.39.06-.59.28-.2.22-.76.74-.76 1.81 0 1.07.78 2.1.89 2.25.11.15 1.54 2.35 3.73 3.3.52.22.93.35 1.25.45.52.16 1.01.14 1.39.08.43-.06 1.31-.53 1.5-1.05.19-.52.19-.96.13-1.05-.06-.09-.22-.15-.44-.26z"/></svg></div>
-        <div class="blob b3"><svg viewBox="0 0 24 24"><path d="M21.58 16.09l-1.09-7.66C20.21 6.46 18.52 5 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-        <div class="blob b4"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></div>
-        <div class="blob b5"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-    </div>
+  <!-- Верхнее меню -->
+  <div class="top-tabs">
+    <div class="tab active">Поиск</div>
+    <div class="tab">YouTube</div>
+    <div class="tab">Музыка</div>
+  </div>
 
-    <!-- ВЕРХНИЕ ВКЛАДКИ -->
-    <div class="top-tabs">
-        <div class="tab active">Поиск</div>
-        <div class="tab">YouTube</div>
-        <div class="tab">Музыка</div>
-    </div>
+  <!-- Логотип -->
+  <div class="logo-container">
+    <div class="logo">Snaptube</div>
+  </div>
 
-    <!-- ЛОГОТИП -->
-    <div class="logo-container">
-        <div class="logo">Snaptube</div>
+  <!-- Поисковая строка -->
+  <div class="search-container">
+    <div class="search-icon-left">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
     </div>
+    <input type="text" class="search-input" placeholder="Поиск">
+    <button class="search-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </button>
+  </div>
 
-    <!-- СТРОКА ПОИСКА -->
-    <div class="search-container">
-        <div class="search-box" onclick="document.getElementById('search-input').focus();">
-            <svg class="search-icon-left" viewBox="0 0 24 24">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <input type="text" id="search-input" class="search-input" placeholder="Поиск">
-        </div>
-    </div>
-
-    <!-- НИЖНЕЕ МЕНЮ -->
-    <div class="bottom-nav">
-        <div class="nav-item active">
-            <svg class="nav-icon" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <div>Загрузить</div>
-        </div>
-        
-        <div class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24">
-                <rect x="7" y="4" width="14" height="16" rx="2" ry="2"></rect>
-                <polygon points="11 9 15 12 11 15 11 9" fill="currentColor" stroke="none"></polygon>
-                <line x1="3" y1="6" x2="3" y2="18"></line>
-            </svg>
-            <div>Воспроизведение</div>
-        </div>
-        
-        <div class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-            </svg>
-            <div>Настройки</div>
-        </div>
-    </div>
+  <!-- Нижнее меню -->
+  <div class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Загрузить</span>
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+      <span>Воспроизведение</span>
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      <span>Настройки</span>
+    </a>
+  </div>
 
 </body>
 </html>
