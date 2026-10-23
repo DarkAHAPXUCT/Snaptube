@@ -5,6 +5,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
+        /* ЧИСТО БЕЛЫЙ ФОН */
         body {
             background-color: #ffffff;
             color: #333;
@@ -16,22 +17,6 @@
         .screen { display: none; flex-direction: column; height: 100vh; position: relative; }
         .screen.active { display: flex; }
 
-        /* --- ФОН С ВОДЯНЫМИ ЗНАКАМИ --- */
-        .bg-watermarks {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            opacity: 0.03;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .wm-icon { position: absolute; fill: #000; }
-        .wm-1 { width: 120px; height: 120px; top: 10%; left: 5%; transform: rotate(-15deg); }
-        .wm-2 { width: 100px; height: 100px; top: 15%; left: 50%; transform: rotate(10deg); }
-        .wm-3 { width: 140px; height: 140px; top: 40%; left: 10%; transform: rotate(-5deg); }
-        .wm-4 { width: 110px; height: 110px; top: 45%; left: 60%; transform: rotate(20deg); }
-        .wm-5 { width: 130px; height: 130px; top: 70%; left: 20%; transform: rotate(-10deg); }
-
         /* --- ВЕРХНИЕ ВКЛАДКИ --- */
         .top-tabs {
             display: flex; justify-content: space-around;
@@ -42,19 +27,54 @@
         .tab.active { color: #000; border-bottom: 3px solid #FFC107; }
 
         /* --- ЛОГОТИП И ПОИСК --- */
-        .header-section { text-align: center; padding: 40px 20px; z-index: 1; }
-        .logo { font-size: 42px; font-weight: 900; color: #FFC107; margin-bottom: 40px; letter-spacing: -1px; }
+        .header-section { text-align: center; padding: 30px 20px 10px 20px; z-index: 1; }
+        .logo { font-size: 42px; font-weight: 900; color: #FFC107; margin-bottom: 25px; letter-spacing: -1px; }
         
-        /* АБСОЛЮТНО ПУСТАЯ СТРОКА ПОИСКА */
+        /* Строка поиска без желтой кнопки */
         .search-box {
             display: flex; align-items: center;
             border: 1px solid #ccc; border-radius: 30px;
-            padding: 20px 25px; /* Отступы, чтобы полоска была потолще и удобнее */
-            margin: 0 auto; width: 95%; background: #fff;
+            padding: 5px 15px; margin: 0 auto; width: 95%; background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
+        .search-icon-left { width: 24px; height: 24px; margin-right: 10px; fill: #888; }
         .search-input { 
-            width: 100%; border: none; outline: none; 
-            font-size: 16px; color: #333; background: transparent; 
+            flex: 1; border: none; outline: none; 
+            padding: 12px 0; font-size: 16px; 
+            color: #333; background: transparent; 
+        }
+
+        /* --- СИММЕТРИЧНАЯ СЕТКА СЕРВИСОВ --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 25px 20px;
+            z-index: 1;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Легкая тень для аккуратности */
+        }
+
+        .service-card svg {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 12px;
+        }
+
+        .service-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
         }
 
         /* --- ЭКРАН НАСТРОЕК --- */
@@ -67,13 +87,14 @@
             border-bottom: 1px solid #f5f5f5; font-size: 16px; color: #333;
         }
         .settings-icon { width: 24px; height: 24px; fill: #888; margin-right: 15px; }
-        .settings-value { margin-left: auto; color: #aaa; font-size: 14px; margin-right: 10px; }
-        .arrow { color: #ccc; font-size: 20px; font-weight: bold; }
+        .settings-value { margin-left: auto; color: #aaa; font-size: 15px; margin-right: 10px; }
+        .arrow { color: #ccc; font-size: 22px; font-weight: 300; }
 
         /* --- НИЖНЕЕ МЕНЮ --- */
         .bottom-nav {
             display: flex; justify-content: space-around; padding: 12px 0;
             border-top: 1px solid #f0f0f0; background-color: #ffffff; z-index: 1;
+            margin-top: auto;
         }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 12px; color: #888; cursor: pointer; }
         .nav-item.active { color: #000; font-weight: bold; }
@@ -85,14 +106,7 @@
 
     <!-- ЭКРАН 1: ГЛАВНЫЙ -->
     <div id="screen-main" class="screen active">
-        <div class="bg-watermarks">
-            <svg class="wm-icon wm-1" viewBox="0 0 24 24"><path d="M21.58 16.09l-1.09-7.66C20.21 6.46 18.52 5 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM11 11H9v2H8v-2H6v-1h2V8h1v2h2v1zm4-1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-            <svg class="wm-icon wm-2" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            <svg class="wm-icon wm-3" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-            <svg class="wm-icon wm-4" viewBox="0 0 24 24"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 2c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm-6 4c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm-6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/></svg>
-            <svg class="wm-icon wm-5" viewBox="0 0 24 24"><path d="M21.58 16.09l-1.09-7.66C20.21 6.46 18.52 5 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM11 11H9v2H8v-2H6v-1h2V8h1v2h2v1zm4-1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 3c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
-        </div>
-
+        <!-- Вкладки -->
         <div class="top-tabs">
             <div class="tab active">Поиск</div>
             <div class="tab">YouTube</div>
@@ -100,11 +114,36 @@
             <div class="tab">Ещё</div>
         </div>
 
+        <!-- Логотип и поиск -->
         <div class="header-section">
             <div class="logo">Snaptube</div>
-            <!-- Абсолютно пустая полоса, только рамка и поле ввода -->
             <div class="search-box">
-                <input type="text" class="search-input">
+                <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                <input type="text" class="search-input" placeholder="Поищи, что скачать...">
+            </div>
+        </div>
+
+        <!-- СИММЕТРИЧНЫЕ КАРТОЧКИ -->
+        <div class="services-grid">
+            <!-- YouTube -->
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M21.58 16.09l-1.09-7.66C20.21 6.46 18.52 5 16.53 5H7.47C5.48 5 3.79 6.46 3.51 8.43l-1.09 7.66C2.2 17.63 3.39 19 4.94 19c.68 0 1.32-.27 1.8-.75L9 16h6l2.25 2.25c.48.48 1.13.75 1.8.75 1.56 0 2.75-1.37 2.53-2.91zM10 15V9l5.2 3-5.2 3z"/></svg>
+                <div class="service-name">YouTube</div>
+            </div>
+            <!-- WhatsApp -->
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.09-6.37c-.22-.11-1.31-.65-1.51-.72-.2-.08-.35-.11-.49.11-.15.22-.57.72-.7.87-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.77-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.49-1.18-.67-1.62-.18-.43-.36-.37-.49-.38h-.42c-.15 0-.39.06-.59.28-.2.22-.76.74-.76 1.81 0 1.07.78 2.1.89 2.25.11.15 1.54 2.35 3.73 3.3.52.22.93.35 1.25.45.52.16 1.01.14 1.39.08.43-.06 1.31-.53 1.5-1.05.19-.52.19-.96.13-1.05-.06-.09-.22-.15-.44-.26z"/></svg>
+                <div class="service-name">WhatsApp</div>
+            </div>
+            <!-- TikTok -->
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#000000"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                <div class="service-name">TikTok</div>
+            </div>
+            <!-- Instagram -->
+            <div class="service-card">
+                <svg viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.44a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+                <div class="service-name">Instagram</div>
             </div>
         </div>
     </div>
@@ -135,7 +174,7 @@
             <div class="settings-item">
                 <svg class="settings-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 Уч. запись
-                <span class="settings-value"></span>
+                <span class="settings-value">Вход</span>
                 <span class="arrow">›</span>
             </div>
             <div class="settings-item">
