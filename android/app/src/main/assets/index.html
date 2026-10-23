@@ -15,7 +15,7 @@
             flex-direction: column;
         }
 
-        /* --- ФОН: YOUTUBE И НОТА TIKTOK (ПРОЗРАЧНЫЕ) --- */
+        /* --- ФОН: НЕ ТРОГАЕМ --- */
         .bg-icons {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -27,16 +27,15 @@
         .bg-icon {
             position: absolute;
             fill: #000000;
-            opacity: 0.04; /* Идеальная прозрачность */
+            opacity: 0.04; 
         }
 
         .top-left { width: 140px; height: 140px; top: 10%; left: 5%; transform: rotate(-15deg); }
         .top-right { width: 130px; height: 130px; top: 15%; right: 5%; transform: rotate(15deg); }
-        
         .bottom-left { width: 130px; height: 130px; bottom: 15%; left: 5%; transform: rotate(-10deg); }
         .bottom-right { width: 140px; height: 140px; bottom: 10%; right: 5%; transform: rotate(20deg); }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ (ШРИФТ С 1-ГО СКРИНА) --- */
         .top-tabs {
             display: flex; 
             justify-content: space-around;
@@ -48,13 +47,12 @@
         .tab { 
             padding-bottom: 10px; 
             cursor: pointer;
-            font-weight: 500;
+            font-weight: bold;
             color: #888; 
         }
         
         .tab.active { 
-            font-weight: bold;
-            color: #222; 
+            color: #000; 
             border-bottom: 3px solid #FFC107; 
         }
 
@@ -77,14 +75,14 @@
             letter-spacing: -0.5px; 
         }
         
-        /* --- СТРОКА ПОИСКА (БЕЗ ЛУПЫ) --- */
+        /* --- СТРОКА ПОИСКА (БЕЗ ЖЕЛТОЙ ЛУПЫ) --- */
         .search-box {
             display: flex; 
             align-items: center;
             border: 1px solid #ccc; 
             border-radius: 30px;
             padding: 0 20px; 
-            width: 100%; 
+            width: 95%; 
             background: #fff;
             height: 56px;
             cursor: text;
@@ -107,12 +105,12 @@
             background: transparent; 
         }
 
-        /* --- НИЖНЕЕ МЕНЮ --- */
+        /* --- НИЖНЕЕ МЕНЮ (ИКОНКИ 1 В 1 С 1-ГО СКРИНА) --- */
         .bottom-nav {
             display: flex; 
             justify-content: space-around; 
-            padding: 10px 0 15px 0;
-            border-top: 1px solid #eee; 
+            padding: 12px 0;
+            border-top: 1px solid #f0f0f0; 
             background-color: #ffffff;
             z-index: 10;
         }
@@ -124,12 +122,11 @@
             font-size: 12px; 
             color: #888; 
             cursor: pointer; 
-            font-weight: 500;
+            font-weight: bold;
         }
         
         .nav-item.active { 
-            font-weight: bold;
-            color: #222; 
+            color: #000; 
         }
         
         .nav-icon { 
@@ -137,35 +134,29 @@
             height: 24px; 
             margin-bottom: 5px; 
             fill: #888; 
-            color: #888;
         }
         
         .nav-item.active .nav-icon { 
-            fill: #222; 
-            color: #222; 
+            fill: #000; 
         }
     </style>
 </head>
 <body>
 
-    <!-- ФОН: YOUTUBE И НОТА TIKTOK -->
+    <!-- ФОН -->
     <div class="bg-icons">
-        <!-- Верхний левый: YouTube (Точный контур) -->
         <svg class="bg-icon top-left" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
         </svg>
         
-        <!-- Верхний правый: Нота TikTok -->
         <svg class="bg-icon top-right" viewBox="0 0 24 24">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
         </svg>
         
-        <!-- Нижний левый: Нота TikTok -->
         <svg class="bg-icon bottom-left" viewBox="0 0 24 24">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
         </svg>
         
-        <!-- Нижний правый: YouTube (Точный контур) -->
         <svg class="bg-icon bottom-right" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
         </svg>
@@ -181,28 +172,29 @@
     <!-- ЦЕНТР -->
     <div class="main-content">
         <div class="logo">Snaptube</div>
+        
+        <!-- СТРОКА ПОИСКА (БЕЗ ЛУПЫ) -->
         <div class="search-box" onclick="document.getElementById('search-input').focus();">
             <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
             <input type="text" id="search-input" class="search-input" placeholder="Поиск">
         </div>
     </div>
 
-    <!-- НИЖНЕЕ МЕНЮ -->
+    <!-- НИЖНЕЕ МЕНЮ (ТОЧНЫЕ ИКОНКИ КАК НА 1-М СКРИНЕ) -->
     <div class="bottom-nav">
+        <!-- Загрузить -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <div>Загрузить</div>
         </div>
         
+        <!-- Воспроизведение -->
         <div class="nav-item active">
-            <!-- Прозрачный контурный кружок с нотой -->
-            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M14.5 8.5v6.25a2.25 2.25 0 1 1-1.5-2.12v-4.13h2.5V8.5h-1z" />
-            </svg>
+            <svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zM8 6v8l6-4-6-4z"/></svg>
             <div>Воспроизведение</div>
         </div>
         
+        <!-- Настройки -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
             <div>Настройки</div>
