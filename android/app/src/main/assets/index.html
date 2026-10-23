@@ -15,7 +15,7 @@
             flex-direction: column;
         }
 
-        /* --- ФОН (НЕ ТРОГАЕМ) --- */
+        /* --- ЗАДНИЙ ФОН (ИЗ ТВОЕГО ОРИГИНАЛА) --- */
         .bg-icons {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -35,7 +35,7 @@
         .bottom-left { width: 130px; height: 130px; bottom: 15%; left: 5%; transform: rotate(-10deg); }
         .bottom-right { width: 140px; height: 140px; bottom: 10%; right: 5%; transform: rotate(20deg); }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ (ШРИФТ КАК НА 2-М СКРИНЕ) --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ (ИЗ ИДЕАЛА) --- */
         .top-tabs {
             display: flex; 
             justify-content: space-around;
@@ -57,7 +57,7 @@
             border-bottom: 3px solid #FFC107; 
         }
 
-        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ --- */
+        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ (ИЗ ИДЕАЛА) --- */
         .main-content {
             flex: 1;
             display: flex;
@@ -76,7 +76,7 @@
             letter-spacing: -0.5px; 
         }
         
-        /* --- СТРОКА ПОИСКА (ТОНКАЯ СТРЕЛОЧКА, БЕЗ ЖЕЛТОЙ ЛУПЫ) --- */
+        /* --- СТРОКА ПОИСКА (ТОНКАЯ СТРЕЛОЧКА, БЕЗ ЛУПЫ) --- */
         .search-box {
             display: flex; 
             align-items: center;
@@ -89,14 +89,14 @@
             cursor: text;
         }
         
-        /* Тонкая контурная стрелочка (без заливки) */
+        /* Тонкая контурная стрелочка скачивания */
         .search-icon-left { 
             width: 24px; 
             height: 24px; 
             margin-right: 15px; 
             fill: none; 
             stroke: #888; 
-            stroke-width: 1.5;
+            stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
@@ -111,7 +111,7 @@
             background: transparent; 
         }
 
-        /* --- НИЖНЕЕ МЕНЮ (ВСЕ ИКОНКИ ТОНКИЕ И КОНТУРНЫЕ) --- */
+        /* --- НИЖНЕЕ МЕНЮ (КОНТУРНЫЕ ИКОНКИ ИЗ ИДЕАЛА) --- */
         .bottom-nav {
             display: flex; 
             justify-content: space-around; 
@@ -131,7 +131,6 @@
             font-weight: 500;
         }
         
-        /* "Загрузить" черная и жирная */
         .nav-item.active { 
             font-weight: bold;
             color: #000; 
@@ -144,8 +143,6 @@
             fill: none; 
             stroke: #888; 
             stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
         }
         
         .nav-item.active .nav-icon { 
@@ -155,7 +152,7 @@
 </head>
 <body>
 
-    <!-- ФОН -->
+    <!-- ЗАДНИЙ ФОН -->
     <div class="bg-icons">
         <svg class="bg-icon top-left" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -185,9 +182,8 @@
     <div class="main-content">
         <div class="logo">Snaptube</div>
         
-        <!-- СТРОКА ПОИСКА БЕЗ ЛУПЫ -->
+        <!-- СТРОКА ПОИСКА БЕЗ ЖЕЛТОЙ ЛУПЫ -->
         <div class="search-box" onclick="document.getElementById('search-input').focus();">
-            <!-- Тонкая стрелочка -->
             <svg class="search-icon-left" viewBox="0 0 24 24">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
@@ -199,7 +195,7 @@
 
     <!-- НИЖНЕЕ МЕНЮ -->
     <div class="bottom-nav">
-        <!-- Загрузить (Лупа) -->
+        <!-- Загрузить -->
         <div class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -208,7 +204,7 @@
             <div>Загрузить</div>
         </div>
         
-        <!-- Воспроизведение (Плеер) -->
+        <!-- Воспроизведение -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
@@ -217,7 +213,7 @@
             <div>Воспроизведение</div>
         </div>
         
-        <!-- Настройки (Шестеренка) -->
+        <!-- Настройки -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"></circle>
