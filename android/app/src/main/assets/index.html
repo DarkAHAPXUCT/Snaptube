@@ -3,42 +3,38 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
-        body { margin: 0; background-color: #ffffff; color: #333; font-family: Arial, sans-serif; overflow: hidden; }
-        #app-container { display: flex; flex-direction: column; height: 100vh; position: relative; }
-        .background-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.05; pointer-events: none; overflow: hidden; }
-        .watermark { position: absolute; font-size: 150px; font-weight: bold; }
-        .w1 { top: 5%; left: -5%; transform: rotate(-20deg); }
-        .w2 { top: 15%; left: 40%; transform: rotate(15deg); }
-        .w3 { top: 35%; left: 10%; transform: rotate(-10deg); }
-        .w4 { top: 45%; left: 60%; transform: rotate(25deg); }
-        .w5 { top: 65%; left: 20%; transform: rotate(-15deg); }
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            color: #333;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
+        }
+        #app-container { display: flex; flex-direction: column; height: 100vh; }
         .top-tabs { display: flex; justify-content: space-around; padding: 20px 10px 10px 10px; font-size: 16px; color: #888; z-index: 1; }
         .tab { padding-bottom: 8px; font-weight: bold; }
-        .tab.active { color: #222; border-bottom: 3px solid #FFC107; }
-        .header-section { text-align: center; padding: 40px 20px; z-index: 1; }
-        .logo { font-size: 38px; font-weight: 900; color: #FFC107; margin-bottom: 30px; letter-spacing: -1px; }
-        .search-box { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 30px; padding: 5px; margin: 0 auto; width: 90%; background: #fff; }
-        .search-icon-left { width: 24px; height: 24px; margin-left: 10px; fill: #888; }
-        .search-input { flex: 1; border: none; outline: none; padding: 10px; font-size: 16px; color: #666; background: transparent; }
-        .search-button { background-color: #FFC107; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
-        .search-icon-right { width: 24px; height: 24px; fill: #000; }
-        .main-content { flex: 1; z-index: 1; }
-        .bottom-nav { display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #f0f0f0; background-color: #ffffff; z-index: 1; }
+        .tab.active { color: #000; border-bottom: 3px solid; border-image: linear-gradient(90deg, #FFD700, #FF8C00) 1; }
+        .header-section { text-align: center; padding: 20px 20px; z-index: 1; }
+        .logo { font-size: 38px; font-weight: 900; background: linear-gradient(90deg, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; }
+        .search-box { display: flex; align-items: center; border: 2px solid transparent; background: #fff; border-radius: 30px; padding: 5px; margin: 0 auto; width: 90%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); background-image: linear-gradient(#fff, #fff), linear-gradient(90deg, #FFD700, #FF8C00); background-origin: border-box; background-clip: padding-box, border-box; }
+        .search-input { flex: 1; border: none; outline: none; padding: 10px 15px; font-size: 16px; color: #333; background: transparent; }
+        .search-button { background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3); }
+        .search-icon { width: 24px; height: 24px; fill: #fff; }
+        .main-content { flex: 1; z-index: 1; padding: 10px 20px; overflow-y: auto; }
+        .service-card { border: 1px solid #f0f0f0; border-radius: 15px; padding: 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; background-color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .card-text { display: flex; flex-direction: column; gap: 15px; }
+        .service-name { font-size: 18px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .start-button { background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); border: none; border-radius: 20px; padding: 8px 20px; font-size: 14px; font-weight: bold; color: #fff; width: fit-content; box-shadow: 0 2px 10px rgba(255, 140, 0, 0.2); }
+        .service-icon { font-size: 40px; }
+        .bottom-nav { display: flex; justify-content: space-around; padding: 12px 0; background: #ffffff; border-top: 1px solid #f0f0f0; z-index: 1; }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 12px; color: #888; }
-        .nav-item.active { color: #222; font-weight: bold; }
+        .nav-item.active { color: transparent; background: linear-gradient(90deg, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold; }
         .nav-icon { width: 24px; height: 24px; margin-bottom: 4px; fill: #888; }
-        .nav-item.active .nav-icon { fill: #222; }
+        .nav-item.active .nav-icon { fill: #FF8C00; }
     </style>
 </head>
 <body>
     <div id="app-container">
-        <div class="background-watermarks">
-            <div class="watermark w1">▶</div>
-            <div class="watermark w2">📸</div>
-            <div class="watermark w3">🎵</div>
-            <div class="watermark w4">💬</div>
-            <div class="watermark w5">▶</div>
-        </div>
         <div class="top-tabs">
             <div class="tab active">Поиск</div>
             <div class="tab">YouTube</div>
@@ -48,14 +44,42 @@
         <div class="header-section">
             <div class="logo">Snaptube</div>
             <div class="search-box">
-                <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                <div class="search-input">Поиск для загрузки</div>
+                <input type="text" class="search-input" placeholder="Поиск для загрузки...">
                 <button class="search-button">
-                    <svg class="search-icon-right" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 </button>
             </div>
         </div>
-        <div class="main-content"></div>
+        <div class="main-content">
+            <div class="service-card">
+                <div class="card-text">
+                    <div class="service-name">⬇️ YouTube</div>
+                    <button class="start-button">Как начать</button>
+                </div>
+                <div class="service-icon">▶️</div>
+            </div>
+            <div class="service-card">
+                <div class="card-text">
+                    <div class="service-name">⬇️ WhatsApp Status</div>
+                    <button class="start-button">Как начать</button>
+                </div>
+                <div class="service-icon">💬</div>
+            </div>
+            <div class="service-card">
+                <div class="card-text">
+                    <div class="service-name">⬇️ TikTok</div>
+                    <button class="start-button">Как начать</button>
+                </div>
+                <div class="service-icon">🎵</div>
+            </div>
+            <div class="service-card">
+                <div class="card-text">
+                    <div class="service-name">⬇️ Instagram</div>
+                    <button class="start-button">Как начать</button>
+                </div>
+                <div class="service-icon">📸</div>
+            </div>
+        </div>
         <div class="bottom-nav">
             <div class="nav-item active">
                 <svg class="nav-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
