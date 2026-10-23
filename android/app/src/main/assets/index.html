@@ -15,7 +15,7 @@
             flex-direction: column;
         }
 
-        /* --- ФОН --- */
+        /* --- ФОН (НЕ ТРОГАЕМ) --- */
         .bg-icons {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -35,7 +35,7 @@
         .bottom-left { width: 130px; height: 130px; bottom: 15%; left: 5%; transform: rotate(-10deg); }
         .bottom-right { width: 140px; height: 140px; bottom: 10%; right: 5%; transform: rotate(20deg); }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ (КАК НА 1-М СКРИНЕ) --- */
         .top-tabs {
             display: flex; 
             justify-content: space-around;
@@ -57,7 +57,7 @@
             border-bottom: 3px solid #FFC107; 
         }
 
-        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ --- */
+        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ (ОПУСКАЕМ ЧУТЬ НИЖЕ) --- */
         .main-content {
             flex: 1;
             display: flex;
@@ -66,6 +66,7 @@
             align-items: center;
             z-index: 1;
             padding: 0 20px;
+            margin-top: 20px; /* Опустил чуть ниже */
         }
 
         .logo { 
@@ -89,10 +90,11 @@
             cursor: text;
         }
         
+        /* Жирная стрелочка как на 1-м скрине */
         .search-icon-left { 
             width: 24px; 
             height: 24px; 
-            margin-right: 12px; 
+            margin-right: 15px; 
             fill: #888; 
         }
         
@@ -102,15 +104,15 @@
             border: none; 
             outline: none; 
             font-size: 16px; 
-            color: #333; 
+            color: #888; 
             background: transparent; 
         }
 
-        /* --- НИЖНЕЕ МЕНЮ (КОНТУРНЫЕ ИКОНКИ) --- */
+        /* --- НИЖНЕЕ МЕНЮ (ИКОНКИ 1 В 1) --- */
         .bottom-nav {
             display: flex; 
             justify-content: space-around; 
-            padding: 12px 0;
+            padding: 15px 0;
             border-top: 1px solid #f0f0f0; 
             background-color: #ffffff;
             z-index: 10;
@@ -126,6 +128,7 @@
             font-weight: 500;
         }
         
+        /* Активная кнопка "Загрузить" черная и жирная */
         .nav-item.active { 
             font-weight: bold;
             color: #000; 
@@ -135,13 +138,22 @@
             width: 24px; 
             height: 24px; 
             margin-bottom: 5px; 
-            fill: none; 
-            stroke: #888; 
-            stroke-width: 1.5;
         }
         
-        .nav-item.active .nav-icon { 
-            stroke: #000; 
+        /* Иконка лупы (залитая) */
+        .icon-filled {
+            fill: #888;
+            stroke: none;
+        }
+        .nav-item.active .icon-filled {
+            fill: #000;
+        }
+
+        /* Иконки плеера и шестеренки (контурные) */
+        .icon-outline {
+            fill: none;
+            stroke: #888;
+            stroke-width: 1.5;
         }
     </style>
 </head>
@@ -168,8 +180,8 @@
 
     <!-- ВЕРХНИЕ ВКЛАДКИ -->
     <div class="top-tabs">
-        <div class="tab">Поиск</div>
-        <div class="tab active">YouTube</div>
+        <div class="tab active">Поиск</div> <!-- Вернул активную вкладку "Поиск" -->
+        <div class="tab">YouTube</div>
         <div class="tab">Музыка</div>
     </div>
 
@@ -177,36 +189,36 @@
     <div class="main-content">
         <div class="logo">Snaptube</div>
         
-        <!-- СТРОКА ПОИСКА (БЕЗ ЖЕЛТОЙ ЛУПЫ) -->
+        <!-- СТРОКА ПОИСКА (БЕЗ ЛУПЫ) -->
         <div class="search-box" onclick="document.getElementById('search-input').focus();">
+            <!-- Вернул жирную стрелочку -->
             <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
             <input type="text" id="search-input" class="search-input" placeholder="Поиск">
         </div>
     </div>
 
-    <!-- НИЖНЕЕ МЕНЮ -->
+    <!-- НИЖНЕЕ МЕНЮ (КАК НА 1-М СКРИНЕ) -->
     <div class="bottom-nav">
-        <!-- Загрузить -->
-        <div class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        <!-- Загрузить (Залитая лупа, черная) -->
+        <div class="nav-item active">
+            <svg class="nav-icon icon-filled" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
             </svg>
             <div>Загрузить</div>
         </div>
         
-        <!-- Воспроизведение -->
-        <div class="nav-item active">
-            <svg class="nav-icon" viewBox="0 0 24 24">
+        <!-- Воспроизведение (Контурный плеер, серый) -->
+        <div class="nav-item">
+            <svg class="nav-icon icon-outline" viewBox="0 0 24 24">
                 <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
                 <polygon points="10 9 15 12 10 15 10 9"></polygon>
             </svg>
             <div>Воспроизведение</div>
         </div>
         
-        <!-- Настройки -->
+        <!-- Настройки (Контурная шестеренка, серая) -->
         <div class="nav-item">
-            <svg class="nav-icon" viewBox="0 0 24 24">
+            <svg class="nav-icon icon-outline" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"></circle>
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
             </svg>
