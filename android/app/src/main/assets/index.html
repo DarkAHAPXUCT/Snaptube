@@ -15,7 +15,7 @@
             flex-direction: column;
         }
 
-        /* --- ФОН (ОСТАВЛЯЕМ КАК БЫЛО) --- */
+        /* --- ФОН (НЕ ТРОГАЕМ) --- */
         .bg-icons {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -35,7 +35,7 @@
         .bottom-left { width: 130px; height: 130px; bottom: 15%; left: 5%; transform: rotate(-10deg); }
         .bottom-right { width: 140px; height: 140px; bottom: 10%; right: 5%; transform: rotate(20deg); }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ (КАК НА 2-М СКРИНЕ) --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ (ШРИФТ КАК НА 2-М СКРИНЕ) --- */
         .top-tabs {
             display: flex; 
             justify-content: space-around;
@@ -76,24 +76,29 @@
             letter-spacing: -0.5px; 
         }
         
-        /* --- СТРОКА ПОИСКА (БЕЗ ЖЕЛТОЙ ЛУПЫ) --- */
+        /* --- СТРОКА ПОИСКА (ТОНКАЯ СТРЕЛОЧКА, БЕЗ ЖЕЛТОЙ ЛУПЫ) --- */
         .search-box {
             display: flex; 
             align-items: center;
             border: 1px solid #dcdcdc; 
             border-radius: 30px;
-            padding: 0 20px; /* Отступы как на 2-м скрине */
+            padding: 0 20px; 
             width: 95%; 
             background: #fff;
             height: 56px;
             cursor: text;
         }
         
+        /* Тонкая контурная стрелочка (без заливки) */
         .search-icon-left { 
             width: 24px; 
             height: 24px; 
             margin-right: 15px; 
-            fill: #888; 
+            fill: none; 
+            stroke: #888; 
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         
         .search-input { 
@@ -106,7 +111,7 @@
             background: transparent; 
         }
 
-        /* --- НИЖНЕЕ МЕНЮ (КОНТУРНЫЕ ИКОНКИ КАК НА 2-М СКРИНЕ) --- */
+        /* --- НИЖНЕЕ МЕНЮ (ВСЕ ИКОНКИ ТОНКИЕ И КОНТУРНЫЕ) --- */
         .bottom-nav {
             display: flex; 
             justify-content: space-around; 
@@ -139,6 +144,8 @@
             fill: none; 
             stroke: #888; 
             stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         
         .nav-item.active .nav-icon { 
@@ -180,14 +187,19 @@
         
         <!-- СТРОКА ПОИСКА БЕЗ ЛУПЫ -->
         <div class="search-box" onclick="document.getElementById('search-input').focus();">
-            <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            <!-- Тонкая стрелочка -->
+            <svg class="search-icon-left" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
             <input type="text" id="search-input" class="search-input" placeholder="Поиск">
         </div>
     </div>
 
     <!-- НИЖНЕЕ МЕНЮ -->
     <div class="bottom-nav">
-        <!-- Загрузить -->
+        <!-- Загрузить (Лупа) -->
         <div class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -196,16 +208,16 @@
             <div>Загрузить</div>
         </div>
         
-        <!-- Воспроизведение -->
+        <!-- Воспроизведение (Плеер) -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                <polygon points="10 9 15 12 10 15 10 9"></polygon>
+                <polygon points="10 9 15 12 10 15 10 9" fill="currentColor"></polygon>
             </svg>
             <div>Воспроизведение</div>
         </div>
         
-        <!-- Настройки -->
+        <!-- Настройки (Шестеренка) -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"></circle>
