@@ -12,11 +12,10 @@
             overflow: hidden;
             height: 100vh;
             width: 100vw;
-            display: flex;
-            flex-direction: column;
+            position: relative;
         }
 
-        /* --- ФОН --- */
+        /* --- ФОН: ЧЕТКИЕ ПАСТЕЛЬНЫЕ ПЯТНА --- */
         .bg-blobs {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -30,11 +29,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            filter: blur(3vw);
-            opacity: 0.6;
+            filter: blur(10px);
+            opacity: 0.5;
         }
 
-        .blob svg { width: 50%; height: 50%; fill: #ffffff; opacity: 0.9; }
+        .blob svg { width: 50%; height: 50%; fill: #ffffff; }
 
         .b1 { width: 35vw; height: 35vw; background: #f3e5f5; top: 12%; left: 5%; transform: rotate(-15deg); }
         .b2 { width: 30vw; height: 30vw; background: #fce4ec; top: 15%; left: 40%; transform: rotate(10deg); }
@@ -42,13 +41,16 @@
         .b4 { width: 33vw; height: 33vw; background: #e0f7fa; top: 40%; left: 10%; transform: rotate(-10deg); }
         .b5 { width: 35vw; height: 35vw; background: #e3f2fd; top: 45%; right: 5%; transform: rotate(20deg); }
 
-        /* --- ВЕРХНИЕ ВКЛАДКИ (ОПУСТИЛ СИЛЬНО ВНИЗ) --- */
+        /* --- ВЕРХНИЕ ВКЛАДКИ (ЖЕСТКО НА 7% СВЕРХУ) --- */
         .top-tabs {
+            position: absolute;
+            top: 7%;
+            width: 100%;
             display: flex; 
             justify-content: space-between;
-            padding: 12vw 6vw 0 6vw; /* 12vw — это большой отступ сверху, как на оригинале */
+            padding: 0 6vw;
             font-size: 4.2vw;
-            z-index: 1;
+            z-index: 10;
         }
         
         .tab { 
@@ -64,36 +66,41 @@
             border-bottom: 0.7vw solid #FFC107; 
         }
 
-        /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ --- */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center;
-            z-index: 1;
-            padding: 0 5vw;
-            padding-bottom: 15vw; 
+        /* --- ЛОГОТИП (ЖЕСТКО НА 25%) --- */
+        .logo-container {
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
         }
 
         .logo { 
             font-size: 11vw; 
             font-weight: 900; 
             color: #FFC107; 
-            margin-bottom: 8vw; 
             letter-spacing: -0.2vw; 
         }
-        
-        /* --- СТРОКА ПОИСКА (БЕЗ КНОПКИ) --- */
+
+        /* --- СТРОКА ПОИСКА (ЖЕСТКО НА 35%) --- */
+        .search-container {
+            position: absolute;
+            top: 35%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
         .search-box {
             display: flex; 
             align-items: center;
             border: 1px solid #dcdcdc; 
             border-radius: 8vw; 
             padding: 0 5vw; 
-            width: 100%; 
+            width: 88%; 
             background: #fff;
-            height: 14vw; 
+            height: 14vw; /* Высота как на оригинале */
             cursor: text;
         }
         
@@ -119,8 +126,11 @@
             background: transparent; 
         }
 
-        /* --- НИЖНЕЕ МЕНЮ --- */
+        /* --- НИЖНЕЕ МЕНЮ (ЖЕСТКО ПРИБИТО К НИЗУ) --- */
         .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
             display: flex; 
             justify-content: space-around; 
             padding: 3vw 0 7vw 0; 
@@ -178,11 +188,13 @@
         <div class="tab">Музыка</div>
     </div>
 
-    <!-- ЦЕНТР -->
-    <div class="main-content">
+    <!-- ЛОГОТИП -->
+    <div class="logo-container">
         <div class="logo">Snaptube</div>
-        
-        <!-- СТРОКА ПОИСКА (БЕЗ КНОПКИ) -->
+    </div>
+
+    <!-- СТРОКА ПОИСКА -->
+    <div class="search-container">
         <div class="search-box" onclick="document.getElementById('search-input').focus();">
             <svg class="search-icon-left" viewBox="0 0 24 24">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -195,7 +207,6 @@
 
     <!-- НИЖНЕЕ МЕНЮ -->
     <div class="bottom-nav">
-        <!-- Загрузить -->
         <div class="nav-item active">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -204,7 +215,6 @@
             <div>Загрузить</div>
         </div>
         
-        <!-- Воспроизведение -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <rect x="7" y="4" width="14" height="16" rx="2" ry="2"></rect>
@@ -214,7 +224,6 @@
             <div>Воспроизведение</div>
         </div>
         
-        <!-- Настройки -->
         <div class="nav-item">
             <svg class="nav-icon" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"></circle>
