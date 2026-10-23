@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        body { margin: 0; background-color: #ffffff; color: #333; font-family: Arial, sans-serif; overflow: hidden; }
+        #app-container { display: flex; flex-direction: column; height: 100vh; position: relative; }
+        .background-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.05; pointer-events: none; overflow: hidden; }
+        .watermark { position: absolute; font-size: 150px; font-weight: bold; }
+        .w1 { top: 5%; left: -5%; transform: rotate(-20deg); }
+        .w2 { top: 15%; left: 40%; transform: rotate(15deg); }
+        .w3 { top: 35%; left: 10%; transform: rotate(-10deg); }
+        .w4 { top: 45%; left: 60%; transform: rotate(25deg); }
+        .w5 { top: 65%; left: 20%; transform: rotate(-15deg); }
+        .top-tabs { display: flex; justify-content: space-around; padding: 20px 10px 10px 10px; font-size: 16px; color: #888; z-index: 1; }
+        .tab { padding-bottom: 8px; font-weight: bold; }
+        .tab.active { color: #222; border-bottom: 3px solid #FFC107; }
+        .header-section { text-align: center; padding: 40px 20px; z-index: 1; }
+        .logo { font-size: 38px; font-weight: 900; color: #FFC107; margin-bottom: 30px; letter-spacing: -1px; }
+        .search-box { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 30px; padding: 5px; margin: 0 auto; width: 90%; background: #fff; }
+        .search-icon-left { width: 24px; height: 24px; margin-left: 10px; fill: #888; }
+        .search-input { flex: 1; border: none; outline: none; padding: 10px; font-size: 16px; color: #666; background: transparent; }
+        .search-button { background-color: #FFC107; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+        .search-icon-right { width: 24px; height: 24px; fill: #000; }
+        .main-content { flex: 1; z-index: 1; }
+        .bottom-nav { display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #f0f0f0; background-color: #ffffff; z-index: 1; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 12px; color: #888; }
+        .nav-item.active { color: #222; font-weight: bold; }
+        .nav-icon { width: 24px; height: 24px; margin-bottom: 4px; fill: #888; }
+        .nav-item.active .nav-icon { fill: #222; }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <div class="background-watermarks">
+            <div class="watermark w1">▶</div>
+            <div class="watermark w2">📸</div>
+            <div class="watermark w3">🎵</div>
+            <div class="watermark w4">💬</div>
+            <div class="watermark w5">▶</div>
+        </div>
+        <div class="top-tabs">
+            <div class="tab active">Поиск</div>
+            <div class="tab">YouTube</div>
+            <div class="tab">Музыка</div>
+            <div class="tab">Ещё</div>
+        </div>
+        <div class="header-section">
+            <div class="logo">Snaptube</div>
+            <div class="search-box">
+                <svg class="search-icon-left" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                <div class="search-input">Поиск для загрузки</div>
+                <button class="search-button">
+                    <svg class="search-icon-right" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="main-content"></div>
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <div>Скачать</div>
+            </div>
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zM8 6v8l6-4-6-4z"/></svg>
+                <div>Воспроизвести</div>
+            </div>
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                <div>Настройки</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
