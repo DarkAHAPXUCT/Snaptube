@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ОбъеТюб</title>
+    <title>Snaptube</title>
     <style>
         * {
             margin: 0;
@@ -30,8 +30,8 @@
         }
 
         .tab {
-            font-size: 14.5px; 
-            color: #9e9e9e;
+            font-size: 15px; 
+            color: #999999; 
             font-weight: 400; 
             letter-spacing: -0.2px; 
             line-height: 1; 
@@ -40,8 +40,8 @@
         }
 
         .tab.active {
-            color: #555555; 
-            font-weight: 500; 
+            color: #111111; 
+            font-weight: 600; 
         }
 
         .tab.active::after {
@@ -61,48 +61,39 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* 86px: опускаем верхний край вниз на 4px (было 82px) */
-            padding-top: 86px; 
+            /* Высота оставлена идеальной */
+            padding-top: 105px; 
         }
 
         /* Логотип */
         .logo {
-            font-size: 36px;
+            font-size: 40px; 
             font-weight: 800; 
-            color: #FCC91C;
-            letter-spacing: -1px; 
+            color: #FDD835; 
+            letter-spacing: -1.5px; 
             line-height: 1;
-            /* 75px: компенсируем эти 4px, чтобы строка поиска осталась на месте (было 79px) */
-            margin-bottom: 75px; 
+            margin-bottom: 40px; 
         }
 
         /* --- СТРОКА ПОИСКА --- */
         .search-bar {
             width: 88%;
-            height: 54px; 
+            height: 56px; 
             border: 1.5px solid #d4d4d4; 
-            border-radius: 27px;
+            border-radius: 28px;
             display: flex;
             align-items: center;
-            padding: 0 20px 0 18px;
-        }
-
-        .btn-download {
-            background: none;
-            border: none;
-            padding: 0;
-            margin-right: 14px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
+            /* Сделал отступы симметричными (по 18px), так как кнопки справа больше нет */
+            padding: 0 18px; 
         }
 
         .icon-download {
-            width: 18px;
-            height: 18px;
-            stroke: #9e9e9e; 
-            stroke-width: 1.8; 
+            width: 20px;
+            height: 20px;
+            margin-right: 14px;
+            flex-shrink: 0;
+            stroke: #999999; 
+            stroke-width: 1.5; 
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
@@ -114,14 +105,14 @@
             border: none;
             outline: none;
             background: transparent;
-            font-size: 15px;
+            font-size: 16px;
             letter-spacing: -0.2px;
             color: #444444; 
             line-height: 1;
         }
 
         .search-input::placeholder {
-            color: #9e9e9e;
+            color: #b0b0b0; 
             font-weight: 400;
         }
 
@@ -140,15 +131,15 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: #9e9e9e; 
+            color: #999999; 
         }
 
         .nav-item svg {
-            width: 23px;
-            height: 23px;
+            width: 24px;
+            height: 24px;
             margin-bottom: 6px;
-            stroke: #9e9e9e;
-            stroke-width: 1.8;
+            stroke: #999999;
+            stroke-width: 1.5; 
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
@@ -156,18 +147,18 @@
 
         .nav-item span {
             font-size: 11px;
-            font-weight: 400;
+            font-weight: 400; 
             letter-spacing: -0.3px; 
             line-height: 1;
         }
 
         .nav-item.active {
-            color: #555555; 
+            color: #111111; 
         }
         
         .nav-item.active svg {
-            stroke: #555555;
-            stroke-width: 2.2;
+            stroke: #111111;
+            stroke-width: 1.8; 
         }
 
         .nav-item.active span {
@@ -184,16 +175,15 @@
     </div>
 
     <div class="main-content">
-        <div class="logo">ОбъеТюб</div>
+        <div class="logo">Snaptube</div>
         
         <div class="search-bar">
-            <button class="btn-download" id="pasteBtn" onclick="alert('Тут будет вставка ссылки из буфера обмена!')">
-                <svg class="icon-download" viewBox="0 0 24 24">
-                    <path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" />
-                </svg>
-            </button>
+            <!-- Оставили только стрелочку и поле ввода -->
+            <svg class="icon-download" viewBox="0 0 24 24">
+                <path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" />
+            </svg>
             
-            <input type="text" class="search-input" placeholder="Вставьте ссылку или введите запрос">
+            <input type="text" class="search-input" placeholder="Поиск">
         </div>
     </div>
 
