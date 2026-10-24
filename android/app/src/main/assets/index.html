@@ -26,23 +26,22 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            /* Опускаем табы ниже (учитывая статус-бар) */
-            padding: 50px 15px 15px 15px; 
+            /* Опускаем табы еще ниже, чтобы сравняться с оригиналом */
+            padding: 60px 15px 15px 15px; 
         }
 
         .tab {
             font-size: 15px;
-            color: #999999;
-            font-weight: 500;
-            /* Убираем невидимую высоту строки, чтобы текст был приземистым */
+            color: #8c8c8c;
+            font-weight: 400; /* Убрал жирность для неактивных */
             line-height: 1; 
             padding-bottom: 8px;
             position: relative;
         }
 
         .tab.active {
-            color: #111111;
-            font-weight: 700;
+            color: #222222; /* Темно-серый вместо черного */
+            font-weight: 500; /* Сделал менее жирным */
         }
 
         .tab.active::after {
@@ -51,7 +50,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 2.5px; /* Сделал полоску чуть тоньше */
             background-color: #FCC91C;
             border-radius: 2px;
         }
@@ -62,38 +61,38 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Уменьшил отступ сверху, чтобы логотип не улетал вниз */
-            padding-top: 40px;
+            /* Опускаем логотип ниже */
+            padding-top: 55px;
         }
 
         /* Логотип */
         .logo {
             font-size: 38px;
-            font-weight: 800;
+            font-weight: 700; /* Снизил жирность с 800 до 700 */
             color: #FCC91C;
-            letter-spacing: -1px;
-            line-height: 1; /* Убираем лишний воздух вокруг букв */
-            margin-bottom: 35px;
+            letter-spacing: -0.5px;
+            line-height: 1;
+            margin-bottom: 38px;
         }
 
         /* --- СТРОКА ПОИСКА --- */
         .search-bar {
             width: 88%;
-            height: 54px;
+            height: 52px;
             border: 1.5px solid #d2d2d2;
-            border-radius: 27px;
+            border-radius: 26px;
             display: flex;
             align-items: center;
             padding: 0 6px 0 18px;
         }
 
         .icon-download {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             margin-right: 14px;
             flex-shrink: 0;
-            stroke: #888888;
-            stroke-width: 2;
+            stroke: #8c8c8c;
+            stroke-width: 1.8; /* Сделал иконку чуть тоньше */
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
@@ -111,15 +110,15 @@
         }
 
         .search-input::placeholder {
-            color: #888888;
+            color: #9e9e9e;
             font-weight: 400;
         }
 
         .search-button {
-            width: 42px;
-            height: 42px;
-            min-width: 42px;
-            min-height: 42px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
             background-color: #FCC91C;
             border: none;
             border-radius: 50%;
@@ -130,10 +129,10 @@
         }
 
         .search-button svg {
-            width: 20px;
-            height: 20px;
-            stroke: #111111;
-            stroke-width: 2.5;
+            width: 18px;
+            height: 18px;
+            stroke: #333333;
+            stroke-width: 2.2;
             stroke-linecap: round;
             fill: none;
         }
@@ -153,15 +152,15 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: #888888;
+            color: #8c8c8c;
         }
 
         .nav-item svg {
-            width: 24px;
-            height: 24px;
+            width: 23px;
+            height: 23px;
             margin-bottom: 6px;
-            stroke: #888888;
-            stroke-width: 2;
+            stroke: #8c8c8c;
+            stroke-width: 1.8;
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
@@ -169,22 +168,22 @@
 
         .nav-item span {
             font-size: 11px;
-            font-weight: 500;
+            font-weight: 400; /* Убрал жирность для неактивных */
             line-height: 1;
         }
 
         /* Активный элемент внизу */
         .nav-item.active {
-            color: #111111;
+            color: #222222;
         }
         
         .nav-item.active svg {
-            stroke: #111111;
-            stroke-width: 2.5;
+            stroke: #222222;
+            stroke-width: 2.2;
         }
 
         .nav-item.active span {
-            font-weight: 700;
+            font-weight: 500; /* Сделал текст менее жирным */
         }
     </style>
 </head>
@@ -200,7 +199,6 @@
         <div class="logo">Snaptube</div>
         
         <div class="search-bar">
-            <!-- Тонкая стрелка скачивания -->
             <svg class="icon-download" viewBox="0 0 24 24">
                 <path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" />
             </svg>
@@ -208,7 +206,6 @@
             <input type="text" class="search-input" placeholder="Поиск">
             
             <button class="search-button">
-                <!-- Лупа с идеальной ручкой -->
                 <svg viewBox="0 0 24 24">
                     <circle cx="10" cy="10" r="6" />
                     <line x1="14.5" y1="14.5" x2="20" y2="20" />
@@ -218,7 +215,6 @@
     </div>
 
     <div class="bottom-nav">
-        <!-- 1. Загрузить (Лупа) -->
         <a href="#" class="nav-item active">
             <svg viewBox="0 0 24 24">
                 <circle cx="10" cy="10" r="6" />
@@ -227,18 +223,15 @@
             <span>Загрузить</span>
         </a>
         
-        <!-- 2. Воспроизведение (Квадрат сзади + квадрат спереди + треугольник) -->
         <a href="#" class="nav-item">
             <svg viewBox="0 0 24 24">
                 <path d="M4 8v11a1 1 0 0 0 1 1h11" />
                 <rect x="8" y="4" width="12" height="12" rx="1.5" />
-                <!-- Треугольник залит цветом (fill="currentColor" берет цвет текста) -->
                 <polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" />
             </svg>
             <span>Воспроизведение</span>
         </a>
         
-        <!-- 3. Настройки (Шестеренка контурная) -->
         <a href="#" class="nav-item">
             <svg viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3" />
