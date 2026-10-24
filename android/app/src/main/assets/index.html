@@ -1,167 +1,192 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Snaptube Clone</title>
-<style>
-  /* Базовый сброс */
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent;}
-  
-  body { 
-    background-color: #FFFFFF; /* ЧИСТЫЙ БЕЛЫЙ ФОН, БЕЗ ПЯТЕН */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snaptube</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-  /* 1. Верхние табы */
-  .top-tabs {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 16px;
-    height: 48px;
-    align-items: center;
-    margin-top: 24px;
-  }
-  .tab {
-    font-size: 16px;
-    font-weight: 500;
-    color: #888888;
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
-  }
-  .tab.active {
-    color: #111111;
-    font-weight: 700;
-  }
-  .tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #FFC107;
-    border-radius: 3px 3px 0 0;
-  }
+        body {
+            background-color: #ffffff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-  /* 2. Логотип */
-  .logo-container {
-    text-align: center;
-    margin-top: 60px;
-    margin-bottom: 50px;
-  }
-  .logo {
-    font-size: 46px; 
-    font-weight: 900;
-    color: #FFC107;
-    letter-spacing: -1px;
-  }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 30px 10px 30px; 
+        }
 
-  /* 3. Поисковая строка */
-  .search-container {
-    margin: 0 24px;
-    height: 58px;
-    border: 1px solid #CCCCCC;
-    border-radius: 29px; 
-    display: flex;
-    align-items: center;
-    padding: 0 6px 0 16px;
-    background: #FFFFFF;
-  }
-  .search-icon-left { color: #999; margin-right: 12px; }
-  .search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #333;
-  }
-  .search-input::placeholder { color: #999; }
-  .search-btn {
-    width: 46px;
-    height: 46px;
-    background-color: #FFC107;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+        .tab {
+            font-size: 17px;
+            color: #999999;
+            font-weight: 500;
+            padding-bottom: 8px;
+            position: relative;
+        }
 
-  /* 4. Нижнее меню */
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
-    background: #FFFFFF;
-    border-top: 1px solid #EEEEEE;
-    padding-bottom: 10px;
-  }
-  .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #888888;
-    text-decoration: none;
-    width: 33%;
-  }
-  .nav-item svg { margin-bottom: 6px; }
-  .nav-item span { font-size: 12px; font-weight: 500; }
-  
-  .nav-item.active { color: #111111; }
-  .nav-item.active span { font-weight: 700; }
-</style>
+        .tab.active {
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 3px;
+            background-color: #ffcc00;
+            border-radius: 2px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .logo {
+            font-size: 44px;
+            font-weight: 800;
+            color: #ffcc00;
+            letter-spacing: -1.5px;
+            margin-bottom: 45px;
+        }
+
+        .search-bar {
+            width: 88%;
+            height: 58px;
+            border: 1px solid #b0b0b0;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            padding: 0 6px 0 16px;
+        }
+
+        .icon-download {
+            color: #888888;
+            font-size: 18px;
+            margin-right: 12px;
+            transform: translateY(1px);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 17px;
+            color: #333333;
+        }
+
+        .search-input::placeholder {
+            color: #999999;
+            font-weight: 400;
+        }
+
+        .search-button {
+            width: 46px;
+            height: 46px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .search-button i {
+            color: #111111;
+            font-size: 20px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px 30px 40px;
+            border-top: 1px solid #f0f0f0;
+            background-color: #ffffff;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #999999;
+        }
+
+        .nav-item i {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .nav-item span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .nav-item.active {
+            color: #111111;
+        }
+        
+        .nav-item.active span {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Верхнее меню -->
-  <div class="top-tabs">
-    <div class="tab active">Поиск</div>
-    <div class="tab">YouTube</div>
-    <div class="tab">Музыка</div>
-  </div>
-
-  <!-- Логотип -->
-  <div class="logo-container">
-    <div class="logo">Snaptube</div>
-  </div>
-
-  <!-- Поисковая строка -->
-  <div class="search-container">
-    <div class="search-icon-left">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+    <div class="top-nav">
+        <div class="tab active">Поиск</div>
+        <div class="tab">YouTube</div>
+        <div class="tab">Музыка</div>
     </div>
-    <input type="text" class="search-input" placeholder="Поиск">
-    <button class="search-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    </button>
-  </div>
 
-  <!-- Нижнее меню -->
-  <div class="bottom-nav">
-    <a href="#" class="nav-item active">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <span>Загрузить</span>
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-      <span>Воспроизведение</span>
-    </a>
-    <a href="#" class="nav-item">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-      <span>Настройки</span>
-    </a>
-  </div>
+    <div class="main-content">
+        <div class="logo">Snaptube</div>
+        
+        <div class="search-bar">
+            <i class="fa-solid fa-arrow-down-to-line icon-download"></i>
+            <input type="text" class="search-input" placeholder="Поиск">
+            <button class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Загрузить</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-regular fa-circle-play"></i>
+            <span>Воспроизведение</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+            <span>Настройки</span>
+        </a>
+    </div>
 
 </body>
 </html>
