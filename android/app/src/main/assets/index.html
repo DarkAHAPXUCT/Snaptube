@@ -19,6 +19,70 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            position: relative;
+        }
+
+        /* =========================================
+           ЗАДНИЙ ФОН (ВОДЯНЫЕ ЗНАКИ)
+           ========================================= */
+        .bg-watermarks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none; /* Чтобы фон не мешал нажимать на кнопки */
+            overflow: hidden;
+        }
+
+        .watermark {
+            position: absolute;
+            fill: #f2f2f2; /* Очень бледный серый цвет */
+        }
+
+        /* Позиционируем значки как на скриншоте */
+        .wm-yt-top-left {
+            width: 180px;
+            height: 180px;
+            top: 15%;
+            left: -5%;
+            transform: rotate(-15deg);
+        }
+
+        .wm-tiktok-top-right {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: -5%;
+            transform: rotate(15deg);
+        }
+
+        .wm-tiktok-bottom-left {
+            width: 160px;
+            height: 160px;
+            bottom: 20%;
+            left: -5%;
+            transform: rotate(-20deg);
+        }
+
+        .wm-yt-bottom-right {
+            width: 220px;
+            height: 220px;
+            bottom: 10%;
+            right: -10%;
+            transform: rotate(15deg);
+        }
+
+        /* =========================================
+           ОСНОВНОЙ ИНТЕРФЕЙС
+           ========================================= */
+        .ui-layer {
+            position: relative;
+            z-index: 1; /* Интерфейс поверх фона */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         /* --- ВЕРХНЕЕ МЕНЮ (ТАБЫ) --- */
@@ -26,7 +90,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 65px 15px 15px 15px; 
+            padding: 50px 15px 15px 15px; 
         }
 
         .tab {
@@ -50,29 +114,29 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 2.5px; 
+            height: 3px; 
             background-color: #FCC91C;
             border-radius: 2px;
         }
 
         /* --- ЦЕНТРАЛЬНАЯ ЧАСТЬ --- */
         .main-content {
+            /* Flexbox делает магию: центрирует блок идеально по вертикали */
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Высота оставлена идеальной */
-            padding-top: 105px; 
+            justify-content: center; 
         }
 
         /* Логотип */
         .logo {
-            font-size: 40px; 
+            font-size: 42px; 
             font-weight: 800; 
             color: #FDD835; 
             letter-spacing: -1.5px; 
             line-height: 1;
-            margin-bottom: 40px; 
+            margin-bottom: 45px; /* Расстояние до поиска */
         }
 
         /* --- СТРОКА ПОИСКА --- */
@@ -83,8 +147,8 @@
             border-radius: 28px;
             display: flex;
             align-items: center;
-            /* Сделал отступы симметричными (по 18px), так как кнопки справа больше нет */
             padding: 0 18px; 
+            background-color: #ffffff; /* Белый фон, чтобы водяные знаки не проглядывали сквозь строку */
         }
 
         .icon-download {
@@ -168,50 +232,75 @@
 </head>
 <body>
 
-    <div class="top-nav">
-        <div class="tab active">Поиск</div>
-        <div class="tab">YouTube</div>
-        <div class="tab">Музыка</div>
+    <!-- ФОНОВЫЕ ЗНАЧКИ (ВОДЯНЫЕ ЗНАКИ) -->
+    <div class="bg-watermarks">
+        <!-- YouTube слева сверху -->
+        <svg class="watermark wm-yt-top-left" viewBox="0 0 24 24">
+            <path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
+        </svg>
+        
+        <!-- TikTok справа сверху -->
+        <svg class="watermark wm-tiktok-top-right" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        </svg>
+
+        <!-- TikTok слева снизу -->
+        <svg class="watermark wm-tiktok-bottom-left" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        </svg>
+
+        <!-- YouTube справа снизу -->
+        <svg class="watermark wm-yt-bottom-right" viewBox="0 0 24 24">
+            <path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
+        </svg>
     </div>
 
-    <div class="main-content">
-        <div class="logo">Snaptube</div>
-        
-        <div class="search-bar">
-            <!-- Оставили только стрелочку и поле ввода -->
-            <svg class="icon-download" viewBox="0 0 24 24">
-                <path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" />
-            </svg>
-            
-            <input type="text" class="search-input" placeholder="Поиск">
+    <!-- ОСНОВНОЙ ИНТЕРФЕЙС -->
+    <div class="ui-layer">
+        <div class="top-nav">
+            <div class="tab active">Поиск</div>
+            <div class="tab">YouTube</div>
+            <div class="tab">Музыка</div>
         </div>
-    </div>
 
-    <div class="bottom-nav">
-        <a href="#" class="nav-item active">
-            <svg viewBox="0 0 24 24">
-                <circle cx="10" cy="10" r="6" />
-                <line x1="14.5" y1="14.5" x2="20" y2="20" />
-            </svg>
-            <span>Загрузить</span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24">
-                <path d="M4 8v11a1 1 0 0 0 1 1h11" />
-                <rect x="8" y="4" width="12" height="12" rx="1.5" />
-                <polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" />
-            </svg>
-            <span>Воспроизведение</span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3" />
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-            </svg>
-            <span>Настройки</span>
-        </a>
+        <div class="main-content">
+            <div class="logo">Snaptube</div>
+            
+            <div class="search-bar">
+                <svg class="icon-download" viewBox="0 0 24 24">
+                    <path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" />
+                </svg>
+                
+                <input type="text" class="search-input" placeholder="Поиск">
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="10" cy="10" r="6" />
+                    <line x1="14.5" y1="14.5" x2="20" y2="20" />
+                </svg>
+                <span>Загрузить</span>
+            </a>
+            
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 8v11a1 1 0 0 0 1 1h11" />
+                    <rect x="8" y="4" width="12" height="12" rx="1.5" />
+                    <polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" />
+                </svg>
+                <span>Воспроизведение</span>
+            </a>
+            
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+                <span>Настройки</span>
+            </a>
+        </div>
     </div>
 
 </body>
