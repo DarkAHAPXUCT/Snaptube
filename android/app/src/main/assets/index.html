@@ -26,22 +26,21 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            /* Опускаем табы еще ниже, чтобы сравняться с оригиналом */
             padding: 60px 15px 15px 15px; 
         }
 
         .tab {
             font-size: 15px;
             color: #8c8c8c;
-            font-weight: 400; /* Убрал жирность для неактивных */
+            font-weight: 400; 
             line-height: 1; 
             padding-bottom: 8px;
             position: relative;
         }
 
         .tab.active {
-            color: #222222; /* Темно-серый вместо черного */
-            font-weight: 500; /* Сделал менее жирным */
+            color: #111111; /* Вернул насыщенный темный цвет */
+            font-weight: 500; 
         }
 
         .tab.active::after {
@@ -50,7 +49,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 2.5px; /* Сделал полоску чуть тоньше */
+            height: 2.5px; 
             background-color: #FCC91C;
             border-radius: 2px;
         }
@@ -61,26 +60,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Опускаем логотип ниже */
-            padding-top: 55px;
+            padding-top: 45px; /* Немного поднял весь блок вверх */
         }
 
         /* Логотип */
         .logo {
             font-size: 38px;
-            font-weight: 700; /* Снизил жирность с 800 до 700 */
+            font-weight: 700; 
             color: #FCC91C;
             letter-spacing: -0.5px;
             line-height: 1;
-            margin-bottom: 38px;
+            /* Увеличил отступ снизу, чтобы опустить строку поиска */
+            margin-bottom: 65px; 
         }
 
         /* --- СТРОКА ПОИСКА --- */
         .search-bar {
             width: 88%;
-            height: 52px;
+            height: 54px; /* Сделал чуть выше, как на оригинале */
             border: 1.5px solid #d2d2d2;
-            border-radius: 26px;
+            border-radius: 27px;
             display: flex;
             align-items: center;
             padding: 0 6px 0 18px;
@@ -92,7 +91,7 @@
             margin-right: 14px;
             flex-shrink: 0;
             stroke: #8c8c8c;
-            stroke-width: 1.8; /* Сделал иконку чуть тоньше */
+            stroke-width: 1.8; 
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
@@ -105,20 +104,20 @@
             outline: none;
             background: transparent;
             font-size: 16px;
-            color: #333333;
+            color: #111111; /* Темный текст ввода */
             line-height: 1;
         }
 
         .search-input::placeholder {
-            color: #9e9e9e;
+            color: #8c8c8c;
             font-weight: 400;
         }
 
         .search-button {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            min-height: 40px;
+            width: 42px; /* Чуть увеличил кнопку под новую высоту */
+            height: 42px;
+            min-width: 42px;
+            min-height: 42px;
             background-color: #FCC91C;
             border: none;
             border-radius: 50%;
@@ -129,9 +128,9 @@
         }
 
         .search-button svg {
-            width: 18px;
-            height: 18px;
-            stroke: #333333;
+            width: 19px;
+            height: 19px;
+            stroke: #111111;
             stroke-width: 2.2;
             stroke-linecap: round;
             fill: none;
@@ -168,22 +167,22 @@
 
         .nav-item span {
             font-size: 11px;
-            font-weight: 400; /* Убрал жирность для неактивных */
+            font-weight: 400;
             line-height: 1;
         }
 
         /* Активный элемент внизу */
         .nav-item.active {
-            color: #222222;
+            color: #111111;
         }
         
         .nav-item.active svg {
-            stroke: #222222;
+            stroke: #111111;
             stroke-width: 2.2;
         }
 
         .nav-item.active span {
-            font-weight: 500; /* Сделал текст менее жирным */
+            font-weight: 500;
         }
     </style>
 </head>
