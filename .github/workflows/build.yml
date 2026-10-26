@@ -1,0 +1,62 @@
+name: Build APK
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with: { distribution: 'zulu', java-version: '17' }
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4.0.4
+        with: { packages: 'build-tools;34.0.0 platforms;android-34 ndk;26.1.10909125' }
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with: { targets: aarch64-linux-android,armv7-linux-androideabi,i686-linux-android,x86_64-linux-android }
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+      - name: Install Tauri CLI
+        run: cargo install tauri-cli --version "^2.0.0" --locked
+      - name: Set Android Env
+        run: |
+          echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
+          echo "NDK_HOME=$ANDROID_SDK_ROOT/ndk/26.1.10909125" >> $GITHUB_ENV
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > ${{ github.workspace }}/snaptube-release.jks
+      - name: Initialize Tauri Android project
+        run: cargo tauri android init --ci
+      - name: Configure Keystore Properties
+        run: |
+          cat > src-tauri/gen/android/keystore.properties << EOK
+          storeFile=${{ github.workspace }}/snaptube-release.jks
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
+          keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+          EOK
+      - name: Build APK (Release)
+        run: cargo tauri android build --apk --ci
+      - name: Sign APK (Manual)
+        run: |
+          UNSIGNED_APK=$(find src-tauri/gen/android/app/build/outputs/apk -name "*-release-unsigned.apk" | head -n 1)
+          $ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner sign \
+            --ks ${{ github.workspace }}/snaptube-release.jks \
+            --ks-pass pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --key-pass pass:${{ secrets.ANDROID_KEY_PASSWORD }} \
+            --out Snaptube-Signed.apk \
+            $UNSIGNED_APK
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Snaptube-Signed-APK
+          path: Snaptube-Signed.apk
