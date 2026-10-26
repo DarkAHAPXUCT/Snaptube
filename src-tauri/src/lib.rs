@@ -33,8 +33,7 @@ async fn fetch_video_info(video_url: String) -> Result<String, String> {
     Err("All servers failed".to_string())
 }
 
-#[cfg_attr(mobile, tauri::mobile_entry_point)]
-pub fn run() {
+fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![fetch_video_info])
         .run(tauri::generate_context!())
