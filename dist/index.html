@@ -492,6 +492,7 @@
 
         <!-- ЭКРАН 10: GOOGLE AUTH -->
         
+        
         <div id="screen-google-login" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-account')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
@@ -682,6 +683,29 @@
             document.getElementById('account-logged-in').style.display = 'none';
             document.getElementById('settings-account-status').innerText = 'Вход';
             document.getElementById('settings-account-status').style.color = '#999';
+        }
+    
+        function googleNextStep() {
+            const email = document.getElementById('google-email-input').value;
+            if(!email) { alert('Введите email или телефон'); return; }
+            document.getElementById('google-email-display').innerText = email;
+            document.getElementById('login-step-email').style.display = 'none';
+            document.getElementById('login-step-password').style.display = 'block';
+        }
+
+        function googleBackStep() {
+            document.getElementById('login-step-password').style.display = 'none';
+            document.getElementById('login-step-email').style.display = 'block';
+        }
+
+        function googleLoginFinish() {
+            const pass = document.getElementById('google-pass-input').value;
+            if(!pass) { alert('Введите пароль'); return; }
+            document.getElementById('account-logged-out').style.display = 'none';
+            document.getElementById('account-logged-in').style.display = 'flex';
+            document.getElementById('settings-account-status').innerText = 'Выйти';
+            document.getElementById('settings-account-status').style.color = '#d32f2f';
+            showScreen('screen-account');
         }
     
         function googleNextStep() {
