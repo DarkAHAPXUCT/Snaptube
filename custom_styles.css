@@ -1,3 +1,4 @@
+
 /* ==========================================
    ИДЕАЛЬНЫЙ РЕЦЕПТ: Кнопки 50, Лого 28, Поиск 45
    ========================================== */
@@ -15,13 +16,12 @@
 }
 
 /* --- 3. СТРОКА ПОИСКА (на 45% от верха экрана) --- */
-/* 45% - 28% = 17%. Именно на столько опускаем поиск от логотипа. */
 .search-container, .search-bar, .search-box, .search-input-wrapper {
     margin-top: 17vh !important; 
     position: relative !important;
 }
 
-/* --- 4. ПРОЗРАЧНЫЕ ИКОНКИ (как на оригинале) --- */
+/* --- 4. ПРОЗРАЧНЫЕ ИКОНКИ --- */
 .search-container svg, 
 .search-bar svg, 
 .search-box svg, 
@@ -32,7 +32,7 @@
     color: #999999 !important; 
 }
 
-/* --- 5. ЖИРНАЯ СТРЕЛКА СЛЕВА (идентичная оригиналу) --- */
+/* --- 5. ЖИРНАЯ СТРЕЛКА СЛЕВА --- */
 .search-container > svg:first-child, 
 .search-bar > svg:first-child, 
 .search-box > svg:first-child,
