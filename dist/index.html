@@ -730,6 +730,32 @@
             document.getElementById('settings-account-status').style.color = '#d32f2f';
             showScreen('screen-account');
         }
+    
+        async function openGoogleWrapped() {
+            try {
+                // Проверяем, есть ли Tauri API
+                if (window.__TAURI__ && window.__TAURI__.window) {
+                    const { WebviewWindow } = window.__TAURI__.window;
+                    const webview = new WebviewWindow('googleLogin', {
+                        url: 'https://accounts.google.com/ServiceLogin',
+                        title: 'Вход в Google',
+                        width: 400,
+                        height: 700,
+                        center: true
+                    });
+                    webview.once('tauri://error', function (e) {
+                        console.error(e);
+                        alert('Ошибка открытия окна: ' + e.payload);
+                    });
+                } else {
+                    // Если Tauri API нет (например, в браузере), открываем обычное окно
+                    window.open('https://accounts.google.com/ServiceLogin', '_blank');
+                }
+            } catch (error) {
+                console.error(error);
+                window.open('https://accounts.google.com/ServiceLogin', '_blank');
+            }
+        }
     </script>
 </body>
 </html>
