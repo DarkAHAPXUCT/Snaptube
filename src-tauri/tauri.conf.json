@@ -18,7 +18,7 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": "default-src 'self' ipc: http://ipc.localhost; img-src 'self' asset: http://asset.localhost data: https:; style-src 'self' 'unsafe-inline' https://raw.githubusercontent.com; connect-src 'self' ipc: http://ipc.localhost https://raw.githubusercontent.com;"
     }
   },
   "bundle": {
@@ -31,6 +31,8 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": ["../dist/index.html"]
+    "resources": [
+      "../dist/index.html"
+    ]
   }
 }

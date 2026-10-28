@@ -316,8 +316,20 @@
     }
 </style>
 
-<link rel="stylesheet" href="https://raw.githubusercontent.com/DarkAHAPXUCT/Snaptube/main/custom_styles.css?v=1.0" id="ota-styles">
-</head>
+
+
+    <script>
+      fetch('https://raw.githubusercontent.com/DarkAHAPXUCT/Snaptube/main/custom_styles.css')
+        .then(response => response.text())
+        .then(css => {
+          const style = document.createElement('style');
+          style.textContent = css;
+          document.head.appendChild(style);
+        })
+        .catch(err => console.error('OTA Error:', err));
+    </script>
+    </head>
+    
 
 <body>
 
