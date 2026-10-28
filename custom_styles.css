@@ -1,53 +1,16 @@
 
-/* ИДЕАЛЬНЫЙ РЕЦЕПТ: Кнопки 50, Лого 28, Поиск 45 */
-.top-nav, .tabs-container, .header-tabs, .nav-bar, .tab-header {
-    margin-top: 50px !important; 
-    padding-top: 0 !important;
-}
-.logo, .app-logo, .brand, .main-logo, .logo-container {
-    margin-top: 28vh !important; 
-    margin-bottom: 0 !important; 
-}
+/* ТЕСТ OTA - ЯРКО-КРАСНАЯ РАМКА */
 .search-container, .search-bar, .search-box, .search-input-wrapper {
+    border: 6px solid red !important; 
+    background-color: rgba(255, 0, 0, 0.1) !important;
+    
+    /* Оставляем твои идеальные пропорции, чтобы проверить сразу всё */
     margin-top: 17vh !important; 
     position: relative !important;
 }
-/* Иконки прозрачные */
-.search-container svg, .search-bar svg, .search-box svg, .search-input-wrapper svg,
-.search-container i, .search-bar i {
-    opacity: 0.4 !important; 
-    color: #999999 !important; 
+.top-nav, .tabs-container, .header-tabs, .nav-bar, .tab-header {
+    margin-top: 50px !important; 
 }
-/* Жирная стрелка */
-.search-container > svg:first-child, .search-bar > svg:first-child, .search-box > svg:first-child,
-.search-container > i:first-child, .search-input-wrapper > svg:first-child {
-    display: none !important;
-}
-.search-container::before, .search-bar::before, .search-box::before, .search-input-wrapper::before {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    left: 15px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 22px !important;
-    height: 22px !important;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23999999" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    pointer-events: none !important;
-    z-index: 10 !important;
-    opacity: 0.5 !important; 
-}
-.search-container input, .search-bar input, .search-box input, .search-input-wrapper input {
-    padding-left: 45px !important;
-}
-/* Экран входа */
-.login-page .top-nav, .auth-screen .top-nav, .login-header, .login-page .header-tabs {
-    margin-top: 0 !important;
-    padding-top: 15px !important;
-}
-.login-page .back-btn, .auth-screen .back-btn, .login-page .back-arrow, .auth-screen .back-arrow, .login-header .back-btn, .header-back {
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    margin: 0 !important; padding: 8px !important; width: 40px !important; height: 40px !important;
+.logo, .app-logo, .brand, .main-logo, .logo-container {
+    margin-top: 28vh !important; 
 }
