@@ -29,9 +29,11 @@
     
 
 
-<style id="ORIGINAL_PERFECT_STYLE">
+
+
+<style id="PIXELS_ONLY_STYLE">
     /* ==========================================
-       1. ГЛАВНЫЙ ЭКРАН (Высоты как в оригинале)
+       1. ГЛАВНЫЙ ЭКРАН (Только пиксели! Никаких процентов)
        ========================================== */
     
     /* Вкладки (кнопки) - 60px. НЕ ТРОГАЕМ. */
@@ -40,31 +42,30 @@
         padding-top: 0 !important; 
     }
     
-    /* Логотип - 28% от верха (как на скрине с лупой) */
+    /* Логотип - 140px от верха (как на идеальном скрине) */
     .logo, .app-logo, .brand, .main-logo, .logo-container { 
         display: block !important;
         visibility: visible !important;
-        margin-top: 28vh !important; 
+        margin-top: 140px !important; 
         margin-bottom: 0 !important; 
     }
     
-    /* Поиск - на 45% от верха (чуть выше середины) */
-    /* Отступ 17vh: 28 (лого) + 17 = 45 (поиск) */
+    /* Поиск - отступ 30px от логотипа (тот самый воздух) */
     .search-container, .search-bar, .search-box, .search-input-wrapper { 
-        margin-top: 17vh !important; 
+        margin-top: 30px !important; 
         position: relative !important; 
         width: 90% !important;
         margin-left: auto !important;
         margin-right: auto !important;
     }
 
-    /* Иконки внутри поиска (полупрозрачные) */
+    /* Иконки внутри поиска (прозрачные) */
     .search-container svg, .search-bar svg, .search-box svg, .search-input-wrapper svg { 
         opacity: 0.4 !important; 
         color: #999999 !important; 
     }
 
-    /* Левая стрелка (Длинная, тонкая, как в оригинале) */
+    /* Левая стрелка (Длинная, тонкая) */
     .search-container > svg:first-child { display: none !important; }
     .search-container::before {
         content: "" !important; 
@@ -74,7 +75,7 @@
         top: 50% !important; 
         transform: translateY(-50%) !important;
         width: 24px !important; 
-        height: 28px !important; /* Длинная */
+        height: 28px !important; 
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23999999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="18" x2="12" y2="2"></line></svg>') !important;
         background-repeat: no-repeat !important; 
         background-position: center !important; 
@@ -86,15 +87,14 @@
 
 
     /* ==========================================
-       2. ЭКРАН ВХОДА (БРОНЯ - НИЧЕГО НЕ СДВИГАЕТСЯ)
+       2. ЭКРАН ВХОДА (БРОНЯ - ВООБЩЕ НЕ ТРОГАЕМ ОТСТУПЫ)
        ========================================== */
     
-    /* Обнуляем любые отступы сверху для шапки входа */
+    /* Возвращаем шапке логина заводское состояние */
     .login-page .top-nav, .auth-screen .top-nav, .login-header, .login-page .header-tabs {
         margin-top: 0 !important;
-        padding-top: 20px !important;
+        padding-top: 15px !important;
         transform: none !important;
-        position: relative !important;
     }
     
     /* Жестко фиксируем стрелку "Назад" на экране входа */
@@ -105,7 +105,6 @@
         align-items: center !important;
         justify-content: center !important;
         margin-left: 15px !important; 
-        padding: 8px !important;
         width: 44px !important;
         height: 44px !important;
         min-width: 44px !important;
@@ -115,6 +114,7 @@
     }
 </style>
 </head>
+
 
 
     
