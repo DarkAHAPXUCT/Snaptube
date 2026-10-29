@@ -1,20 +1,16 @@
 import { defineConfig } from "vite";
-import { resolve } from 'path';
 
-export default defineConfig(async () => ({
-  root: resolve(__dirname, 'dist'), // Указываем, что корень — это папка dist
-  build: {
-    minify: false, // ОТКЛЮЧАЕМ минификацию (чтобы не ломались скрипты)
-    target: 'esnext',
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'dist/index.html'), // Говорим, какой файл брать
-      },
-    },
-  },
+export default defineConfig({
   clearScreen: false,
   server: {
     port: 1420,
     strictPort: true,
   },
-}));
+  envPrefix: ["VITE_", "TAURI_"],
+  build: {
+    target: "esnext",
+    minify: false,       // ОТКЛЮЧАЕМ ЛОМАЮЩУЮ МИНИФИКАЦИЮ
+    cssMinify: false,    // ЗАПРЕЩАЕМ ТРОГАТЬ СТИЛИ
+    sourcemap: false,
+  },
+});
