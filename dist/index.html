@@ -254,36 +254,34 @@
     
     
     
-    <style id="bulletproof-layout">
-        /* --- ГЛАВНЫЙ ЭКРАН --- */
+    
+    
+    <style id="perfect-1to1-layout">
+        /* --- 1. ГЛАВНЫЙ ЭКРАН (Только отступы, без сдвигов) --- */
         
-        /* 1. Вкладки (кнопки) - 60px. НЕ ТРОГАЕМ. */
-        .top-nav, .tabs-container, .header-tabs, .nav-bar, .tab-header { 
-            margin-top: 60px !important; 
-            padding-top: 0 !important; 
-        }
+        /* Вкладки (кнопки) МЫ НЕ ТРОГАЕМ. Они останутся там, где были. */
         
-        /* 2. Логотип - жестко 220px от верха */
+        /* Логотип - опускаем ровно на 180 пикселей от верха */
         .logo, .app-logo, .brand, .main-logo, .logo-container { 
             display: block !important;
             visibility: visible !important;
-            margin-top: 220px !important; 
+            margin-top: 180px !important; 
             margin-bottom: 0 !important; 
         }
         
-        /* 3. Поиск - жестко 140px от логотипа (в сумме даст высоту чуть выше центра) */
+        /* Поиск - опускаем ровно на 160 пикселей от логотипа (тот самый воздух) */
         .search-container, .search-bar, .search-box, .search-input-wrapper { 
-            margin-top: 140px !important; 
+            margin-top: 160px !important; 
             position: relative !important; 
         }
 
-        /* Прозрачные иконки */
+        /* Прозрачные иконки в строке поиска */
         .search-container svg, .search-bar svg, .search-box svg, .search-input-wrapper svg, .search-container i, .search-bar i { 
             opacity: 0.4 !important; 
             color: #999999 !important; 
         }
 
-        /* Жирная стрелка скачивания */
+        /* Наша жирная серая стрелка скачивания */
         .search-container > svg:first-child, .search-bar > svg:first-child, .search-box > svg:first-child, .search-container > i:first-child, .search-input-wrapper > svg:first-child { 
             display: none !important; 
         }
@@ -297,52 +295,54 @@
         }
 
 
-        /* --- ЭКРАН ВХОДА (ХИРУРГИЧЕСКИЙ ФИКС СТРЕЛКИ) --- */
+        /* --- 2. ЭКРАН ВХОДА (ЖЕСТКАЯ ИЗОЛЯЦИЯ СТРЕЛКИ) --- */
         
-        /* Сбрасываем отступы шапки логина */
+        /* Обнуляем любые отступы сверху для шапки входа, чтобы она не сползала */
         .login-page .top-nav, .auth-screen .top-nav, .login-header, .login-page .header-tabs {
             margin-top: 0 !important;
             padding-top: 20px !important;
-            height: auto !important;
             display: flex !important;
             align-items: center !important;
         }
         
-        /* Принудительно даем стрелке место слева и фиксируем размер */
+        /* Фиксируем стрелку: жесткий отступ слева, размер, и запрет на сжатие */
         .login-page .back-btn, .auth-screen .back-btn,
         .login-page .back-arrow, .auth-screen .back-arrow,
         .login-header .back-btn, .header-back,
-        .back-btn, .back-arrow, .icon-back {
+        .back-btn, .back-arrow {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            margin-left: 20px !important; /* Отодвигаем от края экрана */
+            margin-left: 20px !important; /* Сдвигаем от края */
+            margin-right: 10px !important;
             padding: 8px !important;
             width: 40px !important;
             height: 40px !important;
-            min-width: 40px !important;
+            min-width: 40px !important; /* Запрет на сжатие */
             min-height: 40px !important;
-            overflow: visible !important;
+            flex-shrink: 0 !important;
             position: relative !important;
+            top: 0 !important;
             left: 0 !important;
+            transform: none !important;
         }
 
-        /* Фиксируем размер самого SVG внутри стрелки, чтобы он не сплющивался */
+        /* Иконка внутри стрелки (чтобы не сплющивалась) */
         .back-btn svg, .back-arrow svg, .header-back svg {
             width: 24px !important;
             height: 24px !important;
-            min-width: 24px !important;
-            min-height: 24px !important;
+            display: block !important;
         }
         
-        /* Выравниваем текст заголовка */
+        /* Текст рядом со стрелкой */
         .login-page .header-title, .auth-screen .header-title, .login-header .title, .login-header h1 {
-            margin-left: 15px !important;
+            margin-left: 5px !important;
             display: flex !important;
             align-items: center !important;
         }
     </style>
     </head>
+    
     
     
     
