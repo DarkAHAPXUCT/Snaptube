@@ -396,6 +396,7 @@
     </script>
 <script>async function testRust() { if (window.__TAURI__) { try { const res = await window.__TAURI__.core.invoke("fetch_video_link", { url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }); alert("УСПЕХ! Ссылка: " + res.substring(0, 40) + "..."); } catch(e) { alert("ОШИБКА RUST: " + e); } } else { alert("Tauri не найден. Это просто браузер."); } }</script>
 <!-- Force Build: 1793297067.4081345 -->
+<!-- Fix 1793297422.8648336 -->
 </body>
 </html>
 
