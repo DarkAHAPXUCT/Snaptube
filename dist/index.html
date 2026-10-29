@@ -341,7 +341,71 @@
             align-items: center !important;
         }
     </style>
-    </head>
+    
+<style id="absolute-perfect-final">
+    /* --- ГЛАВНЫЙ ЭКРАН --- */
+    
+    /* Вкладки (кнопки) не трогаем */
+    .top-nav, .tabs-container, .header-tabs, .nav-bar, .tab-header { 
+        margin-top: 60px !important; 
+    }
+    
+    /* Логотип висит на 25% от верха */
+    .logo, .app-logo, .brand, .main-logo, .logo-container { 
+        position: absolute !important;
+        top: 25% !important; 
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important; 
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    /* Поиск висит на 45% от верха (чуть выше середины) */
+    .search-container, .search-bar, .search-box, .search-input-wrapper { 
+        position: absolute !important;
+        top: 45% !important; 
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        width: 90% !important; 
+    }
+
+    /* Стили для иконок внутри поиска */
+    .search-container svg, .search-bar svg, .search-box svg, .search-input-wrapper svg { 
+        opacity: 0.4 !important; 
+        color: #999999 !important; 
+    }
+
+    /* --- БРОНЯ ЭКРАНА ВХОДА --- */
+    /* Возвращаем шапке входа нормальное состояние */
+    .login-page .top-nav, .auth-screen .top-nav, .login-header, .login-page .header-tabs {
+        position: relative !important;
+        margin-top: 0 !important;
+        padding-top: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    /* Жестко фиксируем стрелку: отступ слева, размер и запрет на сжатие */
+    .login-page .back-btn, .auth-screen .back-btn,
+    .login-page .back-arrow, .auth-screen .back-arrow,
+    .login-header .back-btn, .header-back, .back-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: 15px !important; 
+        padding: 8px !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+        flex-shrink: 0 !important; 
+        transform: none !important;
+    }
+</style>
+</head>
+
     
     
     
