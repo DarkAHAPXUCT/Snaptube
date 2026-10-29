@@ -5,79 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
     <title>Snaptube Clone</title>
-<style id="PIXELS_ONLY_STYLE">
-    /* ==========================================
-       1. ГЛАВНЫЙ ЭКРАН (Только пиксели! Никаких процентов)
-       ========================================== */
-    /* Вкладки (кнопки) - 60px. НЕ ТРОГАЕМ. */
-    .top-nav, .tabs-container, .header-tabs, .nav-bar, .tab-header { 
-        margin-top: 60px !important; 
-        padding-top: 0 !important; 
-    }
-    /* Логотип - 140px от верха (как на идеальном скрине) */
-    .logo, .app-logo, .brand, .main-logo, .logo-container { 
-        display: block !important;
-        visibility: visible !important;
-        margin-top: 140px !important; 
-        margin-bottom: 0 !important; 
-    }
-    /* Поиск - отступ 30px от логотипа (тот самый воздух) */
-    .search-container, .search-bar, .search-box, .search-input-wrapper { 
-        margin-top: 30px !important; 
-        position: relative !important; 
-        width: 90% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    /* Иконки внутри поиска (прозрачные) */
-    .search-container svg, .search-bar svg, .search-box svg, .search-input-wrapper svg { 
-        opacity: 0.4 !important; 
-        color: #999999 !important; 
-    }
-    /* Левая стрелка (Длинная, тонкая) */
-    .search-container > svg:first-child { display: none !important; }
-    .search-container::before {
-        content: "" !important; 
-        display: block !important; 
-        position: absolute !important; 
-        left: 15px !important; 
-        top: 50% !important; 
-        transform: translateY(-50%) !important;
-        width: 24px !important; 
-        height: 28px !important; 
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23999999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="18" x2="12" y2="2"></line></svg>') !important;
-        background-repeat: no-repeat !important; 
-        background-position: center !important; 
-        pointer-events: none !important; 
-        z-index: 10 !important; 
-        opacity: 0.5 !important; 
-    }
-    .search-container input { padding-left: 45px !important; }
-    /* ==========================================
-       2. ЭКРАН ВХОДА (БРОНЯ - ВООБЩЕ НЕ ТРОГАЕМ ОТСТУПЫ)
-       ========================================== */
-    /* Возвращаем шапке логина заводское состояние */
-    .login-page .top-nav, .auth-screen .top-nav, .login-header, .login-page .header-tabs {
-        margin-top: 0 !important;
-        padding-top: 15px !important;
-        transform: none !important;
-    }
-    /* Жестко фиксируем стрелку "Назад" на экране входа */
-    .login-page .back-btn, .auth-screen .back-btn,
-    .login-page .back-arrow, .auth-screen .back-arrow,
-    .login-header .back-btn, .header-back, .back-btn {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-left: 15px !important; 
-        width: 44px !important;
-        height: 44px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-        flex-shrink: 0 !important; 
-        transform: none !important;
-    }
-</style>
+
 </head>
 <body>
     <div class="main-wrapper">
@@ -472,3 +400,5 @@
 <!-- Force Build Trigger: 1793289091 -->
 
 <!-- Heal Trigger: 1793292839 -->
+
+<!-- Clean Build Trigger: 1793293547 -->
