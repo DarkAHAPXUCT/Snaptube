@@ -129,6 +129,64 @@
         .nav-item.active { color: #111111; }
         .nav-item.active svg { stroke: #111111; stroke-width: 2.2; }
         .nav-item.active span { font-weight: 700; font-size: 12px; }
+    
+        /* =========================================
+           ЖЕЛЕЗОБЕТОННЫЙ ЩИТ ОТ TAURI
+           ========================================= */
+        
+        /* Фоны и общие контейнеры */
+        body { background-color: #f2f2f6 !important; }
+        .app-screen { background-color: #ffffff !important; }
+        #screen-settings, #screen-settings-download, #screen-settings-notifications, #screen-settings-theme, #screen-settings-region, #screen-account { background-color: #f2f2f6 !important; }
+        
+        /* ФОНОВЫЕ ИКОНКИ (Главная защита от огромных черных пятен) */
+        .bg-watermarks { display: flex !important; flex-direction: column !important; justify-content: space-between !important; padding: 80px 5px !important; position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; z-index: 0 !important; pointer-events: none !important; }
+        .watermark { fill: #f7f7f7 !important; width: 120px !important; height: 120px !important; max-width: 120px !important; max-height: 120px !important; }
+        
+        /* Шапки */
+        .header-bar, .settings-header, .header-title-white { background-color: transparent !important; }
+        .header-title, .settings-header h1, .header-title-white h1 { color: #111111 !important; font-weight: 800 !important; }
+        
+        /* Верхнее меню и Табы */
+        .top-nav { padding: 60px 15px 15px 15px !important; display: flex !important; justify-content: space-around !important; align-items: center !important; }
+        .tab { color: #999999 !important; font-weight: 500 !important; font-size: 15px !important; }
+        .tab.active { color: #111111 !important; font-weight: 700 !important; }
+        .tab.active::after { background-color: #FDD835 !important; height: 3px !important; border-radius: 2px !important; }
+        
+        /* Логотип и Поиск (Твои координаты 22% и 43%) */
+        .logo { position: absolute !important; top: 22% !important; left: 50% !important; transform: translateX(-50%) !important; color: #FDD835 !important; font-weight: 800 !important; font-size: 44px !important; }
+        .search-bar { position: absolute !important; top: 43% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; background-color: #ffffff !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; }
+        .search-input { color: #222222 !important; font-size: 16px !important; }
+        .search-input::placeholder { color: #999999 !important; opacity: 1 !important; }
+        
+        /* Списки и Настройки */
+        .settings-list, .inner-list { background-color: #ffffff !important; border-radius: 12px !important; }
+        .settings-item, .inner-item { border-bottom: 1px solid #f0f0f0 !important; }
+        .settings-item-text, .inner-title { color: #222222 !important; font-size: 17px !important; font-weight: 400 !important; }
+        .settings-item-value, .inner-subtitle { color: #999999 !important; font-size: 15px !important; }
+        .settings-section-title { color: #999999 !important; font-size: 14px !important; font-weight: 500 !important; }
+        
+        /* Экран Аккаунта (Жесткая фиксация) */
+        .account-container { display: flex !important; flex-direction: column !important; align-items: center !important; padding: 20px !important; flex: 1 !important; margin-top: 40px !important; }
+        .logos-row { display: flex !important; align-items: center !important; justify-content: center !important; gap: 20px !important; margin-bottom: 50px !important; }
+        .snaptube-icon { width: 80px !important; height: 80px !important; background: #FDD835 !important; border-radius: 50% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+        .snaptube-icon-inner { width: 50px !important; height: 35px !important; background: white !important; border-radius: 8px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+        .snaptube-arrow { width: 18px !important; height: 18px !important; stroke: #E53935 !important; stroke-width: 3.5 !important; fill: none !important; }
+        .yt-icon { width: 90px !important; height: 60px !important; background: #FF0000 !important; border-radius: 16px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+        .yt-play { width: 0 !important; height: 0 !important; border-top: 12px solid transparent !important; border-bottom: 12px solid transparent !important; border-left: 20px solid white !important; margin-left: 5px !important; }
+        
+        /* Иконки и Цвета */
+        .settings-item-icon { stroke: #999999 !important; stroke-width: 1.5 !important; }
+        .chevron-icon { stroke: #CCCCCC !important; stroke-width: 2 !important; }
+        .icon-download, .icon-mic { stroke: #999999 !important; stroke-width: 1.8 !important; }
+        .nav-item { color: #999999 !important; }
+        .nav-item.active { color: #111111 !important; }
+        .nav-item.active svg { stroke: #111111 !important; stroke-width: 2.2 !important; }
+        
+        /* Модалки и Переключатели */
+        .modal-box { background: #fff !important; border-radius: 16px !important; }
+        input:checked + .slider { background-color: #FDD835 !important; }
+
     </style>
 </head>
 <body>
@@ -360,6 +418,7 @@
         function logoutSimulation() { document.getElementById('account-logged-out').style.display = 'flex'; document.getElementById('account-logged-in').style.display = 'none'; document.getElementById('settings-account-status').innerText = 'Вход'; document.getElementById('settings-account-status').style.color = '#999'; }
     </script>
 <!-- Tauri Fix -->
+<!-- IRONCLAD PROTECTION: 1793303196.0365348 -->
 </body>
 </html>
 <!-- Iron Protect: 1793300238.662218 -->
