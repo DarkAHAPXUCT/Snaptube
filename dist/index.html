@@ -35,7 +35,7 @@
         
         /* ПОДНЯЛИ ВЫСОКО К ВЕРХНИМ КНОПКАМ (14VH И 26VH) */
         .logo { position: absolute !important; top: 14vh !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important; }
-        .search-bar { position: absolute !important; top: 26vh !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; }
+        .search-bar { position: absolute !important; top: 45vh !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; }
         
         .icon-download { width: 20px; height: 20px; margin-right: 14px; stroke: #999999; stroke-width: 1.5; fill: none; }
         .search-input { flex: 1; border: none; outline: none; background: transparent; font-size: 16px; color: #444444; }
@@ -256,14 +256,13 @@
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Тема</div>
             </div>
-            <div class="inner-list" style="margin-top: 20px; background-color: transparent;">
+            <div class="inner-list" style="margin-top: 20px; background-color: transparent !important;">
                 <div style="padding: 0 20px 15px 20px; font-size: 16px; font-weight: 700; color: #111;">Тема приложения</div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title" style="font-weight: 400; font-size: 17px;">Применить настройку системы</span><svg class="theme-check" viewBox="0 0 24 24" style="display: block;"><path d="M20 6L9 17l-5-5"/></svg></div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title" style="font-weight: 400; font-size: 17px;">Светлая</span><svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title" style="font-weight: 400; font-size: 17px;">Тёмная</span><svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
             </div>
         </div>
-
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
@@ -302,6 +301,23 @@
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Регион и язык</div>
             </div>
+            <div class="inner-list">
+                <div class="inner-item" onclick="alert('Выбор языка (макет)')">
+                    <div class="inner-text-col">
+                        <span class="inner-title" style="font-size: 17px; font-weight: 400; color: #111;">Язык в Snaptube</span>
+                        <span class="inner-subtitle" style="font-size: 15px; color: #999;">Русский</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+                <div class="inner-item" onclick="alert('Выбор региона (макет)')">
+                    <div class="inner-text-col">
+                        <span class="inner-title" style="font-size: 17px; font-weight: 400; color: #111;">Регион</span>
+                        <span class="inner-subtitle" style="font-size: 15px; color: #999;">Россия</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
     
