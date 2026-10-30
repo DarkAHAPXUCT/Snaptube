@@ -174,8 +174,11 @@
                 </div>
                 <div class="main-content">
                     <div class="logo">Snaptube</div>
-                    <div class="search-bar">
-                        <div class="icon-download-css"></div>
+                    <div class="search-bar" style="position: absolute !important; top: 45% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important;">
+        
+        
+        <button class="mic-button" id="micBtn" style="background: none !important; border: none !important; padding: 0 !important; display: flex !important; align-items: center !important; flex-shrink: 0 !important;"><svg class="icon-mic" viewBox="0 0 24 24" style="width: 22px !important; height: 22px !important; stroke: #999 !important; stroke-width: 1.8 !important; fill: none !important;"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></button>
+    </div>
                         <input type="text" class="search-input" placeholder="Поиск">
                         <button class="mic-button" id="micBtn"></button>
                     </div>
@@ -400,7 +403,7 @@
         </div>
     </div>
 
-    <div class="bottom-nav">
+    <div class="bottom-nav" style="display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; border-top: 1px solid #F0F0F0 !important; background-color: #ffffff !important; z-index: 10 !important; flex-shrink: 0 !important; min-height: 70px !important;">
         <button class="nav-item active" data-bottom-target="screen-search" onclick="switchBottomTab('screen-search', this)">
             <div class="nav-icon-search"></div><span>Загрузить</span>
         </button>
