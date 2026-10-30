@@ -19,21 +19,22 @@
         
         .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 80px 5px; }
         .bg-row { display: flex; justify-content: space-between; width: 100%; }
-        .watermark { fill: #f7f7f7; width: 120px; height: 120px; }
+        .watermark { fill: #f7f7f7; width: 120px !important; height: 120px !important; }
         .wm-yt-top-left { transform: rotate(-15deg); }
         .wm-tiktok-top-right { transform: rotate(15deg); }
         .wm-tiktok-bottom-left { transform: rotate(-15deg); }
         .wm-yt-bottom-right { transform: rotate(15deg); }
         
         .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
-        .top-nav { display: flex; justify-content: space-around; align-items: center; padding: 60px 15px 15px 15px; }
+        .top-nav { display: flex; justify-content: space-around; align-items: center; padding: 60px 15px 15px 15px !important; }
         .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
         .tab.active { color: #111111; font-weight: 700; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
         .main-content { flex: 1; position: relative; }
         
-        .logo { position: absolute; top: 24%; left: 50%; transform: translateX(-50%); font-size: 44px; font-weight: 800; color: #FDD835; letter-spacing: -1px; }
-        .search-bar { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); width: 88%; height: 64px; border: 1.5px solid #d4d4d4; border-radius: 32px; display: flex; align-items: center; padding: 0 15px 0 20px; background-color: #ffffff; }
+        /* ЖЕСТКИЕ СТИЛИ ДЛЯ ЗАЗОРА (ЗАЩИТА ОТ TAURI) */
+        .logo { position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important; }
+        .search-bar { position: absolute !important; top: 45% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; }
         
         .icon-download { width: 20px; height: 20px; margin-right: 14px; stroke: #999999; stroke-width: 1.5; fill: none; }
         .search-input { flex: 1; border: none; outline: none; background: transparent; font-size: 16px; color: #444444; }
@@ -124,8 +125,8 @@
                     <div class="tab" onclick="switchTopTab('screen-music', this)">Музыка</div>
                 </div>
                 <div class="main-content">
-                    <div class="logo" style="position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 10 !important;">Snaptube</div>
-                    <div class="search-bar" style="position: absolute !important; top: 45% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; background-color: #ffffff !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; z-index: 10 !important;">
+                    <div class="logo">Snaptube</div>
+                    <div class="search-bar">
                         <svg class="icon-download" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                         <input type="text" class="search-input" placeholder="Поиск">
                         <button class="mic-button" id="micBtn"><svg class="icon-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></button>
@@ -280,7 +281,7 @@
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="feature-text">История и список «Смотреть позже»</span></div>
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg><span class="feature-text">Подписка на новые каналы</span></div>
                 </div>
-                <button class="btn-login-big" onclick="openGoogleLogin()">Вход</button>
+                <button class="btn-login-big" onclick="showScreen('screen-google-login')">Вход</button>
             </div>
             <div id="account-logged-in" class="user-profile-card">
                 <img id="userAvatar" class="user-avatar" src="https://yt3.ggpht.com/ytc/APkrFKb5cdeqB6O-pQ4V3M8q4Y9x2X1Z3W4V5U6T7S8s=s240-c-k-c0x00ffffff-no-rj" alt="Avatar">
@@ -302,11 +303,11 @@
                 <div style="font-size: 24px; font-weight: 500; color: #202124; margin-bottom: 10px;">Вход</div>
                 <div style="font-size: 16px; color: #5f6368; margin-bottom: 40px;">Перейдите на YouTube</div>
                 
-                <!-- Кнопка, которая откроет нашу "обертку" -->
-                <button onclick="openGoogleLogin()" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: #fff; border: 1px solid #dadce0; border-radius: 4px; padding: 12px; font-size: 16px; font-weight: 500; color: #3c4043; cursor: pointer;">
+                <!-- НАСТОЯЩАЯ ФОРМА ВХОДА (Открывает системный браузер) -->
+                <a href="https://accounts.google.com/ServiceLogin?continue=https://www.youtube.com/" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: #fff; border: 1px solid #dadce0; border-radius: 4px; padding: 12px; font-size: 16px; font-weight: 500; color: #3c4043; text-decoration: none; box-sizing: border-box;">
                     <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                     Войти через Google
-                </button>
+                </a>
             </div>
         </div>
         
@@ -328,14 +329,6 @@
         </div>
     </div>
     
-    <!-- МОДАЛЬНОЕ ОКНО С ОБЕРТКОЙ (IFRAME) ДЛЯ ВХОДА В GOOGLE -->
-    <div id="google-login-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 99999; background: #fff; flex-direction: column;">
-        <div style="display: flex; align-items: center; padding: 15px; background: #fff; border-bottom: 1px solid #ddd;">
-            <button onclick="closeGoogleLogin()" style="background: none; border: none; font-size: 16px; color: #4285F4; cursor: pointer;">Отмена</button>
-        </div>
-        <iframe id="google-login-frame" style="flex: 1; width: 100%; border: none; background: #fff;" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"></iframe>
-    </div>
-
     <div id="modal-max-tasks" class="modal-overlay" onclick="closeModal('modal-max-tasks')"><div class="modal-box" onclick="event.stopPropagation()"><div class="modal-title">Макс. задач по загрузке</div><div class="slider-group"><span class="slider-label">WiFi: 2 задачи</span><input type="range" min="1" max="5" value="2"></div><div class="slider-group"><span class="slider-label">Мобильные данные: 2 задачи</span><input type="range" min="1" max="5" value="2"></div><p class="inner-subtitle" style="margin-top: 20px; margin-bottom: 0;">При увеличении количества может снизиться скорость телефона.</p><div class="modal-actions"><button class="modal-btn modal-btn-cancel" onclick="closeModal('modal-max-tasks')">ОТМЕНА</button><button class="modal-btn modal-btn-ok" onclick="closeModal('modal-max-tasks')">ОК</button></div></div></div>
     <div id="modal-speed-limit" class="modal-overlay" onclick="closeModal('modal-speed-limit')"><div class="modal-box" onclick="event.stopPropagation()"><div class="modal-title">Лимит скорости загрузки</div><p class="modal-text">Если при загрузке телефон становится медленным, уменьши лимит.</p><div style="text-align: center; font-size: 16px; margin-bottom: 15px;">Без ограничений</div><input type="range" min="0" max="100" value="100"><div class="modal-actions"><button class="modal-btn modal-btn-cancel" onclick="closeModal('modal-speed-limit')">ОТМЕНА</button><button class="modal-btn modal-btn-ok" onclick="closeModal('modal-speed-limit')">ОК</button></div></div></div>
     <div id="modal-tools-panel" class="modal-overlay" onclick="closeModal('modal-tools-panel')"><div class="modal-box" onclick="event.stopPropagation()"><div class="modal-title">Отключить панель инструментов?</div><p class="modal-text">Отключив панель инструментов, вы потеряете быстрый доступ к мини-инструментам (не рекомендуется)</p><div class="modal-actions"><button class="modal-btn modal-btn-cancel" onclick="confirmDisableTools()">ВЫКЛЮЧИТЬ</button><button class="modal-btn modal-btn-ok" onclick="cancelDisableTools()">НЕ ВЫКЛЮЧАТЬ</button></div></div></div>
@@ -346,6 +339,7 @@
         <button class="nav-item" data-bottom-target="screen-downloaded" onclick="switchBottomTab('screen-downloaded', this)"><svg viewBox="0 0 24 24"><path d="M4 8v11a1 1 0 0 0 1 1h11" /><rect x="8" y="4" width="12" height="12" rx="1.5" /><polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" /></svg><span>Воспроизведение</span></button>
         <button class="nav-item" data-bottom-target="screen-settings" onclick="switchBottomTab('screen-settings', this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg><span>Настройки</span></button>
     </div>
+    
     <script>
         function switchBottomTab(screenId, element) { document.querySelectorAll('.bottom-nav .nav-item').forEach(nav => nav.classList.remove('active')); element.classList.add('active'); showScreen(screenId); }
         function switchTopTab(screenId, element) { showScreen(screenId); }
@@ -360,21 +354,6 @@
         function confirmDisableTools() { closeModal('modal-tools-panel'); }
         function selectTheme(element) { document.querySelectorAll('.theme-check').forEach(check => { check.style.display = 'none'; }); element.querySelector('.theme-check').style.display = 'block'; }
         function logoutSimulation() { document.getElementById('account-logged-out').style.display = 'flex'; document.getElementById('account-logged-in').style.display = 'none'; document.getElementById('settings-account-status').innerText = 'Вход'; document.getElementById('settings-account-status').style.color = '#999'; }
-
-        // --- РАБОЧАЯ ОБЕРТКА ДЛЯ ВХОДА В GOOGLE (IFRAME) ---
-        function openGoogleLogin() {
-            var modal = document.getElementById('google-login-modal');
-            var iframe = document.getElementById('google-login-frame');
-            iframe.src = 'https://accounts.google.com/ServiceLogin?continue=https://www.youtube.com/';
-            modal.style.display = 'flex';
-        }
-
-        function closeGoogleLogin() {
-            var modal = document.getElementById('google-login-modal');
-            var iframe = document.getElementById('google-login-frame');
-            modal.style.display = 'none';
-            iframe.src = 'about:blank';
-        }
     </script>
 </body>
 </html>
