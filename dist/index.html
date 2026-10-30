@@ -12,23 +12,19 @@
         .app-screen { display: none; flex-direction: column; height: 100%; width: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.2s ease-in-out; background-color: #ffffff; overflow-y: auto; }
         .app-screen.active { display: flex; opacity: 1; }
         #screen-settings, #screen-settings-download, #screen-settings-notifications, #screen-settings-theme, #screen-settings-region, #screen-account { background-color: #f2f2f6; }
-        #screen-settings-region .inner-list { background-color: transparent; margin-top: 10px; }
-        #screen-settings-region .inner-item { border-bottom: none; padding: 15px 20px; }
+        
         .header-bar { display: flex; align-items: center; padding: 30px 20px 15px 20px; background-color: #f2f2f6; z-index: 10; }
         .back-btn { background: none; border: none; cursor: pointer; padding: 5px; margin-right: 15px; display: flex; align-items: center; }
         .back-btn svg { width: 24px; height: 24px; stroke: #111; stroke-width: 2; fill: none; }
         .header-title { font-size: 20px; font-weight: 700; color: #111; }
         
-        .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 80px 5px; }
-        .bg-row { display: flex; justify-content: space-between; width: 100%; }
+        /* СИММЕТРИЯ ЗАДНИКОВ (ВШИТО) */
+        .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex !important; flex-direction: column !important; justify-content: space-between !important; padding: 80px 5px !important; }
+        .bg-row { display: flex !important; justify-content: space-between !important; width: 100% !important; }
         .watermark { fill: #f7f7f7; width: 120px !important; height: 120px !important; }
-        .wm-yt-top-left { transform: rotate(-15deg); }
-        .wm-tiktok-top-right { transform: rotate(15deg); }
-        .wm-tiktok-bottom-left { transform: rotate(-15deg); }
-        .wm-yt-bottom-right { transform: rotate(15deg); }
         
         .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
-        .top-nav { display: flex; justify-content: space-around; align-items: center; padding: 60px 15px 15px 15px; }
+        .top-nav { display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important; }
         .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
         .tab.active { color: #111111; font-weight: 700; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
@@ -83,37 +79,27 @@
         input:checked + .slider { background-color: #FDD835; }
         input:checked + .slider:before { transform: translateX(22px); }
         
-        .modal-overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 100; justify-content: center; align-items: center; }
-        .modal-overlay.active { display: flex; }
-        .modal-box { background: #fff; width: 85%; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .modal-title { font-size: 20px; font-weight: 700; color: #111; margin-bottom: 15px; }
-        .modal-text { font-size: 15px; color: #666; line-height: 1.4; margin-bottom: 20px; }
-        .modal-actions { display: flex; justify-content: flex-end; gap: 20px; margin-top: 25px; }
-        .modal-btn { background: none; border: none; font-size: 15px; font-weight: 700; cursor: pointer; }
-        .modal-btn-cancel { color: #999; }
-        .modal-btn-ok { color: #FDD835; }
-        
-        .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 25px 25px; border-top: 1px solid #F0F0F0; background-color: #ffffff; z-index: 10; flex-shrink: 0; }
+        .bottom-nav { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; border-top: 1px solid #F0F0F0 !important; background-color: #ffffff !important; z-index: 10 !important; flex-shrink: 0 !important; }
         .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #999999; cursor: pointer; background: none; border: none; }
-        .nav-item svg { width: 24px; height: 24px; margin-bottom: 6px; stroke: #999999; stroke-width: 1.5; fill: none; }
-        .nav-item span { font-size: 11px; font-weight: 400; }
-        .nav-item.active { color: #111111; }
-        .nav-item.active svg { stroke: #111111; stroke-width: 2.2; }
-        .nav-item.active span { font-weight: 700; font-size: 12px; }
+        .nav-item svg { width: 24px !important; height: 24px !important; margin-bottom: 6px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; }
+        .nav-item span { font-size: 11px !important; font-weight: 400 !important; }
+        .nav-item.active { color: #111111 !important; }
+        .nav-item.active svg { stroke: #111111 !important; stroke-width: 2.2 !important; }
+        .nav-item.active span { font-weight: 700 !important; font-size: 12px !important; }
         
         .btn-login-big { width: 100% !important; background: #FDD835 !important; color: #111 !important; border: none !important; padding: 18px !important; border-radius: 30px !important; font-size: 18px !important; font-weight: 700 !important; cursor: pointer !important; margin-top: auto !important; margin-bottom: 20px !important; }
-        .account-container { display: flex; flex-direction: column; align-items: center; padding: 20px; flex: 1; margin-top: 40px; }
-        .logos-row { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 50px; }
+        .account-container { display: flex !important; flex-direction: column !important; align-items: center !important; padding: 20px !important; flex: 1 !important; margin-top: 40px !important; }
+        .logos-row { display: flex !important; align-items: center !important; justify-content: center !important; gap: 20px !important; margin-bottom: 50px !important; }
         .snaptube-icon { width: 80px !important; height: 80px !important; background: #FDD835 !important; border-radius: 50% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
         .snaptube-icon-inner { width: 50px !important; height: 35px !important; background: white !important; border-radius: 8px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
         .snaptube-arrow { width: 18px !important; height: 18px !important; stroke: #E53935 !important; stroke-width: 3.5 !important; fill: none !important; }
         .yt-icon { width: 90px !important; height: 60px !important; background: #FF0000 !important; border-radius: 16px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
         .yt-play { width: 0 !important; height: 0 !important; border-top: 12px solid transparent !important; border-bottom: 12px solid transparent !important; border-left: 20px solid white !important; margin-left: 5px !important; }
-        .account-title { font-size: 20px; color: #333; text-align: center; margin-bottom: 40px; }
-        .features-list { width: 100%; display: flex; flex-direction: column; gap: 25px; padding: 0 10px; }
-        .feature-item { display: flex; align-items: center; gap: 15px; }
+        .account-title { font-size: 20px !important; color: #333 !important; text-align: center !important; margin-bottom: 40px !important; }
+        .features-list { width: 100% !important; display: flex !important; flex-direction: column !important; gap: 25px !important; padding: 0 10px !important; }
+        .feature-item { display: flex !important; align-items: center !important; gap: 15px !important; }
         .feature-icon { width: 28px !important; height: 28px !important; stroke: #999 !important; stroke-width: 1.5 !important; fill: none !important; }
-        .feature-text { font-size: 16px; color: #999; }
+        .feature-text { font-size: 16px !important; color: #999 !important; }
     </style>
 </head>
 <body>
@@ -241,7 +227,6 @@
             </div>
         </div>
 
-        <!-- ЭКРАН УЧЕТНОЙ ЗАПИСИ (ЖЕСТКО ЗАЩИЩЕН) -->
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
@@ -269,11 +254,14 @@
             </div>
         </div>
 
-        <!-- ПРОМЕЖУТОЧНЫЙ ЭКРАН (КАК НА СКРИНШОТЕ) -->
+        <!-- ПРОМЕЖУТОЧНЫЙ ЭКРАН (ЖЕСТКО ЗАЩИЩЕН + СТРЕЛКА НАЗАД) -->
         <div id="screen-google-login" class="app-screen" style="background-color: #fff !important;">
             <div class="header-bar" style="background-color: #f2f2f6 !important;">
-                <button class="back-btn" onclick="showScreen('screen-account')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-                <div class="header-title">Войти в YouTube</div>
+                <!-- Стрелка назад восстановлена -->
+                <button class="back-btn" onclick="showScreen('screen-account')" style="background: none; border: none; cursor: pointer; padding: 5px; margin-right: 15px; display: flex; align-items: center;">
+                    <svg viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <div class="header-title" style="font-size: 20px !important; font-weight: 700 !important; color: #111 !important;">Войти в YouTube</div>
             </div>
             <div style="padding: 40px 25px; display: flex; flex-direction: column; align-items: flex-start; flex: 1;">
                 <svg style="width: 60px; height: 60px; margin-bottom: 30px;" viewBox="0 0 24 24">
