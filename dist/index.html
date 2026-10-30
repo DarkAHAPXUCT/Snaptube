@@ -4,47 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
-    <title>Snaptube Clone - Макет</title>
+    <title>Snaptube</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
         body { background-color: #f2f2f6; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
         .main-wrapper { flex: 1; position: relative; overflow: hidden; }
         .app-screen { display: none; flex-direction: column; height: 100%; width: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.2s ease-in-out; background-color: #ffffff; overflow-y: auto; }
         .app-screen.active { display: flex; opacity: 1; }
+        
+        /* ЦВЕТА ФОНОВ */
         #screen-settings, #screen-settings-download, #screen-settings-notifications, #screen-settings-theme, #screen-settings-region, #screen-account { background-color: #f2f2f6; }
-        #screen-settings-region .inner-list { background-color: transparent; margin-top: 10px; }
-        #screen-settings-region .inner-item { border-bottom: none; padding: 15px 20px; }
+
+        /* ШАПКИ */
         .header-bar { display: flex; align-items: center; padding: 30px 20px 15px 20px; background-color: #f2f2f6; z-index: 10; }
         .back-btn { background: none; border: none; cursor: pointer; padding: 5px; margin-right: 15px; display: flex; align-items: center; }
         .back-btn svg { width: 24px; height: 24px; stroke: #111; stroke-width: 2; fill: none; }
         .header-title { font-size: 20px; font-weight: 700; color: #111; }
-        
+
+        /* ФОНОВЫЕ ИКОНКИ (ЗАЩИЩЕНЫ ОТ TAURI) */
         .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 80px 5px; }
         .bg-row { display: flex; justify-content: space-between; width: 100%; }
         .watermark { fill: #f7f7f7; width: 120px !important; height: 120px !important; }
-        .wm-yt-top-left { transform: rotate(-15deg); }
-        .wm-tiktok-top-right { transform: rotate(15deg); }
-        .wm-tiktok-bottom-left { transform: rotate(-15deg); }
-        .wm-yt-bottom-right { transform: rotate(15deg); }
         
-        .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+        /* ВЕРХНЕЕ МЕНЮ */
         .top-nav { display: flex; justify-content: space-around; align-items: center; padding: 60px 15px 15px 15px; }
         .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
         .tab.active { color: #111111; font-weight: 700; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
-        .main-content { flex: 1; position: relative; }
+
+        /* ГЛАВНЫЙ ЭКРАН - FLEXBOX (ЖЕСТКАЯ ЗАЩИТА ОТ СЛИПАНИЯ) */
+        .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 15vh; }
         
-        /* Идеальные координаты */
-        .logo { position: absolute !important; top: 28% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important; }
-        .search-bar { position: absolute !important; top: 48% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; }
+        /* Отступ 50px физически не даст им слипнуться */
+        .logo { font-size: 46px; font-weight: 800; color: #FDD835; letter-spacing: -1px; margin-bottom: 50px !important; } 
+        .search-bar { width: 88%; height: 64px; border: 1.5px solid #d4d4d4; border-radius: 32px; display: flex; align-items: center; padding: 0 15px 0 20px; background-color: #ffffff; }
         
         .icon-download { width: 20px; height: 20px; margin-right: 14px; stroke: #999999; stroke-width: 1.5; fill: none; }
         .search-input { flex: 1; border: none; outline: none; background: transparent; font-size: 16px; color: #444444; }
         
-        /* Микрофон на месте */
+        /* ТВОЙ ОРИГИНАЛЬНЫЙ МИКРОФОН */
         .mic-button { background: none !important; border: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; }
         .icon-mic { width: 22px !important; height: 22px !important; stroke: #999999 !important; stroke-width: 1.8 !important; fill: none !important; }
 
+        /* ЗАГЛУШКИ */
         .placeholder-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         .ghost-icon svg { width: 100px; height: 100px; fill: none; stroke: #EBEBEB; stroke-width: 3; margin-bottom: 20px;}
         .placeholder-text { color: #999999; font-size: 18px; }
@@ -55,12 +57,13 @@
         .retry-btn { background: none; border: none; color: #FDD835; font-size: 16px; font-weight: 700; text-transform: uppercase; cursor: pointer; }
         .header-title-white { padding: 40px 20px 20px 20px; }
         .header-title-white h1 { font-size: 26px; font-weight: 800; color: #111111; }
+
+        /* СПИСКИ НАСТРОЕК */
         .empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 60px; }
         .empty-icon { width: 110px; height: 110px; border: 3px solid #EBEBEB; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; }
         .empty-icon svg { width: 50px; height: 50px; stroke: #EBEBEB; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
         .empty-text { font-size: 17px; color: #999999; margin-bottom: 35px; }
         .btn-search-empty { display: flex; align-items: center; gap: 10px; background-color: #ffffff; border: 1.5px solid #E0E0E0; border-radius: 30px; padding: 12px 45px; font-size: 17px; font-weight: 700; color: #111111; cursor: pointer; }
-        .btn-search-empty svg { width: 22px; height: 22px; stroke: #111111; stroke-width: 2.5; fill: none; }
         .settings-header { padding: 40px 20px 20px 20px; }
         .settings-header h1 { font-size: 26px; font-weight: 800; color: #111111; }
         .settings-section { margin-bottom: 25px; }
@@ -80,24 +83,8 @@
         .inner-text-col { display: flex; flex-direction: column; gap: 6px; max-width: 80%; }
         .inner-title { font-size: 16px; color: #111; font-weight: 500; }
         .inner-subtitle { font-size: 14px; color: #999; line-height: 1.3; }
-        
-        .toggle-switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
-        .toggle-switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 28px; }
-        .slider:before { position: absolute; content: ""; height: 24px; width: 24px; left: 2px; bottom: 2px; background-color: white; transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: #FDD835; }
-        input:checked + .slider:before { transform: translateX(22px); }
-        
-        .modal-overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 100; justify-content: center; align-items: center; }
-        .modal-overlay.active { display: flex; }
-        .modal-box { background: #fff; width: 85%; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .modal-title { font-size: 20px; font-weight: 700; color: #111; margin-bottom: 15px; }
-        .modal-text { font-size: 15px; color: #666; line-height: 1.4; margin-bottom: 20px; }
-        .modal-actions { display: flex; justify-content: flex-end; gap: 20px; margin-top: 25px; }
-        .modal-btn { background: none; border: none; font-size: 15px; font-weight: 700; cursor: pointer; }
-        .modal-btn-cancel { color: #999; }
-        .modal-btn-ok { color: #FDD835; }
-        
+
+        /* НИЖНЕЕ МЕНЮ */
         .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 25px 25px; border-top: 1px solid #F0F0F0; background-color: #ffffff; z-index: 10; flex-shrink: 0; }
         .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #999999; cursor: pointer; background: none; border: none; }
         .nav-item svg { width: 24px; height: 24px; margin-bottom: 6px; stroke: #999999; stroke-width: 1.5; fill: none; }
@@ -105,8 +92,8 @@
         .nav-item.active { color: #111111; }
         .nav-item.active svg { stroke: #111111; stroke-width: 2.2; }
         .nav-item.active span { font-weight: 700; font-size: 12px; }
-        
-        /* Стили для экрана аккаунта */
+
+        /* ЭКРАН АККАУНТА */
         .btn-login-big { width: 100% !important; background: #FDD835 !important; color: #111 !important; border: none !important; padding: 18px !important; border-radius: 30px !important; font-size: 18px !important; font-weight: 700 !important; cursor: pointer !important; margin-top: auto !important; margin-bottom: 20px !important; }
         .account-container { display: flex; flex-direction: column; align-items: center; padding: 20px; flex: 1; margin-top: 40px; }
         .logos-row { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 50px; }
@@ -124,7 +111,8 @@
 </head>
 <body>
     <div class="main-wrapper">
-        <!-- ЭКРАН ПОИСКА -->
+        
+        <!-- ГЛАВНЫЙ ЭКРАН -->
         <div id="screen-search" class="app-screen active">
             <div class="bg-watermarks">
                 <div class="bg-row">
@@ -136,7 +124,7 @@
                     <svg class="watermark wm-yt-bottom-right" viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
                 </div>
             </div>
-            <div class="ui-layer">
+            <div class="ui-layer" style="position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%;">
                 <div class="top-nav">
                     <div class="tab active" onclick="switchTopTab('screen-search', this)">Поиск</div>
                     <div class="tab" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
@@ -218,10 +206,6 @@
                         <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="settings-item-text">Уч. запись</span></div>
                         <div class="settings-item-right"><span class="settings-item-value" id="settings-account-status">Вход</span><svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
                     </div>
-                    <div class="settings-item" onclick="showScreen('screen-settings-region')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Регион и язык</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                    </div>
                 </div>
             </div>
         </div>
@@ -233,13 +217,8 @@
                 <div class="header-title">Настройки загрузки</div>
             </div>
             <div class="inner-list">
-                <div class="inner-item" onclick="selectDownloadFolder()">
-                    <div class="inner-text-col"><span class="inner-title">Папка для скачивания</span><span class="inner-subtitle" id="folder-path-text">/storage/emulated/0/snaptube/download</span></div>
-                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
                 <div class="inner-item">
-                    <div class="inner-text-col"><span class="inner-title">Загрузить по мобильной связи</span><span class="inner-subtitle">Медиа-файлы будут загружены по мобильной связи</span></div>
-                    <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                    <div class="inner-text-col"><span class="inner-title">Папка для скачивания</span><span class="inner-subtitle" id="folder-path-text">/storage/emulated/0/snaptube/download</span></div>
                 </div>
             </div>
         </div>
@@ -250,9 +229,6 @@
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Уведомления</div>
             </div>
-            <div class="inner-list">
-                <div class="inner-item"><div class="inner-text-col"><span class="inner-title">Ход загрузки</span><span class="inner-subtitle">Уведомлять о ходе загрузки</span></div><label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label></div>
-            </div>
         </div>
         
         <!-- ЭКРАН ТЕМЫ -->
@@ -261,12 +237,9 @@
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Тема</div>
             </div>
-            <div class="inner-list" style="margin-top: 20px; background-color: transparent;">
-                <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title" style="font-weight: 400; font-size: 17px;">Светлая</span><svg class="theme-check" viewBox="0 0 24 24" style="display: block;"><path d="M20 6L9 17l-5-5"/></svg></div>
-            </div>
         </div>
 
-        <!-- ЭКРАН УЧЕТНОЙ ЗАПИСИ (ШАГ 1) -->
+        <!-- ЭКРАН УЧЕТНОЙ ЗАПИСИ (БЕЗ ПРОМЕЖУТОЧНЫХ ЭКРАНОВ) -->
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
@@ -286,40 +259,11 @@
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="feature-text">История и список «Смотреть позже»</span></div>
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg><span class="feature-text">Подписка на новые каналы</span></div>
                 </div>
-                <!-- ПЕРЕХОД НА ПРОМЕЖУТОЧНЫЙ ЭКРАН -->
-                <button class="btn-login-big" onclick="showScreen('screen-google-login')">Вход</button>
-            </div>
-        </div>
-
-        <!-- ПРОМЕЖУТОЧНЫЙ ЭКРАН ВХОДА (ШАГ 2) -->
-        <div id="screen-google-login" class="app-screen">
-            <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-account')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-                <div class="header-title">Войти в YouTube</div>
-            </div>
-            <div style="padding: 40px 25px; display: flex; flex-direction: column; align-items: flex-start; flex: 1;">
-                <svg style="width: 50px; height: 50px; margin-bottom: 30px;" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                
-                <div style="font-size: 24px; font-weight: 500; color: #202124; margin-bottom: 10px; width: 100%;">Вход</div>
-                <div style="font-size: 16px; color: #5f6368; margin-bottom: 40px; width: 100%;">Перейдите на YouTube</div>
-                
-                <!-- НАЖАТИЕ НА ЭТУ КНОПКУ ОТКРЫВАЕТ БРАУЗЕР С GOOGLE (ШАГ 3) -->
-                <button onclick="window.open('https://accounts.google.com/ServiceLogin?continue=https://www.youtube.com/', '_blank')" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: #fff; border: 1px solid #dadce0; border-radius: 4px; padding: 12px; font-size: 16px; font-weight: 500; color: #3c4043; cursor: pointer;">
-                    <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                    Войти через Google
-                </button>
+                <!-- ЖЕЛТАЯ КНОПКА, ОТКРЫВАЮЩАЯ СРАЗУ GOOGLE -->
+                <button class="btn-login-big" onclick="window.open('https://accounts.google.com/ServiceLogin?continue=https://www.youtube.com/', '_blank')">Вход</button>
             </div>
         </div>
         
-        <!-- ЭКРАН РЕГИОНА -->
-        <div id="screen-settings-region" class="app-screen">
-            <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-                <div class="header-title">Регион и язык</div>
-            </div>
-        </div>
     </div>
     
     <!-- НИЖНЕЕ МЕНЮ -->
@@ -354,8 +298,6 @@
         document.getElementById('micBtn').addEventListener('click', function() {
             alert('Голосовой поиск скоро появится!');
         });
-        async function selectDownloadFolder() { if (!window.showDirectoryPicker) { alert('Твой браузер не поддерживает выбор папки.'); return; } try { const dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' }); document.getElementById('folder-path-text').innerText = "Выбрано: " + dirHandle.name; } catch (error) { if (error.name !== 'AbortError') alert('Ошибка выбора.'); } }
-        function selectTheme(element) { document.querySelectorAll('.theme-check').forEach(check => { check.style.display = 'none'; }); element.querySelector('.theme-check').style.display = 'block'; }
     </script>
 </body>
 </html>
