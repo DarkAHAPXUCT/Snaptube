@@ -598,56 +598,19 @@
             element.classList.add('active');
             showScreen(screenId);
         }
-
-        function switchTopTab(screenId, element) {
-            showScreen(screenId);
-        }
-
+        function switchTopTab(screenId, element) { showScreen(screenId); }
         function showScreen(screenId) {
             document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             document.getElementById(screenId).scrollTop = 0;
         }
-
         document.getElementById('emptySearchBtn').addEventListener('click', function() {
             const navBtn = document.querySelector('.bottom-nav .nav-item[data-bottom-target="screen-search"]');
             switchBottomTab('screen-search', navBtn);
         });
-
         document.getElementById('micBtn').addEventListener('click', function() {
             alert('Голосовой поиск скоро появится!');
         });
-
-        function openModal(modalId) { document.getElementById(modalId).classList.add('active'); }
-        function closeModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
-
-        async function selectDownloadFolder() {
-            if (!window.showDirectoryPicker) { alert('Твой браузер не поддерживает выбор папки.'); return; }
-            try {
-                const dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
-                document.getElementById('folder-path-text').innerText = "Выбрано: " + dirHandle.name;
-            } catch (error) { if (error.name !== 'AbortError') alert('Ошибка выбора.'); }
-        }
-
-        function handleToolsPanelChange(checkbox) {
-            if (checkbox.checked) openModal('modal-tools-activated');
-            else openModal('modal-tools-panel');
-        }
-        function cancelDisableTools() { document.getElementById('toolsPanelCheckbox').checked = true; closeModal('modal-tools-panel'); }
-        function confirmDisableTools() { closeModal('modal-tools-panel'); }
-
-        function selectTheme(element) {
-            document.querySelectorAll('.theme-check').forEach(check => { check.style.display = 'none'; });
-            element.querySelector('.theme-check').style.display = 'block';
-        }
-
-        // Выход (Заглушка)
-        function logoutSimulation() {
-            document.getElementById('account-logged-out').style.display = 'flex';
-            document.getElementById('account-logged-in').style.display = 'none';
-            document.getElementById('settings-account-status').innerText = 'Вход';
-            document.getElementById('settings-account-status').style.color = '#999';
-        }
     </script>
 </body>
 </html>
