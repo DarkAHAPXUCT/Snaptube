@@ -52,12 +52,12 @@
             margin-top: 60px !important; padding: 0 15px 15px 15px !important; 
             background-color: transparent !important; z-index: 10 !important; 
         }
-        .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
-        .tab.active { color: #111111; font-weight: 700; }
+        .tab { font-size: 14px !important; color: #999999; font-weight: 400 !important; cursor: pointer; padding-bottom: 8px; position: relative;}
+        .tab.active { color: #111111; font-weight: 600 !important; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
         
         .main-content { flex: 1; position: relative; }
-        .logo { position: absolute; top: 28%; left: 50%; transform: translateX(-50%); font-size: 44px; font-weight: 800; color: #FDD835; letter-spacing: -1px; }
+        .logo { position: absolute; top: 20% !important; left: 50%; transform: translateX(-50%); font-size: 44px; font-weight: 800; color: #FDD835; letter-spacing: -1px; }
         
         /* СТРОКА ПОИСКА (46%, Микрофон) */
         .search-bar { 
@@ -99,7 +99,7 @@
         .settings-item:last-child { border-bottom: none; }
         .settings-item-left { display: flex; align-items: center; gap: 15px; }
         .settings-item-icon { width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; }
-        .settings-item-text { font-size: 17px; color: #111; }
+        .settings-item-text { font-size: 14px !important; color: #333; font-weight: 400 !important; }
         .settings-item-right { display: flex; align-items: center; gap: 10px; }
         .settings-item-value { font-size: 15px; color: #999; }
         .chevron-icon { width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; }
@@ -108,8 +108,8 @@
         .inner-item { padding: 18px 20px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; }
         .inner-item:last-child { border-bottom: none; }
         .inner-text-col { display: flex; flex-direction: column; gap: 6px; max-width: 80%; }
-        .inner-title { font-size: 16px; color: #111; font-weight: 500; }
-        .inner-subtitle { font-size: 14px; color: #999; line-height: 1.3; }
+        .inner-title { font-size: 14px !important; color: #333; font-weight: 400 !important; }
+        .inner-subtitle { font-size: 12px !important; color: #888; line-height: 1.3; font-weight: 400 !important; }
         
         /* ТУМБЛЕРЫ (Гранатовые) */
         .toggle-switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
@@ -167,10 +167,10 @@
         .bottom-nav { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; border-top: 1px solid #F0F0F0 !important; background-color: #ffffff !important; z-index: 10 !important; flex-shrink: 0 !important; }
         .nav-item { display: flex !important; flex-direction: column !important; align-items: center !important; text-decoration: none !important; color: #999999 !important; cursor: pointer !important; background: transparent !important; border: none !important; flex-shrink: 0 !important; }
         .nav-item svg { width: 28px !important; height: 28px !important; margin-bottom: 6px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; flex-shrink: 0 !important; }
-        .nav-item span { font-size: 11px !important; font-weight: 400 !important; }
+        .nav-item span { font-size: 10px !important; font-weight: 400 !important; }
         .nav-item.active { color: #111111 !important; }
         .nav-item.active svg { stroke: #111111 !important; stroke-width: 2.2 !important; }
-        .nav-item.active span { font-weight: 700 !important; font-size: 12px !important; }
+        .nav-item.active span { font-weight: 600 !important; font-size: 11px !important; }
     </style>
 </head>
 <body>
@@ -407,7 +407,10 @@
             <div id="account-logged-out" class="account-container">
                 <div class="logos-row">
                     <div class="snaptube-icon">
-                        <div class="snaptube-icon-inner"><svg class="snaptube-arrow" viewBox="0 0 24 24"><path d="M12 4v12m0 0l-4-4m4 4l4-4"/></svg></div>
+                        <div class="snaptube-icon-inner"><svg class="snaptube-arrow" viewBox="0 0 24 24" style="width: 22px !important; height: 22px !important; fill: #E53935 !important; flex-shrink: 0 !important;">
+                                <path d="M11 3h2v9h4l-5 6-5-6h4V3z"/>
+                                <path d="M7 20h10v2H7z"/>
+                            </svg></div>
                     </div>
                     <div style="color: #ddd; font-size: 24px; font-weight: 900;">⇄</div>
                     <div class="yt-icon"><div class="yt-play"></div></div>
@@ -447,7 +450,15 @@
                 </svg>
                 <div style="font-size: 24px; font-weight: 500; color: #202124; margin-bottom: 10px;">Вход</div>
                 <div style="font-size: 16px; color: #5f6368; margin-bottom: 40px;">Перейдите на YouTube</div>
-                <div id="googleButtonContainer" style="display: flex; justify-content: center; width: 100%;"></div>
+                <div id="googleButtonContainer" style="display: flex !important; flex-direction: column !important; width: 100% !important; margin-top: 20px !important; align-items: center !important;">
+                                <input type="text" placeholder="Телефон или электронный адрес" style="width: 100% !important; background: transparent !important; border: 1px solid #dadce0 !important; border-radius: 4px !important; padding: 15px !important; margin-bottom: 30px !important; text-align: left !important; font-size: 16px !important; color: #3c4043 !important; outline: none !important; box-sizing: border-box !important;">
+                                <div style="width: 100% !important; display: flex !important; justify-content: space-between !important; align-items: center !important;">
+                                    <span style="color: #1a73e8 !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important;">Создать аккаунт</span>
+                                    <button onclick="loginSimulation()" style="background: #1a73e8 !important; color: white !important; border: none !important; padding: 10px 24px !important; border-radius: 4px !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important;">
+                                        Далее
+                                    </button>
+                                </div>
+                            </div>
             </div>
         </div>
 
@@ -611,6 +622,14 @@
         document.getElementById('micBtn').addEventListener('click', function() {
             alert('Голосовой поиск скоро появится!');
         });
-    </script>
+    
+        function loginSimulation() {
+            document.getElementById('account-logged-out').style.display = 'none';
+            document.getElementById('account-logged-in').style.display = 'flex';
+            document.getElementById('settings-account-status').innerText = 'Выйти';
+            document.getElementById('settings-account-status').style.color = '#E53935';
+            showScreen('screen-account');
+        }
+</script>
 </body>
 </html>
