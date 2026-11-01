@@ -110,7 +110,7 @@
         /* НИЖНЕЕ МЕНЮ */
         .bottom-nav { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; border-top: 1px solid #F0F0F0 !important; background-color: #ffffff !important; z-index: 10 !important; flex-shrink: 0 !important; }
         .nav-item { display: flex !important; flex-direction: column !important; align-items: center !important; text-decoration: none !important; color: #999999 !important; cursor: pointer !important; background: transparent !important; border: none !important; flex-shrink: 0 !important; }
-        .nav-item svg { width: 28px !important; height: 28px !important; margin-bottom: 6px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; flex-shrink: 0 !important; }
+        .nav-item svg { width: 24px !important; height: 24px !important; margin-bottom: 6px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; flex-shrink: 0 !important; }
         .nav-item span { font-size: 10px !important; font-weight: 400 !important; }
         .nav-item.active { color: #111111 !important; }
         .nav-item.active svg { stroke: #111111 !important; stroke-width: 2.2 !important; }
@@ -190,6 +190,7 @@
         </div>
 
         <!-- ЭКРАН 5: ГЛАВНЫЕ НАСТРОЙКИ -->
+        <!-- ЭКРАН НАСТРОЙКИ (Как на эталоне) -->
         <div id="screen-settings" class="app-screen">
             <div class="settings-header"><h1>Настройки</h1></div>
             
@@ -216,9 +217,8 @@
                 <div class="settings-list">
                     <div class="settings-item" onclick="showScreen('screen-account')">
                         <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="settings-item-text">Уч. запись</span></div>
-                        <div class="settings-item-right"><span class="settings-item-value" id="settings-account-status"></span><svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
-                    
                     <div class="settings-item" onclick="showScreen('screen-settings-region')">
                         <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Регион и язык</span></div>
                         <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
@@ -227,13 +227,12 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 6: НАСТРОЙКИ ЗАГРУЗКИ -->
+        <!-- ЭКРАН НАСТРОЙКИ ЗАГРУЗКИ -->
         <div id="screen-settings-download" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Настройки загрузки</div>
             </div>
-
             <div class="inner-list">
                 <div class="inner-item" onclick="selectDownloadFolder()">
                     <div class="inner-text-col">
@@ -266,13 +265,12 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 7: УВЕДОМЛЕНИЯ -->
+        <!-- ЭКРАН УВЕДОМЛЕНИЯ -->
         <div id="screen-settings-notifications" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Уведомления</div>
             </div>
-
             <div class="inner-list">
                 <div style="padding: 15px 20px 5px; font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase;">Уведомления о загрузке</div>
                 <div class="inner-item">
@@ -286,41 +284,38 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 8: ТЕМА -->
+        <!-- ЭКРАН ТЕМА -->
         <div id="screen-settings-theme" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Тема</div>
             </div>
-
-            <div class="inner-list" style="margin-top: 20px; background-color: transparent;">
-                <div style="padding: 0 20px 15px 20px; font-size: 16px; font-weight: 700; color: #111;">Тема приложения</div>
+            <div class="inner-list" style="background: #fff !important; margin: 20px 15px !important; border-radius: 12px !important;">
                 <div class="inner-item theme-item" onclick="selectTheme(this)">
-                    <span class="inner-title" style="font-weight: 400; font-size: 14px;">Светлая</span>
+                    <span class="inner-title" style="font-weight: 400; font-size: 15px;">Светлая</span>
                     <svg class="theme-check" viewBox="0 0 24 24" style="display: block;"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)">
-                    <span class="inner-title" style="font-weight: 400; font-size: 14px;">Тёмная</span>
+                    <span class="inner-title" style="font-weight: 400; font-size: 15px;">Тёмная</span>
                     <svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)">
-                    <span class="inner-title" style="font-weight: 400; font-size: 14px;">Sailor Moon</span>
+                    <span class="inner-title" style="font-weight: 400; font-size: 15px;">Sailor Moon</span>
                     <svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)">
-                    <span class="inner-title" style="font-weight: 400; font-size: 14px;">Sailor Pluto</span>
+                    <span class="inner-title" style="font-weight: 400; font-size: 15px;">Sailor Pluto</span>
                     <svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
             </div>
         </div>
 
-        <!-- ЭКРАН 9: АККАУНТ -->
+        <!-- ЭКРАН АККАУНТ -->
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Учётная запись</div>
             </div>
-
             <div id="account-logged-out" class="account-container">
                 <div class="logos-row">
                     <div class="snaptube-icon">
@@ -334,28 +329,22 @@
                     <div style="color: #ddd; font-size: 24px; font-weight: 900;">⇄</div>
                     <div class="yt-icon"><div class="yt-play"></div></div>
                 </div>
-
                 <div class="account-title">Получи все функции YouTube в Snaptube</div>
-
                 <div class="features-list">
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10 9 15 12 10 15"/></svg><span class="feature-text">Синхронизация библиотеки YouTube</span></div>
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="feature-text">История и список «Смотреть позже»</span></div>
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg><span class="feature-text">Подписка на новые каналы</span></div>
                 </div>
-
                 <button class="btn-login-big" onclick="showScreen('screen-google-login')">Вход</button>
             </div>
-
             <div id="account-logged-in" class="user-profile-card">
-                <div class="user-avatar">
-                    <span style="color: #333; font-size: 14px;">Avatar</span>
-                </div>
+                <div class="user-avatar"><span style="color: #333; font-size: 14px;">Avatar</span></div>
                 <div class="user-name">Иван Иванов</div>
                 <div class="user-email">ivan@gmail.com</div>
             </div>
         </div>
 
-        <!-- ЭКРАН 10: GOOGLE AUTH -->
+        <!-- ЭКРАН GOOGLE (Активная форма) -->
         <div id="screen-google-login" class="app-screen">
             <div class="header-bar" style="background: #ffffff !important; padding: 20px !important;">
                 <button class="back-btn" onclick="showScreen('screen-account')" style="margin-right: 15px !important;">
@@ -386,13 +375,12 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 11: РЕГИОН И ЯЗЫК -->
+        <!-- ЭКРАН РЕГИОН И ЯЗЫК -->
         <div id="screen-settings-region" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Регион и язык</div>
             </div>
-
             <div class="inner-list">
                 <div class="inner-item" onclick="showScreen('screen-settings-language')">
                     <div class="inner-text-col">
@@ -417,7 +405,7 @@
                 <button class="back-btn" onclick="showScreen('screen-settings-region')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Язык в Snaptube</div>
             </div>
-            <div class="inner-list" style="background: #fff !important;">
+            <div class="inner-list" style="background: #fff !important; margin: 20px 15px !important; border-radius: 12px !important;">
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title">Язык по умолчанию</span><svg class="theme-check" viewBox="0 0 24 24" style="display: block; stroke: #800020;"><path d="M20 6L9 17l-5-5"/></svg></div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title">Български</span><svg class="theme-check" viewBox="0 0 24 24" style="display: none; stroke: #800020;"><path d="M20 6L9 17l-5-5"/></svg></div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title">Русский</span><svg class="theme-check" viewBox="0 0 24 24" style="display: none; stroke: #800020;"><path d="M20 6L9 17l-5-5"/></svg></div>
@@ -431,7 +419,7 @@
                 <button class="back-btn" onclick="showScreen('screen-settings-region')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Выбрать регион</div>
             </div>
-            <div class="inner-list" style="background: #fff !important;">
+            <div class="inner-list" style="background: #fff !important; margin: 20px 15px !important; border-radius: 12px !important;">
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title">Россия</span><svg class="theme-check" viewBox="0 0 24 24" style="display: block; stroke: #800020;"><path d="M20 6L9 17l-5-5"/></svg></div>
                 <div class="inner-item theme-item" onclick="selectTheme(this)"><span class="inner-title">США</span><svg class="theme-check" viewBox="0 0 24 24" style="display: none; stroke: #800020;"><path d="M20 6L9 17l-5-5"/></svg></div>
             </div>
@@ -454,32 +442,51 @@
 
     <!-- ЛОГИКА -->
     <script>
+        function showScreen(screenId) {
+            document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(screenId);
+            if (target) {
+                target.classList.add('active');
+                target.scrollTop = 0;
+            }
+        }
 
         function switchBottomTab(screenId, element) {
             document.querySelectorAll('.bottom-nav .nav-item').forEach(nav => nav.classList.remove('active'));
-            element.classList.add('active');
+            if (element) element.classList.add('active');
             showScreen(screenId);
         }
-        function switchTopTab(screenId, element) { showScreen(screenId); }
-        function showScreen(screenId) {
-            document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
-            document.getElementById(screenId).scrollTop = 0;
+
+        function switchTopTab(screenId, element) {
+            document.querySelectorAll('.top-nav .tab').forEach(tab => tab.classList.remove('active'));
+            if (element) element.classList.add('active');
+            showScreen(screenId);
         }
+
+        function loginSimulation() {
+            const loggedOut = document.getElementById('account-logged-out');
+            const loggedIn = document.getElementById('account-logged-in');
+            if (loggedOut) loggedOut.style.display = 'none';
+            if (loggedIn) loggedIn.style.display = 'flex';
+            showScreen('screen-account');
+        }
+
         function selectTheme(element) {
-            document.querySelectorAll('.theme-check').forEach(check => { check.style.display = 'none'; });
-            element.querySelector('.theme-check').style.display = 'block';
+            const parentList = element.closest('.inner-list');
+            if (parentList) {
+                parentList.querySelectorAll('.theme-check').forEach(check => { check.style.display = 'none'; });
+            }
+            const check = element.querySelector('.theme-check');
+            if (check) check.style.display = 'block';
         }
-        function openModal(id) { document.getElementById(id).classList.add('active'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-        
-        function selectLanguage(lang) {
-            document.getElementById('current-lang').innerText = lang;
-            closeModal('modal-language');
+
+        function openModal(modalId) { 
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add('active'); 
         }
-        function selectRegion(region) {
-            document.getElementById('current-region').innerText = region;
-            closeModal('modal-region');
+        function closeModal(modalId) { 
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.remove('active'); 
         }
 
         async function selectDownloadFolder() {
@@ -487,19 +494,15 @@
             try {
                 const dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
                 document.getElementById('folder-path-text').innerText = "Выбрано: " + dirHandle.name;
-            } catch (error) {
-                if (error.name !== 'AbortError') alert('Ошибка выбора.');
-            }
+            } catch (error) { if (error.name !== 'AbortError') alert('Ошибка выбора.'); }
         }
 
-        document.getElementById('emptySearchBtn').addEventListener('click', function() {
-            const navBtn = document.querySelector('.bottom-nav .nav-item[data-bottom-target="screen-search"]');
-            switchBottomTab('screen-search', navBtn);
-        });
-        document.getElementById('micBtn').addEventListener('click', function() {
-            alert('Голосовой поиск скоро появится!');
-        });
-    
+        function handleToolsPanelChange(checkbox) {
+            if (checkbox.checked) openModal('modal-tools-activated');
+            else openModal('modal-tools-panel');
+        }
+        function cancelDisableTools() { document.getElementById('toolsPanelCheckbox').checked = true; closeModal('modal-tools-panel'); }
+        function confirmDisableTools() { closeModal('modal-tools-panel'); }
     </script>
 </body>
 </html>
