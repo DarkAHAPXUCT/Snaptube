@@ -47,20 +47,16 @@
         .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
         
         /* ВЕРХНЕЕ МЕНЮ (Опущено на 60px) */
-        .top-nav { 
-            display: flex !important; justify-content: space-around !important; align-items: center !important; 
-            margin-top: 60px !important; padding: 0 15px 15px 15px !important; 
-            background-color: transparent !important; z-index: 10 !important; 
-        }
+        .top-nav { display: flex !important; justify-content: space-around !important; align-items: center !important; margin-top: 60px !important; padding: 0 15px 15px 15px !important; background-color: transparent !important; z-index: 10 !important; }
         .tab { font-size: 14px !important; color: #999999; font-weight: 400 !important; cursor: pointer; padding-bottom: 8px; position: relative;}
         .tab.active { color: #111111; font-weight: 600 !important; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
         
         .main-content { flex: 1; position: relative; }
-        .logo { position: absolute !important; top: 8% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; }
+        .logo { position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important; }
         
         /* СТРОКА ПОИСКА (46%, Микрофон) */
-        .search-bar { position: absolute !important; top: 24% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; box-sizing: border-box !important; }
+        .search-bar { position: absolute !important; top: 45% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; box-sizing: border-box !important; }
         .icon-download { width: 24px !important; height: 24px !important; margin-right: 14px !important; stroke: #999 !important; stroke-width: 1.5 !important; fill: none !important; }
         .search-input { flex: 1 !important; border: none !important; outline: none !important; background: transparent !important; font-size: 16px !important; color: #444 !important; padding: 0 !important; width: 100% !important; }
         .mic-button { background: transparent !important; border: none !important; -webkit-appearance: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; flex-shrink: 0 !important; }
@@ -185,6 +181,12 @@
         z-index: 10 !important; 
     }
 </style>
+
+    <style id="screen-fix">
+        .app-screen { display: none !important; position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; z-index: 1 !important; background-color: #ffffff !important; overflow-y: auto !important; }
+        .app-screen.active { display: flex !important; flex-direction: column !important; z-index: 10 !important; }
+    </style>
+
 </head>
 <body>
 
@@ -420,7 +422,7 @@
             <div id="account-logged-out" class="account-container">
                 <div class="logos-row">
                     <div class="snaptube-icon">
-                        <div class="snaptube-icon-inner"><svg class="snaptube-arrow" viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; fill: none !important; stroke: #E53935 !important; stroke-width: 3.5 !important; stroke-linecap: round !important; stroke-linejoin: round !important; flex-shrink: 0 !important;">
+                        <div class="snaptube-icon-inner"><svg class="snaptube-arrow" viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; fill: none !important; stroke: #E53935 !important; stroke-width: 3 !important; stroke-linecap: round !important; stroke-linejoin: round !important; stroke-dasharray: 4, 4 !important; flex-shrink: 0 !important;">
                     <path d="M12 4v12m0 0l-5-5m5 5l5-5"/>
                     <path d="M6 20h12"/>
                 </svg></div>
@@ -444,38 +446,41 @@
                 <img id="userAvatar" class="user-avatar" src="https://yt3.ggpht.com/ytc/APkrFKb5cdeqB6O-pQ4V3M8q4Y9x2X1Z3W4V5U6T7S8s=s240-c-k-c0x00ffffff-no-rj" alt="Avatar">
                 <div id="userName" class="user-name">Иван Иванов</div>
                 <div id="userEmail" class="user-email">ivan@gmail.com</div>
-                <button class="btn-logout" onclick="logoutSimulation()">Выйти из аккаунта</button>
+                
             </div>
         </div>
 
         <!-- ЭКРАН 10: GOOGLE AUTH -->
         <div id="screen-google-login" class="app-screen">
-            <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-account')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-                <div class="header-title">Вход в Google</div>
+            <div class="header-bar" style="background: #ffffff !important; padding: 20px !important;">
+                <button class="back-btn" onclick="showScreen('screen-account')" style="margin-right: 15px !important;">
+                    <svg viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2.5 !important; fill: none !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <div class="header-title" style="font-size: 20px !important; font-weight: 500 !important; color: #202124 !important;">Войти в YouTube</div>
             </div>
-            <div style="padding: 40px 25px; display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1;">
-                <svg style="width: 50px; height: 50px; margin-bottom: 20px;" viewBox="0 0 24 24">
+            <div style="padding: 30px 25px !important; display: flex !important; flex-direction: column !important; width: 100% !important; height: 100% !important; background: #ffffff !important; box-sizing: border-box !important;">
+                <svg style="width: 45px !important; height: 45px !important; margin-bottom: 30px !important;" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                 </svg>
-                <div style="font-size: 24px; font-weight: 500; color: #202124; margin-bottom: 10px;">Вход</div>
-                <div style="font-size: 16px; color: #5f6368; margin-bottom: 40px;">Перейдите на YouTube</div>
-                <div id="googleButtonContainer" style="display: flex !important; flex-direction: column !important; width: 100% !important; margin-top: 20px !important; align-items: center !important;">
-                                <input type="text" placeholder="Телефон или электронный адрес" style="width: 100% !important; background: transparent !important; border: 1px solid #dadce0 !important; border-radius: 4px !important; padding: 15px !important; margin-bottom: 30px !important; text-align: left !important; font-size: 16px !important; color: #3c4043 !important; outline: none !important; box-sizing: border-box !important;">
-                                <div style="width: 100% !important; display: flex !important; justify-content: space-between !important; align-items: center !important;">
-                                    <span style="color: #1a73e8 !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important;">Создать аккаунт</span>
-                                    <button onclick="loginSimulation()" style="background: #1a73e8 !important; color: white !important; border: none !important; padding: 10px 24px !important; border-radius: 4px !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important;">
-                                        Далее
-                                    </button>
-                                </div>
-                            </div>
+                <div style="font-size: 24px !important; font-weight: 400 !important; color: #202124 !important; margin-bottom: 10px !important;">Вход</div>
+                <div style="font-size: 16px !important; color: #202124 !important; margin-bottom: 30px !important;">Перейдите на YouTube</div>
+                
+                <input type="text" placeholder="Телефон или электронный адрес" style="width: 100% !important; border: 1px solid #dadce0 !important; border-radius: 4px !important; padding: 15px !important; font-size: 16px !important; color: #202124 !important; outline: none !important; box-sizing: border-box !important; margin-bottom: 15px !important; background: #ffffff !important; pointer-events: auto !important;">
+                
+                <div style="font-size: 14px !important; color: #1a73e8 !important; font-weight: 500 !important; margin-bottom: 40px !important; cursor: pointer !important;">Забыли адрес электронной почты?</div>
+                <div style="font-size: 14px !important; color: #202124 !important; line-height: 1.5 !important; margin-bottom: 40px !important;">
+                    Не ваш компьютер? Включите гостевой режим, чтобы защитить данные в аккаунте. <span style="color: #1a73e8 !important; font-weight: 500 !important;">Подробнее об использовании гостевого режима</span>
+                </div>
+                <div style="width: 100% !important; display: flex !important; justify-content: space-between !important; align-items: center !important; margin-top: auto !important; padding-bottom: 20px !important;">
+                    <span style="color: #1a73e8 !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important;">Создать аккаунт</span>
+                    <button onclick="loginSimulation()" style="background: #1a73e8 !important; color: white !important; border: none !important; padding: 12px 24px !important; border-radius: 4px !important; font-size: 14px !important; font-weight: 500 !important; cursor: pointer !important; pointer-events: auto !important;">Далее</button>
+                </div>
             </div>
         </div>
 
-        <!-- ЭКРАН 11: РЕГИОН И ЯЗЫК (ГЛАВНЫЙ) -->
         <div id="screen-settings-region" class="app-screen">
             <div class="header-bar">
                 <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
