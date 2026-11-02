@@ -102,27 +102,31 @@
         .nav-item.active span { font-weight: 600 !important; font-size: 11px !important; }
     </style>
 
-    <style id="supreme-color-lock">
-        /* Логотип и верхняя вкладка - Желтые */
+    
+
+    <style id="absolute-final-lock">
+        /* ВЫСОТА */
+        .logo { top: 28% !important; }
+        .search-bar { top: 46% !important; }
+
+        /* ЦВЕТА: Логотип и Активная вкладка сверху - Желтые */
         .logo { color: #FDD835 !important; }
         .tab.active { color: #FDD835 !important; }
         .tab.active::after { background-color: #FDD835 !important; }
-        
-        /* Неактивные вкладки - Серые */
-        .tab { color: #999999 !important; }
-        
-        /* Строка поиска - Серая */
+
+        /* ЦВЕТА: Строка поиска - Серая рамка и серые иконки */
         .search-bar { border: 1.5px solid #d4d4d4 !important; }
-        .search-input { color: #444444 !important; }
         .icon-download, .icon-mic { stroke: #999999 !important; }
-        
-        /* Нижнее меню - Активная черная, остальные серые */
-        .nav-item { color: #999999 !important; }
-        .nav-item svg { stroke: #999999 !important; }
+        .search-input { color: #444444 !important; }
+
+        /* ЦВЕТА: Нижнее меню - Активная черная, остальные серые */
         .nav-item.active { color: #111111 !important; }
         .nav-item.active svg { stroke: #111111 !important; }
+        .nav-item { color: #999999 !important; }
+        .nav-item svg { stroke: #999999 !important; }
     </style>
 </head>
+
 
 <body>
     <div class="main-wrapper">
@@ -147,9 +151,9 @@
                 </div>
                 <div class="main-content">
                     <!-- НОТКА (Градиент Алукарда) -->
-                    <div class="logo" style="position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important;">Snaptube</div>
+                    <div class="logo" style="position: absolute !important; top: 28% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important;">Snaptube</div>
 
-                    <div class="search-bar">
+                    <div class="search-bar" style="position: absolute !important; top: 46% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 60px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 30px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; box-sizing: border-box !important;">
                         <svg class="icon-download" viewBox="0 0 24 24"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <input type="text" class="search-input" placeholder="Поиск">
                         <button class="mic-button" id="micBtn">
