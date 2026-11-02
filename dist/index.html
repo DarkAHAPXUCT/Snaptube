@@ -21,7 +21,7 @@
         .wm-yt-bottom-right { transform: rotate(15deg); }
 
         .top-nav { display: flex; justify-content: space-around; align-items: center; padding-top: 60px !important; padding-bottom: 0 !important; height: 60px !important; z-index: 10; flex-shrink: 0; background: transparent; }
-        .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative; }
+        .tab { height: 60px !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative; }
         .tab.active { color: #111111; font-weight: 700; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
 
@@ -75,7 +75,7 @@
         
         .btn-login-big { width: 100%; background: #FDD835; color: #111; border: none; padding: 18px; border-radius: 30px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: auto; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; opacity: 1 !important; -webkit-tap-highlight-color: transparent !important; }
 
-        .google-login-container { padding: 70px 25px 20px 25px; display: flex; flex-direction: column; align-items: flex-start; flex: 1; background: #fff; box-sizing: border-box; }
+        .google-login-container { padding: 80px 25px 20px 25px !important; display: flex; flex-direction: column; align-items: flex-start; flex: 1; background: #fff; box-sizing: border-box; }
         .google-input { width: 100%; border: 1px solid #dadce0; border-radius: 4px; padding: 17px 14px; font-size: 14px; color: #202124; margin-bottom: 15px; outline: none; background: transparent; box-sizing: border-box; }
         
         .empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 60px; background: #ffffff; }
@@ -244,7 +244,7 @@
                 <div style="font-size: 24px; font-weight: 400; color: #202124; margin-bottom: 15px;">Вход</div>
                 <div style="font-size: 16px; color: #202124; margin-bottom: 35px;">Перейдите на YouTube</div>
                 
-                <input type="text" class="google-input" placeholder="Телефон или электронный ад...">
+                <input type="text" class="google-input" placeholder="Телефон или электронный ад..." style="padding: 16px 15px !important; font-size: 14px !important; width: 100% !important; box-sizing: border-box !important; border: 1px solid #dadce0 !important; border-radius: 4px !important; margin-bottom: 15px !important; outline: none !important; background: transparent !important;">
                 
                 <div style="color: #1a73e8; font-size: 14px; font-weight: 500; margin-bottom: 45px;">Забыли адрес электронной почты?</div>
                 
