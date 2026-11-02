@@ -99,10 +99,10 @@
 
         /* НИЖНЕЕ МЕНЮ (Активная - черная, остальные серые) */
         .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 25px 25px; border-top: 1px solid #F0F0F0; background-color: #ffffff; z-index: 10; flex-shrink: 0; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #999999; cursor: pointer; background: none; border: none; }
-        .nav-item span { font-size: 11px; font-weight: 400; }
-        .nav-item.active { color: #111111; }
-        .nav-item.active span { font-weight: 700; font-size: 12px; }
+        .nav-item { color: #999999 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; cursor: pointer !important; background: none !important; border: none !important; flex: 1 !important; -webkit-appearance: none !important; outline: none !important; }
+        .nav-item span { font-size: 11px !important; font-weight: 400 !important; color: currentColor !important; white-space: nowrap !important; letter-spacing: -0.2px; }
+        .nav-item.active { color: #111111 !important; }
+        .nav-item.active span { font-weight: 700 !important; font-size: 12px !important; white-space: nowrap !important; }
     </style>
 
     <style id="FINAL_MEGA_LOCK">
