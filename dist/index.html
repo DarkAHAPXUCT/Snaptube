@@ -104,7 +104,40 @@
         .nav-item.active { color: #111111; }
         .nav-item.active span { font-weight: 700; font-size: 12px; }
     </style>
+
+    <style id="FINAL_MEGA_LOCK">
+        /* 1. ВЫСОТЫ ГЛАВНОГО ЭКРАНА (Кнопки 60px, Логотип 24%, Поиск 45%) */
+        .top-nav { padding-top: 60px !important; padding-bottom: 15px !important; }
+        .logo { top: 24% !important; }
+        .search-bar { top: 45% !important; height: 60px !important; border-radius: 30px !important; }
+
+        /* 2. ЦВЕТА ГЛАВНОГО ЭКРАНА (Логотип желтый, поиск серый) */
+        .logo { color: #FDD835 !important; }
+        .search-bar { border: 1.5px solid #d4d4d4 !important; }
+        .icon-download, .icon-mic { stroke: #999999 !important; }
+        .search-input { color: #444444 !important; }
+
+        /* 3. ЦВЕТА ВЕРХНИХ ВКЛАДОК (Активная - ЧЕРНЫЙ текст + Желтая полоска) */
+        .tab { color: #999999 !important; }
+        .tab.active { color: #111111 !important; }
+        .tab.active::after { background-color: #FDD835 !important; }
+
+        /* 4. ЦВЕТА НИЖНЕГО МЕНЮ (Активная - Черная, остальные - Серые) */
+        .nav-item { color: #999999 !important; }
+        .nav-item svg { stroke: #999999 !important; }
+        .nav-item.active { color: #111111 !important; }
+        .nav-item.active svg { stroke: #111111 !important; }
+
+        /* 5. ЭКРАН GOOGLE (Крупный шрифт 16px и опущено ниже на 24px) */
+        #screen-google-login input[type="text"] { 
+            font-size: 16px !important; 
+            padding: 15px !important; 
+            margin-top: 24px !important; 
+            margin-bottom: 15px !important; 
+        }
+    </style>
 </head>
+
 <body>
     <div class="main-wrapper">
         
