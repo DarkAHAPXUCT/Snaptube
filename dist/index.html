@@ -27,8 +27,8 @@
         
         /* ВЕРХНИЕ ВКЛАДКИ (Активная - черная с желтым, остальные серые) */
         .top-nav { display: flex; justify-content: space-around; align-items: center; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important; }
-        .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
-        .tab.active { color: #111111; font-weight: 700; }
+        .tab { font-size: 15px; color: #999999 !important; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
+        .tab.active { color: #111111 !important; font-weight: 700; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
         
         .main-content { flex: 1; position: relative; }
@@ -186,7 +186,7 @@
                         <input type="text" class="search-input" placeholder="Поиск">
                         <div class="mic-button" style="cursor: pointer;" id="micBtn" style="background: transparent !important; border: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; flex-shrink: 0 !important;">
                             <svg class="icon-mic" viewBox="0 0 24 24" width="22" height="22" style="width: 22px !important; height: 22px !important; stroke: #999999 !important; stroke-width: 1.8 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
