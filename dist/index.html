@@ -136,7 +136,27 @@
             margin-bottom: 15px !important; 
         }
     </style>
+
+    <style id="perfect-google-input">
+        /* Убираем старые стили, если они были */
+        #screen-google-login input[type="text"] {
+            font-size: 16px !important;      /* Крупный шрифт как в оригинале */
+            height: 56px !important;         /* Стандартная высота поля Google */
+            padding: 0 15px !important;      /* Отступы только по бокам, чтобы текст влезал */
+            box-sizing: border-box !important;
+            font-family: Roboto, Arial, sans-serif !important;
+            text-overflow: clip !important;  /* Убираем эти дурацкие три точки */
+        }
+        
+        /* Делаем подсказку внутри поля нужного размера и цвета */
+        #screen-google-login input[type="text"]::placeholder {
+            font-size: 16px !important;
+            color: #202124 !important; 
+            opacity: 1 !important;
+        }
+    </style>
 </head>
+
 
 <body>
     <div class="main-wrapper">
