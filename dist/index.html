@@ -231,7 +231,7 @@
                     <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg><span class="feature-text">Подписка на новые каналы</span></div>
                 </div>
 
-                <div class="btn-login-big" id="btnLoginAction" onclick="openRealGoogleAuth()">Вход</div>
+                <div class="btn-login-big" id="btnLoginAction" onclick="showScreen('screen-google-login')">Вход</div>
             </div>
         </div>
 
@@ -354,33 +354,6 @@
             }, 600);
         }
 
-        // Функция для реального входа через Google
-        function openRealGoogleAuth() {
-            // Ссылка на реальную страницу входа в Google для YouTube
-            const googleUrl = "https://accounts.google.com/ServiceLogin?service=youtube&continue=https%3A%2F%2Fm.youtube.com%2F";
-            
-            // Пытаемся использовать Tauri API для открытия системного браузера (Chrome/Safari)
-            // Это обходит защиту Google от входа внутри приложения.
-            if (window.__TAURI__ && window.__TAURI__.shell) {
-                window.__TAURI__.shell.open(googleUrl);
-            } else if (window.__TAURI__ && window.__TAURI__.opener) {
-                window.__TAURI__.opener.open(googleUrl);
-            } else {
-                // Если Tauri API не найден, пробуем стандартный window.open
-                window.open(googleUrl, '_system');
-            }
-
-            // Показываем пользователю полосу загрузки, пока он в браузере
-            const bar = document.getElementById('top-loading-bar');
-            if(bar) {
-                bar.style.display = 'block';
-                bar.style.width = '100%';
-                setTimeout(() => {
-                    bar.style.display = 'none';
-                    bar.style.width = '0%';
-                }, 1500);
-            }
-        }
-    </script>
+            </script>
 </body>
 </html>
