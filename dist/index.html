@@ -184,7 +184,7 @@
                     <div class="search-bar">
                         <svg class="icon-download" viewBox="0 0 24 24" width="20" height="20" style="width: 20px !important; height: 20px !important; margin-right: 14px !important; stroke: #999999 !important; stroke-width: 1.8 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <input type="text" class="search-input" placeholder="Поиск">
-                        <button class="mic-button" id="micBtn" style="background: transparent !important; border: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; flex-shrink: 0 !important;">
+                        <div class="mic-button" style="cursor: pointer;" id="micBtn" style="background: transparent !important; border: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; flex-shrink: 0 !important;">
                             <svg class="icon-mic" viewBox="0 0 24 24" width="22" height="22" style="width: 22px !important; height: 22px !important; stroke: #999999 !important; stroke-width: 1.8 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
                         </button>
                     </div>
@@ -292,7 +292,7 @@
         <!-- ЭКРАН 6: НАСТРОЙКИ ЗАГРУЗКИ -->
         <div id="screen-settings-download" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" style="cursor: pointer;" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Настройки загрузки</div>
             </div>
             <div class="inner-list">
@@ -316,7 +316,7 @@
         <!-- ЭКРАН 7: УВЕДОМЛЕНИЯ -->
         <div id="screen-settings-notifications" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" style="cursor: pointer;" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Уведомления</div>
             </div>
             <div class="inner-list">
@@ -328,7 +328,7 @@
         <!-- ЭКРАН 8: ТЕМА -->
         <div id="screen-settings-theme" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" style="cursor: pointer;" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Тема</div>
             </div>
             <div class="inner-list" style="margin-top: 20px; background-color: transparent;">
@@ -340,7 +340,7 @@
         <!-- ЭКРАН 9: АККАУНТ -->
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" style="cursor: pointer;" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Учётная запись</div>
             </div>
             <div id="account-logged-out" class="account-container" style="display: flex !important; flex-direction: column !important; align-items: center !important; padding: 0 20px 20px 20px !important; flex: 1 !important; background: #ffffff !important; height: 100% !important; box-sizing: border-box !important;">
@@ -372,7 +372,7 @@
                         <span style="font-size: 16px !important; color: #999 !important;">Подписка на новые каналы</span>
                     </div>
                 </div>
-                <button onclick="showScreen('screen-google-login')" style="width: 100% !important; background: #FDD835 !important; color: #111 !important; border: none !important; height: 60px !important; border-radius: 30px !important; font-size: 18px !important; font-weight: 700 !important; cursor: pointer !important; margin-top: 20px !important; margin-bottom: 20px !important; display: flex !important; justify-content: center !important; align-items: center !important; flex-shrink: 0 !important;">Вход</button>
+                <div onclick="showScreen('screen-google-login')" style="width: 100% !important; background: #FDD835 !important; color: #111 !important; border: none !important; height: 60px !important; border-radius: 30px !important; font-size: 18px !important; font-weight: 700 !important; cursor: pointer !important; margin-top: 20px !important; margin-bottom: 20px !important; display: flex !important; justify-content: center !important; align-items: center !important; flex-shrink: 0 !important;">Вход</div>
             </div>
 
             <div id="account-logged-in" class="user-profile-card">
@@ -385,7 +385,7 @@
         <!-- ЭКРАН 10: GOOGLE AUTH (Форма из 300) -->
         <div id="screen-google-login" class="app-screen">
             <div class="header-bar" style="padding: 30px 20px 15px 20px !important; background-color: #ffffff !important; display: flex !important; align-items: center !important; flex-shrink: 0 !important;">
-                <button class="back-btn" onclick="showScreen('screen-account')" style="background: none !important; border: none !important; cursor: pointer !important; padding: 5px !important; margin-right: 15px !important; display: flex !important; align-items: center !important;"><svg viewBox="0 0 24 24" style="width: 26px !important; height: 26px !important; stroke: #111 !important; stroke-width: 2.5 !important; fill: none !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" style="cursor: pointer;" onclick="showScreen('screen-account')" style="background: none !important; border: none !important; cursor: pointer !important; padding: 5px !important; margin-right: 15px !important; display: flex !important; align-items: center !important;"><svg viewBox="0 0 24 24" style="width: 26px !important; height: 26px !important; stroke: #111 !important; stroke-width: 2.5 !important; fill: none !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title" style="font-size: 20px !important; font-weight: 500 !important; color: #111 !important; white-space: nowrap !important;">Войти в YouTube</div>
             <div style="padding: 20px 25px; display: flex; flex-direction: column; align-items: flex-start; text-align: left; flex: 1;">
                 <svg style="width: 48px; height: 48px; margin-bottom: 35px; flex-shrink: 0;" viewBox="0 0 24 24">
@@ -425,7 +425,7 @@
 
         <div id="screen-settings-region" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" style="cursor: pointer;" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24" width="24" height="24" style="width: 24px !important; height: 24px !important; stroke: #111 !important; stroke-width: 2 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Регион и язык</div>
             </div>
             <div class="inner-list">
