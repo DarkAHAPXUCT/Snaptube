@@ -34,10 +34,10 @@
         .main-content { flex: 1; position: relative; }
         
         /* ЛОГОТИП (28%) */
-        .logo { position: absolute !important; top: 28% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important; }
+        .logo { position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important; }
         
         /* СТРОКА ПОИСКА (46%, 60px, серая) */
-        .search-bar { position: absolute !important; top: 46% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 60px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 30px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; box-sizing: border-box !important; }
+        .search-bar { position: absolute !important; top: 45% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 60px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 30px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; box-sizing: border-box !important; }
         .search-input { flex: 1 !important; border: none !important; outline: none !important; background: transparent !important; font-size: 16px !important; color: #444444 !important; padding: 0 !important; width: 100% !important; }
 
         /* ЗАГЛУШКИ */
@@ -174,14 +174,14 @@
                 </div>
             </div>
             <div class="ui-layer">
-                <div class="top-nav">
+                <div class="top-nav" style="display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important;">
                     <div class="tab active" onclick="switchTopTab('screen-search', this)">Поиск</div>
                     <div class="tab" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
                     <div class="tab" onclick="switchTopTab('screen-music', this)">Музыка</div>
                 </div>
                 <div class="main-content">
-                    <div class="logo">Snaptube</div>
-                    <div class="search-bar">
+                    <div class="logo" style="position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important;">Snaptube</div>
+                    <div class="search-bar" style="position: absolute !important; top: 45% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 60px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 30px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important; box-sizing: border-box !important;">
                         <svg class="icon-download" viewBox="0 0 24 24" width="20" height="20" style="width: 20px !important; height: 20px !important; margin-right: 14px !important; stroke: #999999 !important; stroke-width: 1.8 !important; fill: none !important; flex-shrink: 0 !important;"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <input type="text" class="search-input" placeholder="Поиск">
                         <div class="mic-button" style="cursor: pointer;" id="micBtn" style="background: transparent !important; border: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; flex-shrink: 0 !important;">
@@ -194,7 +194,7 @@
 
         <!-- ЭКРАН 2: YOUTUBE -->
         <div id="screen-youtube" class="app-screen">
-             <div class="top-nav">
+             <div class="top-nav" style="display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important;">
                 <div class="tab" onclick="switchTopTab('screen-search', this)">Поиск</div>
                 <div class="tab active" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
                 <div class="tab" onclick="switchTopTab('screen-music', this)">Музыка</div>
@@ -206,7 +206,7 @@
 
         <!-- ЭКРАН 3: МУЗЫКА (С перечеркнутым Wi-Fi) -->
         <div id="screen-music" class="app-screen">
-            <div class="top-nav">
+            <div class="top-nav" style="display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important;">
                 <div class="tab" onclick="switchTopTab('screen-search', this)">Поиск</div>
                 <div class="tab" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
                 <div class="tab active" onclick="switchTopTab('screen-music', this)">Музыка</div>
