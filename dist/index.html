@@ -270,32 +270,24 @@
 
     <!-- ЧИСТАЯ ЛОГИКА -->
     <script>
-        function showScreen(screenId) {
-            document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(screenId);
-            if (target) {
-                target.classList.add('active');
-                target.scrollTop = 0;
-            }
-        }
-
         function switchBottomTab(screenId, element) {
             document.querySelectorAll('.bottom-nav .nav-item').forEach(nav => nav.classList.remove('active'));
-            if (element) element.classList.add('active');
+            element.classList.add('active');
             showScreen(screenId);
         }
-
-        function switchTopTab(screenId, element) {
-            document.querySelectorAll('.top-nav .tab').forEach(tab => tab.classList.remove('active'));
-            if (element) element.classList.add('active');
-            showScreen(screenId);
+        function switchTopTab(screenId, element) { showScreen(screenId); }
+        function showScreen(screenId) {
+            document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            document.getElementById(screenId).scrollTop = 0;
         }
-
-        function loginSimulation() {
-            document.getElementById('account-logged-out').style.display = 'none';
-            document.getElementById('account-logged-in').style.display = 'flex';
-            showScreen('screen-account');
-        }
+        document.getElementById('emptySearchBtn').addEventListener('click', function() {
+            const navBtn = document.querySelector('.bottom-nav .nav-item[data-bottom-target="screen-search"]');
+            switchBottomTab('screen-search', navBtn);
+        });
+        document.getElementById('micBtn').addEventListener('click', function() {
+            alert('Голосовой поиск скоро появится!');
+        });
     </script>
 </body>
 </html>
