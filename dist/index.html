@@ -286,6 +286,125 @@
     <!-- НИЖНЕЕ МЕНЮ -->
     
 
+    
+        <div id="screen-settings-download" class="app-screen">
+            <div class="header-bar">
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="header-title">Настройки загрузки</div>
+            </div>
+            <div class="inner-list">
+                <div class="inner-item" onclick="selectDownloadFolder()">
+                    <div class="inner-text-col">
+                        <span class="inner-title">Папка для скачивания</span>
+                        <span class="inner-subtitle" id="folder-path-text">/storage/emulated/0/snaptube/download</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+                <div class="inner-item" onclick="openModal('modal-max-tasks')">
+                    <div class="inner-text-col">
+                        <span class="inner-title">Макс. задач по загрузке</span>
+                        <span class="inner-subtitle">WiFi: 2 задачи | Мобильные данные: 2 задачи</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+                <div class="inner-item" onclick="openModal('modal-speed-limit')">
+                    <div class="inner-text-col">
+                        <span class="inner-title">Лимит скорости загрузки</span>
+                        <span class="inner-subtitle">Без ограничений</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+                <div class="inner-item">
+                    <div class="inner-text-col">
+                        <span class="inner-title">Загрузить по мобильной связи</span>
+                        <span class="inner-subtitle">Медиа-файлы будут загружены по мобильной связи</span>
+                    </div>
+                    <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div id="screen-settings-notifications" class="app-screen">
+            <div class="header-bar">
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="header-title">Уведомления</div>
+            </div>
+            <div class="inner-list">
+                <div style="padding: 15px 20px 5px; font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase;">Уведомления о загрузке</div>
+                <div class="inner-item">
+                    <div class="inner-text-col"><span class="inner-title">Ход загрузки</span><span class="inner-subtitle">Уведомлять о ходе загрузки</span></div>
+                    <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="inner-item">
+                    <div class="inner-text-col"><span class="inner-title">Загрузка завершена</span><span class="inner-subtitle">Уведомлять о завершении загрузки</span></div>
+                    <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+            </div>
+            <div class="inner-list" style="margin-top: 20px;">
+                <div style="padding: 15px 20px 5px; font-size: 13px; font-weight: 700; color: #999; text-transform: uppercase;">Push-уведомления</div>
+                <div class="inner-item">
+                    <div class="inner-text-col"><span class="inner-title">Рекомендованные материалы</span><span class="inner-subtitle">Уведомлять о видео и музыке в моём вкусе</span></div>
+                    <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="inner-item">
+                    <div class="inner-text-col"><span class="inner-title">Уведомления по инструментам</span><span class="inner-subtitle">Сообщить мне, когда будут выпущены новые инструменты</span></div>
+                    <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                </div>
+                <div class="inner-item">
+                    <div class="inner-text-col"><span class="inner-title">Панель инструментов</span><span class="inner-subtitle">Быстрый доступ к инструментам на панели уведомлений</span></div>
+                    <label class="toggle-switch"><input type="checkbox" id="toolsPanelCheckbox" checked onchange="handleToolsPanelChange(this)"><span class="slider"></span></label>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div id="screen-settings-theme" class="app-screen">
+            <div class="header-bar">
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="header-title">Тема</div>
+            </div>
+            <div class="inner-list" style="margin-top: 20px; background-color: transparent;">
+                <div style="padding: 0 20px 15px 20px; font-size: 16px; font-weight: 700; color: #111;">Тема приложения</div>
+                <div class="inner-item theme-item" onclick="selectTheme(this)">
+                    <span class="inner-title" style="font-weight: 400; font-size: 17px;">Применить настройку системы</span>
+                    <svg class="theme-check" viewBox="0 0 24 24" style="display: block;"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <div class="inner-item theme-item" onclick="selectTheme(this)">
+                    <span class="inner-title" style="font-weight: 400; font-size: 17px;">Светлая</span>
+                    <svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <div class="inner-item theme-item" onclick="selectTheme(this)">
+                    <span class="inner-title" style="font-weight: 400; font-size: 17px;">Тёмная</span>
+                    <svg class="theme-check" viewBox="0 0 24 24" style="display: none;"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div id="screen-settings-region" class="app-screen">
+            <div class="header-bar">
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="header-title">Регион и язык</div>
+            </div>
+            <div class="inner-list">
+                <div class="inner-item" onclick="alert('Выбор языка (макет)')">
+                    <div class="inner-text-col">
+                        <span class="inner-title" style="font-size: 17px; font-weight: 400; color: #111;">Язык в Snaptube</span>
+                        <span class="inner-subtitle" style="font-size: 15px; color: #999;">Русский</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+                <div class="inner-item" onclick="alert('Выбор региона (макет)')">
+                    <div class="inner-text-col">
+                        <span class="inner-title" style="font-size: 17px; font-weight: 400; color: #111;">Регион</span>
+                        <span class="inner-subtitle" style="font-size: 15px; color: #999;">Россия</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </div>
+        </div>
+    
     <!-- ЛОГИКА -->
     <script>
         function switchBottomTab(screenId, element) {
