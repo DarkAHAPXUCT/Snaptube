@@ -107,7 +107,7 @@
         
         /* Экран выбора папки */
         .folder-picker-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f2f2f6; padding: 20px; }
-        .big-folder-icon { width: 150px; height: 150px; fill: #d4d4d4; stroke: #bbb; stroke-width: 1.5; cursor: pointer; transition: transform 0.2s; }
+        .big-folder-icon { width: 150px; height: 150px; cursor: pointer; transition: transform 0.2s; }
         .big-folder-icon:active { transform: scale(0.95); }
         .folder-hint { margin-top: 20px; font-size: 16px; color: #666; }
     </style>
@@ -270,7 +270,10 @@
             <div class="folder-picker-screen">
                 <!-- Большая серая папка -->
                 <svg class="big-folder-icon" viewBox="0 0 24 24" onclick="selectDownloadFolder()">
-                    <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+                    <!-- Задняя часть папки -->
+                    <path d="M2 6C2 4.9 2.9 4 4 4H9L11 6H20C21.1 6 22 6.9 22 8V19C22 20.1 21.1 21 20 21H4C2.9 21 2 20.1 2 19V6Z" fill="#d4d4d4" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round"/>
+                    <!-- Открытая передняя крышка -->
+                    <path d="M2 10H22L19 20C18.7 20.7 18 21 17.3 21H6.7C6 21 5.3 20.7 5 20L2 10Z" fill="#e8e8e8" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
                 <div class="folder-hint">Нажмите на папку, чтобы выбрать</div>
             </div>
