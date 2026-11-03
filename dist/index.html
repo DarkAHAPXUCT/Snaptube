@@ -88,14 +88,6 @@
         input:checked + .slider:before { transform: translateX(22px); }
         
         .bottom-nav { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; border-top: 1px solid #F0F0F0 !important; background-color: #ffffff !important; z-index: 10 !important; flex-shrink: 0 !important; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #999999; cursor: pointer; background: none; border: none; }
-        .nav-item svg { width: 28px !important; height: 28px !important; margin-bottom: 4px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; }
-        .nav-item svg * { fill: none !important; }
-        .nav-item span { font-size: 14px !important; font-weight: 400 !important; }
-        .nav-item.active { color: #111111 !important; }
-        .nav-item.active svg { stroke: #111111 !important; stroke-width: 2.2 !important; }
-        .nav-item.active svg * { fill: none !important; stroke: #111111 !important; }
-        .nav-item.active span { font-weight: 700 !important; font-size: 14px !important; }
         
         .btn-login-big { width: 100% !important; background: #FDD835 !important; color: #111 !important; border: none !important; padding: 18px !important; border-radius: 30px !important; font-size: 18px !important; font-weight: 700 !important; cursor: pointer !important; margin-top: auto !important; margin-bottom: 20px !important; }
         .account-container { display: flex !important; flex-direction: column !important; align-items: center !important; padding: 20px !important; flex: 1 !important; margin-top: 40px !important; }
@@ -110,12 +102,18 @@
         .feature-item { display: flex !important; align-items: center !important; gap: 15px !important; }
         .feature-icon { width: 28px !important; height: 28px !important; stroke: #999 !important; stroke-width: 1.5 !important; fill: none !important; }
         .feature-text { font-size: 16px !important; color: #999 !important; }
-    
-        .nav-item.active svg rect { fill: #111111 !important; stroke: #111111 !important; }
-        .nav-item.active svg polygon { fill: #ffffff !important; }
-        .nav-item.active svg path { fill: #111111 !important; stroke: #111111 !important; }
-        .nav-item.active svg circle:not([fill="none"]) { fill: #111111 !important; stroke: #111111 !important; }
-</style>
+}
+        
+        /* ИДЕАЛЬНЫЕ НАСТРОЙКИ НИЖНЕГО МЕНЮ (ОЧИЩЕНО ОТ МУСОРА) */
+        .nav-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; color: #999999 !important; flex: 1 !important; padding: 5px 0 !important; background: none !important; border: none !important; text-decoration: none !important; }
+        .nav-item svg { width: 28px !important; height: 28px !important; margin-bottom: 4px !important; stroke: currentColor !important; stroke-width: 1.5 !important; fill: none !important; flex-shrink: 0 !important; }
+        .nav-item svg * { fill: none !important; }
+        .nav-item span { font-size: 14px !important; font-weight: 400 !important; white-space: nowrap !important; }
+        .nav-item.active { color: #111111 !important; }
+        .nav-item.active svg { stroke: currentColor !important; stroke-width: 2.2 !important; }
+        .nav-item.active svg * { fill: none !important; stroke: currentColor !important; }
+        .nav-item.active span { font-weight: 700 !important; font-size: 14px !important; }
+    </style>
 </head>
 <body>
     <div class="main-wrapper">
