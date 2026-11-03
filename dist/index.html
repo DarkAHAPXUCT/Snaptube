@@ -8,14 +8,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
         body { background-color: #ffffff; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
         
-        /* Главный контейнер */
         .main-wrapper { flex: 1; position: relative; overflow: hidden; display: flex; flex-direction: column; }
         
-        /* Экраны */
         .app-screen { display: none; flex-direction: column; height: 100%; width: 100%; position: absolute; top: 0; left: 0; opacity: 0; background-color: #ffffff; overflow-y: auto; }
         .app-screen.active { display: flex; opacity: 1; }
         
-        /* Фоновые иконки (140px) */
         .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 80px 5px; }
         .bg-row { display: flex; justify-content: space-between; width: 100%; }
         .watermark { fill: #f7f7f7; width: 140px; height: 140px; }
@@ -24,19 +21,15 @@
         .wm-tiktok-bottom-left { transform: rotate(-15deg); }
         .wm-yt-bottom-right { transform: rotate(15deg); }
         
-        /* Слой интерфейса */
         .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
         
-        /* Верхнее меню */
         .top-nav { display: flex; justify-content: space-around; align-items: center; padding-top: 60px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; z-index: 10; flex-shrink: 0; background: transparent; }
         .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative; }
         .tab.active { color: #111111; font-weight: 700; }
         .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
         
-        /* Главный контент */
         .main-content { flex: 1; position: relative; }
         
-        /* Логотип 24% и Поиск 46% */
         .logo { position: absolute; top: 24%; left: 50%; transform: translateX(-50%); font-size: 44px; font-weight: 800; color: #FDD835; letter-spacing: -1px; }
         .search-bar { position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); width: 88%; height: 60px; border: 1.5px solid #d4d4d4; border-radius: 30px; display: flex; align-items: center; padding: 0 15px 0 20px; background-color: #ffffff; z-index: 10; }
         .icon-download { width: 20px; height: 20px; margin-right: 14px; stroke: #999999; stroke-width: 1.5; fill: none; flex-shrink: 0; }
@@ -44,13 +37,11 @@
         .mic-button { background: none; border: none; display: flex; align-items: center; cursor: pointer; }
         .icon-mic { width: 20px; height: 20px; stroke: #999999; stroke-width: 1.8; fill: none; }
 
-        /* Шапки экранов */
         .header-bar { display: flex; align-items: center; padding: 30px 20px 15px 20px; background-color: #ffffff; z-index: 10; flex-shrink: 0; }
         .back-btn { background: none; border: none; cursor: pointer; padding: 5px; margin-right: 15px; display: flex; align-items: center; }
         .back-btn svg { width: 24px; height: 24px; stroke: #111; stroke-width: 2; fill: none; }
         .header-title { font-size: 20px; font-weight: 700; color: #111; }
 
-        /* Настройки */
         .settings-header { padding: 40px 20px 20px 20px; background: #f2f2f6; }
         .settings-header h1 { font-size: 26px; font-weight: 800; color: #111111; }
         .settings-section { margin-bottom: 25px; background: #f2f2f6; }
@@ -65,7 +56,6 @@
         .settings-item-value { font-size: 15px; color: #999; }
         .chevron-icon { width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; }
 
-        /* Аккаунт */
         .account-container { display: flex; flex-direction: column; align-items: center; padding: 20px; flex: 1; background: #ffffff; }
         .logos-row { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 50px; margin-top: 20px; }
         .snaptube-icon { width: 80px; height: 80px; background: #FDD835; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
@@ -79,13 +69,12 @@
         .feature-text { font-size: 16px; color: #999; }
         .btn-login-big { width: 100%; background: #FDD835; color: #111; border: none; padding: 18px; border-radius: 30px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: auto; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
 
-        /* Google Auth */
         .google-login-container { padding: 20px 25px; display: flex; flex-direction: column; align-items: flex-start; flex: 1; background: #fff; box-sizing: border-box; }
         .google-input { width: 100%; border: 1px solid #dadce0; border-radius: 4px; padding: 16px 15px; font-size: 16px; color: #202124; margin-bottom: 15px; outline: none; background: transparent; box-sizing: border-box; }
 
-        /* НИЖНЕЕ МЕНЮ (ИДЕАЛЬНОЕ) */
+        /* НИЖНЕЕ МЕНЮ (ТОЛЬКО DIV, БЕЗ BUTTON) */
         .bottom-nav { display: flex; justify-content: space-around; align-items: center; height: 60px; padding: 0 10px; border-top: 1px solid #F0F0F0; background-color: #ffffff; z-index: 100; flex-shrink: 0; box-sizing: border-box; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #999999; cursor: pointer; background: transparent; border: none; flex: 1; padding: 5px 0; -webkit-appearance: none; appearance: none; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #999999; cursor: pointer; background: transparent; border: none; flex: 1; padding: 5px 0; }
         .nav-item svg { width: 28px; height: 28px; margin-bottom: 4px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
         .nav-item.active { color: #111111; }
         .nav-item.active svg { stroke: currentColor; stroke-width: 2.2; }
@@ -119,7 +108,7 @@
                     <div class="search-bar">
                         <svg class="icon-download" viewBox="0 0 24 24"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" /></svg>
                         <input type="text" class="search-input" placeholder="Поиск">
-                        <button class="mic-button" id="micBtn"><svg class="icon-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></button>
+                        <div class="mic-button" id="micBtn" onclick="alert('Голосовой поиск скоро появится!')"><svg class="icon-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></div>
                     </div>
                 </div>
             </div>
@@ -191,7 +180,7 @@
         <!-- 6. НАСТРОЙКИ ЗАГРУЗКИ -->
         <div id="screen-settings-download" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Настройки загрузки</div>
             </div>
             <div style="padding:20px; color:#111; font-size:16px;">Папка: /storage/emulated/0/</div>
@@ -200,7 +189,7 @@
         <!-- 7. УВЕДОМЛЕНИЯ -->
         <div id="screen-settings-notifications" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Уведомления</div>
             </div>
             <div style="padding:20px; color:#111; font-size:16px;">Тумблеры уведомлений</div>
@@ -209,7 +198,7 @@
         <!-- 8. ТЕМА -->
         <div id="screen-settings-theme" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Тема</div>
             </div>
             <div style="padding:20px; color:#111; font-size:16px;">Светлая / Темная</div>
@@ -218,7 +207,7 @@
         <!-- 9. АККАУНТ -->
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Учётная запись</div>
             </div>
             <div class="account-container">
@@ -242,7 +231,7 @@
         <!-- 10. GOOGLE AUTH -->
         <div id="screen-google-login" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-account')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" onclick="showScreen('screen-account')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Войти в YouTube</div>
             </div>
             <div class="google-login-container">
@@ -267,24 +256,24 @@
         <!-- 11. РЕГИОН И ЯЗЫК -->
         <div id="screen-settings-region" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Регион и язык</div>
             </div>
             <div style="padding:20px; color:#111; font-size:16px;">Русский</div>
         </div>
     </div>
 
-    <!-- НИЖНЕЕ МЕНЮ -->
+    <!-- НИЖНЕЕ МЕНЮ (ТОЛЬКО DIV) -->
     <div class="bottom-nav">
-        <button class="nav-item active" onclick="switchBottomTab('screen-search', this)">
+        <div class="nav-item active" onclick="switchBottomTab('screen-search', this)">
             <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" /><line x1="14.5" y1="14.5" x2="20" y2="20" /></svg><span>Загрузить</span>
-        </button>
-        <button class="nav-item" onclick="switchBottomTab('screen-downloaded', this)">
+        </div>
+        <div class="nav-item" onclick="switchBottomTab('screen-downloaded', this)">
             <svg viewBox="0 0 24 24"><path d="M4 8v11a1 1 0 0 0 1 1h11" /><rect x="8" y="4" width="12" height="12" rx="1.5" /><polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" /></svg><span>Воспроизведение</span>
-        </button>
-        <button class="nav-item" onclick="switchBottomTab('screen-settings', this)">
+        </div>
+        <div class="nav-item" onclick="switchBottomTab('screen-settings', this)">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg><span>Настройки</span>
-        </button>
+        </div>
     </div>
 
     <script>
@@ -306,10 +295,6 @@
                 target.scrollTop = 0;
             }
         }
-        
-        document.getElementById('micBtn').addEventListener('click', function() {
-            alert('Голосовой поиск скоро появится!');
-        });
     </script>
 </body>
 </html>
