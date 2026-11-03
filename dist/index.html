@@ -3,51 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Snaptube Clone</title>
+    <meta name="theme-color" content="#ffffff">
+    <title>Snaptube Clone - Макет</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
-        body { background-color: #ffffff; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
-        
-        .main-wrapper { flex: 1; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-        
-        .app-screen { display: none; flex-direction: column; height: 100%; width: 100%; position: absolute; top: 0; left: 0; opacity: 0; background-color: #ffffff; overflow-y: auto; }
+        body { background-color: #f2f2f6; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+        .main-wrapper { flex: 1; position: relative; overflow: hidden; }
+        .app-screen { display: none; flex-direction: column; height: 100%; width: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.2s ease-in-out; background-color: #ffffff; overflow-y: auto; }
         .app-screen.active { display: flex; opacity: 1; }
+        #screen-settings, #screen-settings-download, #screen-settings-notifications, #screen-settings-theme, #screen-settings-region, #screen-account { background-color: #f2f2f6; }
         
-        .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 80px 5px; }
-        .bg-row { display: flex; justify-content: space-between; width: 100%; }
-        .watermark { fill: #f7f7f7; width: 140px; height: 140px; }
-        .wm-yt-top-left { transform: rotate(-15deg); }
-        .wm-tiktok-top-right { transform: rotate(15deg); }
-        .wm-tiktok-bottom-left { transform: rotate(-15deg); }
-        .wm-yt-bottom-right { transform: rotate(15deg); }
-        
-        .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
-        
-        .top-nav { display: flex; justify-content: space-around; align-items: center; padding-top: 60px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; z-index: 10; flex-shrink: 0; background: transparent; }
-        .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative; }
-        .tab.active { color: #111111; font-weight: 700; }
-        .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
-        
-        .main-content { flex: 1; position: relative; }
-        
-        .logo { position: absolute; top: 24%; left: 50%; transform: translateX(-50%); font-size: 44px; font-weight: 800; color: #FDD835; letter-spacing: -1px; }
-        .search-bar { position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); width: 88%; height: 60px; border: 1.5px solid #d4d4d4; border-radius: 30px; display: flex; align-items: center; padding: 0 15px 0 20px; background-color: #ffffff; z-index: 10; }
-        .icon-download { width: 20px; height: 20px; margin-right: 14px; stroke: #999999; stroke-width: 1.5; fill: none; flex-shrink: 0; }
-        .search-input { flex: 1; border: none; outline: none; background: transparent; font-size: 16px; color: #444444; }
-        .mic-button { background: none; border: none; display: flex; align-items: center; cursor: pointer; }
-        .icon-mic { width: 20px; height: 20px; stroke: #999999; stroke-width: 1.8; fill: none; }
-
-        .header-bar { display: flex; align-items: center; padding: 30px 20px 15px 20px; background-color: #ffffff; z-index: 10; flex-shrink: 0; }
+        .header-bar { display: flex; align-items: center; padding: 30px 20px 15px 20px; background-color: #f2f2f6; z-index: 10; }
         .back-btn { background: none; border: none; cursor: pointer; padding: 5px; margin-right: 15px; display: flex; align-items: center; }
         .back-btn svg { width: 24px; height: 24px; stroke: #111; stroke-width: 2; fill: none; }
         .header-title { font-size: 20px; font-weight: 700; color: #111; }
+        
+        /* СИММЕТРИЯ ЗАДНИКОВ (ВШИТО) */
+        .bg-watermarks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: flex !important; flex-direction: column !important; justify-content: space-between !important; padding: 80px 5px !important; }
+        .bg-row { display: flex !important; justify-content: space-between !important; width: 100% !important; }
+        .watermark { fill: #f7f7f7; width: 120px !important; height: 120px !important; }
+        
+        .ui-layer { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+        .top-nav { display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important; }
+        .tab { font-size: 15px; color: #999999; font-weight: 500; cursor: pointer; padding-bottom: 8px; position: relative;}
+        .tab.active { color: #111111; font-weight: 700; }
+        .tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FDD835; border-radius: 2px; }
+        .main-content { flex: 1; position: relative; }
+        
+        .icon-download { width: 20px; height: 20px; margin-right: 14px; stroke: #999999; stroke-width: 1.5; fill: none; }
+        .search-input { flex: 1; border: none; outline: none; background: transparent; font-size: 16px; color: #444444; }
+        
+        .mic-button { background: none !important; border: none !important; display: flex !important; align-items: center !important; cursor: pointer !important; padding: 0 !important; }
+        .icon-mic { width: 22px !important; height: 22px !important; stroke: #999999 !important; stroke-width: 1.8 !important; fill: none !important; }
 
-        .settings-header { padding: 40px 20px 20px 20px; background: #f2f2f6; }
+        .placeholder-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .ghost-icon svg { width: 100px; height: 100px; fill: none; stroke: #EBEBEB; stroke-width: 3; margin-bottom: 20px;}
+        .placeholder-text { color: #999999; font-size: 18px; }
+        .offline-icon { margin-bottom: 20px; }
+        .offline-icon svg { width: 100px; height: 100px; stroke: #EBEBEB; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .offline-title { font-size: 20px; color: #333; margin-bottom: 10px; }
+        .offline-subtitle { font-size: 15px; color: #999; text-align: center; line-height: 1.4; margin-bottom: 30px; }
+        .retry-btn { background: none; border: none; color: #FDD835; font-size: 16px; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+        .header-title-white { padding: 40px 20px 20px 20px; }
+        .header-title-white h1 { font-size: 26px; font-weight: 800; color: #111111; }
+        .empty-state { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 60px; }
+        .empty-icon { width: 110px; height: 110px; border: 3px solid #EBEBEB; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; }
+        .empty-icon svg { width: 50px; height: 50px; stroke: #EBEBEB; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+        .empty-text { font-size: 17px; color: #999999; margin-bottom: 35px; }
+        .btn-search-empty { display: flex; align-items: center; gap: 10px; background-color: #ffffff; border: 1.5px solid #E0E0E0; border-radius: 30px; padding: 12px 45px; font-size: 17px; font-weight: 700; color: #111111; cursor: pointer; }
+        .btn-search-empty svg { width: 22px; height: 22px; stroke: #111111; stroke-width: 2.5; fill: none; }
+        .settings-header { padding: 40px 20px 20px 20px; }
         .settings-header h1 { font-size: 26px; font-weight: 800; color: #111111; }
-        .settings-section { margin-bottom: 25px; background: #f2f2f6; }
+        .settings-section { margin-bottom: 25px; }
         .settings-section-title { font-size: 14px; color: #999; padding: 0 20px 10px 20px; }
         .settings-list { background-color: #ffffff; border-radius: 12px; margin: 0 15px; overflow: hidden; }
-        .settings-item { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; background: #fff; }
+        .settings-item { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
         .settings-item:last-child { border-bottom: none; }
         .settings-item-left { display: flex; align-items: center; gap: 15px; }
         .settings-item-icon { width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; }
@@ -55,130 +65,124 @@
         .settings-item-right { display: flex; align-items: center; gap: 10px; }
         .settings-item-value { font-size: 15px; color: #999; }
         .chevron-icon { width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; }
-
-        .inner-list { background: #fff; margin: 20px 15px 0 15px; border-radius: 12px; overflow: hidden; }
-        .inner-item { padding: 18px 20px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
+        .inner-list { background-color: #ffffff; margin-top: 20px; }
+        .inner-item { padding: 18px 20px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; }
         .inner-item:last-child { border-bottom: none; }
-        .inner-text-col { display: flex; flex-direction: column; gap: 6px; }
+        .inner-text-col { display: flex; flex-direction: column; gap: 6px; max-width: 80%; }
         .inner-title { font-size: 16px; color: #111; font-weight: 500; }
-        .inner-subtitle { font-size: 14px; color: #999; }
-
-        .account-container { display: flex; flex-direction: column; align-items: center; padding: 20px; flex: 1; background: #ffffff; }
-        .logos-row { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 50px; margin-top: 20px; }
-        .snaptube-icon { width: 80px; height: 80px; background: #FDD835; border-radius: 50%; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
-        .snaptube-icon-inner { width: 48px; height: 34px; background: #ffffff; border-radius: 8px; display: flex; justify-content: center; align-items: center; }
-        .yt-icon { width: 90px; height: 60px; background: #FF0000; border-radius: 16px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
-        .yt-play { width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 20px solid white; margin-left: 5px; }
-        .account-title { font-size: 20px; color: #333; text-align: center; margin-bottom: 40px; }
-        .features-list { width: 100%; display: flex; flex-direction: column; gap: 25px; padding: 0 10px; margin-bottom: auto; }
-        .feature-item { display: flex; align-items: center; gap: 15px; }
-        .feature-icon { width: 28px; height: 28px; stroke: #999; stroke-width: 1.5; fill: none; }
-        .feature-text { font-size: 16px; color: #999; }
+        .inner-subtitle { font-size: 14px; color: #999; line-height: 1.3; }
         
-        .btn-login-big { width: 100%; background: #FDD835; color: #111; border: none; padding: 18px; border-radius: 30px; font-size: 18px; font-weight: 700; cursor: pointer; margin-top: auto; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
-
-        .bottom-nav { display: flex; justify-content: space-around; align-items: flex-start !important; height: 65px !important; padding: 8px 10px 15px 10px !important; border-top: 1px solid #F0F0F0; background-color: #ffffff; z-index: 100; flex-shrink: 0; box-sizing: border-box; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #999999; cursor: pointer; background: transparent; border: none; flex: 1; padding: 0; -webkit-appearance: none; appearance: none; }
-        .nav-item svg { width: 28px; height: 28px; margin-bottom: 4px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
-        .nav-item.active { color: #111111; }
-        .nav-item.active svg { stroke: currentColor; stroke-width: 2.2; }
-        .nav-item span { font-size: 11px; font-weight: 400; white-space: nowrap; }
-        .nav-item.active span { font-weight: 700; font-size: 12px; }
+        .toggle-switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 28px; }
+        .slider:before { position: absolute; content: ""; height: 24px; width: 24px; left: 2px; bottom: 2px; background-color: white; transition: .3s; border-radius: 50%; }
+        input:checked + .slider { background-color: #FDD835; }
+        input:checked + .slider:before { transform: translateX(22px); }
+        
+        .bottom-nav { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; border-top: 1px solid #F0F0F0 !important; background-color: #ffffff !important; z-index: 10 !important; flex-shrink: 0 !important; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #999999; cursor: pointer; background: none; border: none; }
+        .nav-item svg { width: 24px !important; height: 24px !important; margin-bottom: 6px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; }
+        .nav-item span { font-size: 11px !important; font-weight: 400 !important; }
+        .nav-item.active { color: #111111 !important; }
+        .nav-item.active svg { stroke: #111111 !important; stroke-width: 2.2 !important; }
+        .nav-item.active span { font-weight: 700 !important; font-size: 12px !important; }
+        
+        .btn-login-big { width: 100% !important; background: #FDD835 !important; color: #111 !important; border: none !important; padding: 18px !important; border-radius: 30px !important; font-size: 18px !important; font-weight: 700 !important; cursor: pointer !important; margin-top: auto !important; margin-bottom: 20px !important; }
+        .account-container { display: flex !important; flex-direction: column !important; align-items: center !important; padding: 20px !important; flex: 1 !important; margin-top: 40px !important; }
+        .logos-row { display: flex !important; align-items: center !important; justify-content: center !important; gap: 20px !important; margin-bottom: 50px !important; }
+        .snaptube-icon { width: 80px !important; height: 80px !important; background: #FDD835 !important; border-radius: 50% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+        .snaptube-icon-inner { width: 50px !important; height: 35px !important; background: white !important; border-radius: 8px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+        .snaptube-arrow { width: 18px !important; height: 18px !important; stroke: #E53935 !important; stroke-width: 3.5 !important; fill: none !important; }
+        .yt-icon { width: 90px !important; height: 60px !important; background: #FF0000 !important; border-radius: 16px !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+        .yt-play { width: 0 !important; height: 0 !important; border-top: 12px solid transparent !important; border-bottom: 12px solid transparent !important; border-left: 20px solid white !important; margin-left: 5px !important; }
+        .account-title { font-size: 20px !important; color: #333 !important; text-align: center !important; margin-bottom: 40px !important; }
+        .features-list { width: 100% !important; display: flex !important; flex-direction: column !important; gap: 25px !important; padding: 0 10px !important; }
+        .feature-item { display: flex !important; align-items: center !important; gap: 15px !important; }
+        .feature-icon { width: 28px !important; height: 28px !important; stroke: #999 !important; stroke-width: 1.5 !important; fill: none !important; }
+        .feature-text { font-size: 16px !important; color: #999 !important; }
     </style>
 </head>
 <body>
-
     <div class="main-wrapper">
-        <!-- 1. ПОИСК -->
         <div id="screen-search" class="app-screen active">
             <div class="bg-watermarks">
                 <div class="bg-row">
-                    <svg class="watermark wm-yt-top-left" viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
-                    <svg class="watermark wm-tiktok-top-right" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    <svg width="120" height="120" fill="#f7f7f7" width="120" height="120" fill="#f7f7f7" class="watermark watermark watermark watermark wm-yt-top-left" style="position: absolute !important; top: 80px !important; left: 5px !important; transform: rotate(-15deg) !important; pointer-events: none !important;" style="position:absolute !important;top:80px !important;left:5px !important;transform:rotate(-15deg) !important;" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
+                    <svg width="120" height="120" fill="#f7f7f7" width="120" height="120" fill="#f7f7f7" class="watermark watermark watermark watermark wm-tiktok-top-right" style="position: absolute !important; top: 80px !important; right: 5px !important; transform: rotate(15deg) !important; pointer-events: none !important;" style="position:absolute !important;top:80px !important;right:5px !important;transform:rotate(15deg) !important;" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
                 </div>
                 <div class="bg-row">
-                    <svg class="watermark wm-tiktok-bottom-left" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-                    <svg class="watermark wm-yt-bottom-right" viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
+                    <svg width="120" height="120" fill="#f7f7f7" width="120" height="120" fill="#f7f7f7" class="watermark watermark watermark watermark wm-tiktok-bottom-left" style="position: absolute !important; bottom: 80px !important; left: 5px !important; transform: rotate(-15deg) !important; pointer-events: none !important;" style="position:absolute !important;bottom:80px !important;left:5px !important;transform:rotate(-15deg) !important;" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    <svg width="120" height="120" fill="#f7f7f7" width="120" height="120" fill="#f7f7f7" class="watermark watermark watermark watermark wm-yt-bottom-right" style="position: absolute !important; bottom: 80px !important; right: 5px !important; transform: rotate(15deg) !important; pointer-events: none !important;" style="position:absolute !important;bottom:80px !important;right:5px !important;transform:rotate(15deg) !important;" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21.58 7.19c-.23-.86-.9-1.53-1.76-1.76C18.25 5 12 5 12 5s-6.25 0-7.82.43c-.86.23-1.53.9-1.76 1.76C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.9 1.53 1.76 1.76C5.75 19 12 19 12 19s6.25 0 7.82-.43c.86-.23 1.53-.9 1.76-1.76C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
                 </div>
             </div>
             <div class="ui-layer">
-                <div class="top-nav">
+                <div class="top-nav" style="display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important;">
                     <div class="tab active" onclick="switchTopTab('screen-search', this)">Поиск</div>
                     <div class="tab" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
                     <div class="tab" onclick="switchTopTab('screen-music', this)">Музыка</div>
                 </div>
                 <div class="main-content">
-                    <div class="logo">Snaptube</div>
-                    <div class="search-bar">
-                        <svg class="icon-download" viewBox="0 0 24 24"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12" /></svg>
+                    <div class="logo" style="position: absolute !important; top: 24% !important; left: 50% !important; transform: translateX(-50%) !important; font-size: 44px !important; font-weight: 800 !important; color: #FDD835 !important; letter-spacing: -1px !important; z-index: 10 !important;">Snaptube</div>
+                    <div class="search-bar" style="position: absolute !important; top: 40% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 88% !important; height: 64px !important; border: 1.5px solid #d4d4d4 !important; border-radius: 32px !important; display: flex !important; align-items: center !important; padding: 0 15px 0 20px !important; background-color: #ffffff !important; z-index: 10 !important;">
+                        <svg class="icon-download" viewBox="0 0 24 24" fill="none" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                         <input type="text" class="search-input" placeholder="Поиск">
-                        <button class="mic-button" id="micBtn"><svg class="icon-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></button>
+                        <button class="mic-button" id="micBtn"><svg stroke-linecap="round" stroke-linejoin="round" class="icon-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- 2. YOUTUBE -->
+        
         <div id="screen-youtube" class="app-screen">
-             <div class="top-nav">
+             <div class="top-nav" style="display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important;">
                 <div class="tab" onclick="switchTopTab('screen-search', this)">Поиск</div>
                 <div class="tab active" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
                 <div class="tab" onclick="switchTopTab('screen-music', this)">Музыка</div>
             </div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#999;">
-                <div class="ghost-icon"><svg viewBox="0 0 24 24" style="width:100px; height:100px; stroke:#EBEBEB; stroke-width:3; fill:none; margin-bottom:20px;"><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"></path><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line></svg></div>
-                <p style="font-size:18px;">Ой! Ничего не найдено.</p>
+            <div class="placeholder-screen">
+                <div class="ghost-icon"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"></path><line x1="9" y1="10" x2="9.01" y2="10"></line><line x1="15" y1="10" x2="15.01" y2="10"></line></svg></div>
+                <p class="placeholder-text">Ой! Ничего не найдено.</p>
             </div>
         </div>
-
-        <!-- 3. МУЗЫКА -->
+        
         <div id="screen-music" class="app-screen">
-            <div class="top-nav">
+            <div class="top-nav" style="display: flex !important; justify-content: space-around !important; align-items: center !important; padding-top: 60px !important; padding-bottom: 15px !important; padding-left: 15px !important; padding-right: 15px !important;">
                 <div class="tab" onclick="switchTopTab('screen-search', this)">Поиск</div>
                 <div class="tab" onclick="switchTopTab('screen-youtube', this)">YouTube</div>
                 <div class="tab active" onclick="switchTopTab('screen-music', this)">Музыка</div>
             </div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#999;">
-                <div class="offline-icon"><svg viewBox="0 0 24 24" style="width:100px; height:100px; stroke:#EBEBEB; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; fill:none; margin-bottom:20px;"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.58 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"></path><circle cx="12" cy="16" r="1" fill="#EBEBEB"></circle><path d="M18 16l4 4M22 16l-4 4" stroke="#EBEBEB" stroke-width="2"></path></svg></div>
-                <p style="font-size:18px;">Ты офлайн.</p>
+            <div class="placeholder-screen">
+                <div class="offline-icon"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.58 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"></path><circle cx="12" cy="16" r="1" fill="#EBEBEB"></circle><path d="M18 16l4 4M22 16l-4 4" stroke="#EBEBEB" stroke-width="2"></path></svg></div>
+                <h2 class="offline-title">Ты офлайн.</h2>
+                <p class="offline-subtitle">Проверь подключение к сети и<br>повтори попытку.</p>
+                <button class="retry-btn">ПОВТОРИТЬ</button>
             </div>
         </div>
-
-        <!-- 4. ЗАГРУЖЕНО -->
+        
         <div id="screen-downloaded" class="app-screen">
-            <div class="settings-header"><h1>Загружено</h1></div>
-            <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#999; font-size:18px; background:#ffffff;">
-                <div style="width:110px; height:110px; border:3px solid #EBEBEB; border-radius:50%; display:flex; justify-content:center; align-items:center; margin-bottom:25px;">
-                    <svg viewBox="0 0 24 24" style="width:50px; height:50px; stroke:#EBEBEB; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; fill:none;">
-                        <path d="M12 4v13m0 0l-6-6m6 6l6-6" />
-                    </svg>
-                </div>
-                <p style="margin-bottom:35px;">Файлов пока нет</p>
-                <div onclick="switchBottomTab('screen-search', document.querySelectorAll('.bottom-nav .nav-item')[0])" style="display:flex; align-items:center; gap:10px; background-color:#ffffff; border:1.5px solid #E0E0E0; border-radius:30px; padding:12px 45px; font-size:17px; font-weight:700; color:#111111; cursor:pointer;">
-                    <svg viewBox="0 0 24 24" style="width:22px; height:22px; stroke:#111111; stroke-width:2.5; fill:none;">
-                        <circle cx="10" cy="10" r="7" /><line x1="15" y1="15" x2="21" y2="21" />
-                    </svg>Поиск
-                </div>
+            <div class="header-title-white"><h1>Загружено</h1></div>
+            <div class="empty-state">
+                <div class="empty-icon"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v13m0 0l-6-6m6 6l6-6" /></svg></div>
+                <div class="empty-text">Файлов пока нет</div>
+                <button class="btn-search-empty" id="emptySearchBtn"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7" /><line x1="15" y1="15" x2="21" y2="21" /></svg>Поиск</button>
             </div>
         </div>
-
-        <!-- 5. НАСТРОЙКИ -->
+        
         <div id="screen-settings" class="app-screen">
             <div class="settings-header"><h1>Настройки</h1></div>
             <div class="settings-section">
                 <div class="settings-section-title">Общие</div>
                 <div class="settings-list">
                     <div class="settings-item" onclick="showScreen('screen-settings-download')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12"/></svg><span class="settings-item-text">Настройки загрузки</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                        <div class="settings-item-left"><svg stroke-linecap="round" stroke-linejoin="round" class="settings-item-icon" viewBox="0 0 24 24"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12"/></svg><span class="settings-item-text">Настройки загрузки</span></div>
+                        <svg stroke-linecap="round" stroke-linejoin="round" class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                     <div class="settings-item" onclick="showScreen('screen-settings-notifications')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="settings-item-text">Настройки уведомлений</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                        <div class="settings-item-left"><svg stroke-linecap="round" stroke-linejoin="round" class="settings-item-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="settings-item-text">Настройки уведомлений</span></div>
+                        <svg stroke-linecap="round" stroke-linejoin="round" class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                     <div class="settings-item" onclick="showScreen('screen-settings-theme')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg><span class="settings-item-text">Тема</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                        <div class="settings-item-left"><svg stroke-linecap="round" stroke-linejoin="round" class="settings-item-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg><span class="settings-item-text">Тема</span></div>
+                        <svg stroke-linecap="round" stroke-linejoin="round" class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                 </div>
             </div>
@@ -186,97 +190,87 @@
                 <div class="settings-section-title">Информация</div>
                 <div class="settings-list">
                     <div class="settings-item" onclick="showScreen('screen-account')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="settings-item-text">Уч. запись</span></div>
-                        <div class="settings-item-right"><span class="settings-item-value">Вход</span><svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+                        <div class="settings-item-left"><svg stroke-linecap="round" stroke-linejoin="round" class="settings-item-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="settings-item-text">Уч. запись</span></div>
+                        <div class="settings-item-right"><span class="settings-item-value" id="settings-account-status">Вход</span><svg stroke-linecap="round" stroke-linejoin="round" class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
                     </div>
                     <div class="settings-item" onclick="showScreen('screen-settings-region')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Регион и язык</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                        <div class="settings-item-left"><svg stroke-linecap="round" stroke-linejoin="round" class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Регион и язык</span></div>
+                        <svg stroke-linecap="round" stroke-linejoin="round" class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- 6. НАСТРОЙКИ ЗАГРУЗКИ -->
+        
         <div id="screen-settings-download" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Настройки загрузки</div>
             </div>
             <div class="inner-list">
-                <div class="inner-item"><div class="inner-text-col"><span class="inner-title">Папка для скачивания</span><span class="inner-subtitle">/storage/emulated/0/snaptube/download</span></div></div>
+                <div class="inner-item">
+                    <div class="inner-text-col"><span class="inner-title">Папка для скачивания</span><span class="inner-subtitle" id="folder-path-text">/storage/emulated/0/snaptube/download</span></div>
+                </div>
             </div>
         </div>
-
-        <!-- 7. УВЕДОМЛЕНИЯ -->
+        
         <div id="screen-settings-notifications" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Уведомления</div>
             </div>
-            <div class="inner-list">
-                <div class="inner-item"><div class="inner-text-col"><span class="inner-title">Ход загрузки</span><span class="inner-subtitle">Уведомлять о ходе загрузки</span></div><label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label></div>
-            </div>
         </div>
-
-        <!-- 8. ТЕМА -->
+        
         <div id="screen-settings-theme" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Тема</div>
-            </div>
-            <div class="inner-list">
-                <div class="inner-item theme-item"><span class="inner-title" style="font-weight:400;">Применить настройку системы</span></div>
             </div>
         </div>
 
-        <!-- 9. АККАУНТ (С ЛОГИКОЙ ИЗ 294) -->
         <div id="screen-account" class="app-screen">
             <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <button class="back-btn" onclick="showScreen('screen-settings')"><svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
                 <div class="header-title">Учётная запись</div>
             </div>
-            <div class="account-container">
+            <div id="account-logged-out" class="account-container">
                 <div class="logos-row">
-                    <div class="snaptube-icon">
-                        <div class="snaptube-icon-inner"><svg viewBox="0 0 24 24" style="width: 22px; height: 22px;"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14" stroke="#E53935" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <div class="snaptube-icon" style="width:80px !important;height:80px !important;background:#FDD835 !important;border-radius:50% !important;display:flex !important;justify-content:center !important;align-items:center !important;">
+                        <div class="snaptube-icon-inner" style="width:50px !important;height:35px !important;background:white !important;border-radius:8px !important;display:flex !important;justify-content:center !important;align-items:center !important;">
+                            <svg class="snaptube-arrow" viewBox="0 0 24 24" width="22" height="22" fill="#E53935" style="width: 22px !important; height: 22px !important; fill: #E53935 !important;">
+    <rect x="10.5" y="3" width="3" height="2.5" rx="0.5"/>
+    <rect x="10.5" y="7" width="3" height="2.5" rx="0.5"/>
+    <path d="M6 12h12l-6 5-6-5z"/>
+    <rect x="6" y="19" width="12" height="2.5" rx="0.5"/>
+</svg>
+                        </div>
                     </div>
-                    <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; stroke: #d4d4d4; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M16 4l4 4-4 4M20 8H8M8 20l-4-4 4-4M4 16h12" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"/></svg>
-                    <div class="yt-icon"><div class="yt-play"></div></div>
+                    <div style="color: #ddd; font-size: 24px; font-weight: 900;">⇄</div>
+                    <div class="yt-icon" style="width:90px !important;height:60px !important;background:#FF0000 !important;border-radius:16px !important;display:flex !important;justify-content:center !important;align-items:center !important;">
+                        <div class="yt-play" style="width: 0 !important; height: 0 !important; border-top: 12px solid transparent !important; border-bottom: 12px solid transparent !important; border-left: 20px solid white !important; margin-left: 5px !important;"></div>
+                    </div>
                 </div>
                 <div class="account-title">Получи все функции YouTube в Snaptube</div>
                 <div class="features-list">
-                    <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10 9 15 12 10 15"/></svg><span class="feature-text">Синхронизация библиотеки</span></div>
-                    <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="feature-text">История и «Смотреть позже»</span></div>
-                    <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg><span class="feature-text">Подписка на каналы</span></div>
+                    <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px !important; height: 24px !important; stroke: #999 !important; stroke-width: 1.2 !important; fill: none !important;"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10 9 15 12 10 15"/></svg><span class="feature-text">Синхронизация библиотеки YouTube</span></div>
+                    <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px !important; height: 24px !important; stroke: #999 !important; stroke-width: 1.2 !important; fill: none !important;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="feature-text">История и список «Смотреть позже»</span></div>
+                    <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px !important; height: 24px !important; stroke: #999 !important; stroke-width: 1.2 !important; fill: none !important;"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg><span class="feature-text">Подписка на новые каналы</span></div>
                 </div>
                 <button class="btn-login-big" onclick="window.open('https://accounts.google.com/ServiceLogin?continue=https://www.youtube.com/', '_blank')">Вход</button>
             </div>
         </div>
 
-        <!-- 10. РЕГИОН И ЯЗЫК -->
-        <div id="screen-settings-region" class="app-screen">
-            <div class="header-bar">
-                <button class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
-                <div class="header-title">Регион и язык</div>
             </div>
-            <div class="inner-list">
-                <div class="inner-item"><div class="inner-text-col"><span class="inner-title">Язык в Snaptube</span><span class="inner-subtitle">Русский</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- НИЖНЕЕ МЕНЮ (ИДЕАЛЬНЫЕ РАЗМЕРЫ ИЗ 294) -->
-    <div class="bottom-nav">
-        <div class="nav-item active" onclick="switchBottomTab('screen-search', this)">
-            <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" /><line x1="14.5" y1="14.5" x2="20" y2="20" /></svg><span>Загрузить</span>
-        </div>
-        <div class="nav-item" onclick="switchBottomTab('screen-downloaded', this)">
-            <svg viewBox="0 0 24 24"><path d="M4 8v11a1 1 0 0 0 1 1h11" /><rect x="8" y="4" width="12" height="12" rx="1.5" /><polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" /></svg><span>Воспроизведение</span>
-        </div>
-        <div class="nav-item" onclick="switchBottomTab('screen-settings', this)">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg><span>Настройки</span>
-        </div>
+    
+    <div class="bottom-nav" style="display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 15px 25px 25px 25px !important; flex-shrink: 0 !important; z-index: 10 !important; background-color: #ffffff !important; border-top: 1px solid #F0F0F0 !important;">
+        <button class="nav-item active" data-bottom-target="screen-search" onclick="switchBottomTab('screen-search', this)">
+            <svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; margin-bottom: 6px !important;"><circle cx="10" cy="10" r="6" /><line x1="14.5" y1="14.5" x2="20" y2="20" /></svg><span style="font-size: 11px !important; font-weight: 400 !important; color: #999999 !important;">Загрузить</span>
+        </button>
+        <button class="nav-item" data-bottom-target="screen-downloaded" onclick="switchBottomTab('screen-downloaded', this)">
+            <svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; margin-bottom: 6px !important;"><path d="M4 8v11a1 1 0 0 0 1 1h11" /><rect x="8" y="4" width="12" height="12" rx="1.5" /><polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" /></svg><span style="font-size: 11px !important; font-weight: 400 !important; color: #999999 !important;">Воспроизведение</span>
+        </button>
+        <button class="nav-item" data-bottom-target="screen-settings" onclick="switchBottomTab('screen-settings', this)">
+            <svg stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="width: 24px !important; height: 24px !important; stroke: #999999 !important; stroke-width: 1.5 !important; fill: none !important; margin-bottom: 6px !important;"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg><span style="font-size: 11px !important; font-weight: 400 !important; color: #999999 !important;">Настройки</span>
+        </button>
     </div>
 
     <script>
@@ -285,23 +279,25 @@
             element.classList.add('active');
             showScreen(screenId);
         }
-
-        function switchTopTab(screenId, element) {
-            showScreen(screenId);
-        }
-
+        function switchTopTab(screenId, element) { showScreen(screenId); }
         function showScreen(screenId) {
             document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(screenId);
-            if (target) {
-                target.classList.add('active');
-                target.scrollTop = 0;
-            }
+            document.getElementById(screenId).classList.add('active');
+            document.getElementById(screenId).scrollTop = 0;
         }
-        
+        document.getElementById('emptySearchBtn').addEventListener('click', function() {
+            const navBtn = document.querySelector('.bottom-nav .nav-item[data-bottom-target="screen-search"]');
+            switchBottomTab('screen-search', navBtn);
+        });
         document.getElementById('micBtn').addEventListener('click', function() {
             alert('Голосовой поиск скоро появится!');
         });
     </script>
+
+
+
+<!-- ultimate-master-v1793358016 -->
+
+<!-- ultimate-v1793361960 -->
 </body>
 </html>
