@@ -42,37 +42,35 @@
         .back-btn svg { width: 24px; height: 24px; stroke: #111; stroke-width: 2; fill: none; }
         .header-title { font-size: 18px; font-weight: 700; color: #111; }
 
-        /* Настройки (Уменьшенные шрифты и отступы) */
-        .settings-header { padding: 30px 20px 15px 20px; background: #f2f2f6; }
+        .settings-header { padding: 35px 20px 15px 20px; background: #f2f2f6; }
         .settings-header h1 { font-size: 24px; font-weight: 800; color: #111111; }
         .settings-section { margin-bottom: 20px; background: #f2f2f6; }
-        .settings-section-title { font-size: 13px; color: #999; padding: 0 20px 8px 20px; }
+        .settings-section-title { font-size: 14px; color: #999; padding: 0 20px 8px 20px; font-weight: 400; }
         .settings-list { background-color: #ffffff; border-radius: 12px; margin: 0 15px; overflow: hidden; }
-        .settings-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; background: #fff; }
+        .settings-item { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; background: #fff; }
         .settings-item:last-child { border-bottom: none; }
         .settings-item-left { display: flex; align-items: center; gap: 15px; }
         .settings-item-icon { width: 22px; height: 22px; stroke: #999; stroke-width: 1.8; fill: none; flex-shrink: 0; }
-        .settings-item-text { font-size: 15px; color: #111; }
+        .settings-item-text { font-size: 16px; color: #111; font-weight: 400; }
         .settings-item-right { display: flex; align-items: center; gap: 10px; }
         .settings-item-value { font-size: 14px; color: #999; }
         .chevron-icon { width: 16px; height: 16px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0; }
 
         .inner-list { background: #fff; margin: 20px 15px 0 15px; border-radius: 12px; overflow: hidden; }
-        .inner-item { padding: 14px 20px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
+        .inner-item { padding: 16px 20px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
         .inner-item:last-child { border-bottom: none; }
         .inner-text-col { display: flex; flex-direction: column; gap: 4px; }
-        .inner-title { font-size: 15px; color: #111; font-weight: 500; }
-        .inner-subtitle { font-size: 13px; color: #999; line-height: 1.3; }
+        .inner-title { font-size: 16px; color: #111; font-weight: 400; }
+        .inner-subtitle { font-size: 14px; color: #999; line-height: 1.3; }
         
-        /* Тумблеры (Гранатовый цвет Sailor Pluto) */
+        /* Тумблеры (Гранатовый) */
         .toggle-switch { position: relative; display: inline-block; width: 46px; height: 26px; flex-shrink: 0; }
         .toggle-switch input { opacity: 0; width: 0; height: 0; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 26px; }
         .slider:before { position: absolute; content: ""; height: 22px; width: 22px; left: 2px; bottom: 2px; background-color: white; transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: #800020 !important; } /* Гранат */
-        input:checked + .slider:before { transform: translateX(20px); }
+        .toggle-switch input:checked + .slider { background-color: #800020 !important; }
+        .toggle-switch input:checked + .slider:before { transform: translateX(20px); }
 
-        /* Модалки */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
         .modal-overlay.active { display: flex; }
         .modal-box { background: #fff; width: 85%; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -83,13 +81,11 @@
         .modal-btn-cancel { color: #999; }
         .modal-btn-ok { color: #800020; }
         
-        /* Слайдеры */
         .slider-group { margin-bottom: 20px; }
         .slider-label { font-size: 14px; color: #333; margin-bottom: 10px; display: block; }
         input[type=range] { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px; outline: none; padding: 0; margin: 0; background: #e0e0e0; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #800020; cursor: pointer; box-shadow: 0 0 0 4px rgba(128, 0, 32, 0.2); }
 
-        /* Экран аккаунта */
         .account-container { display: flex; flex-direction: column; align-items: center; padding: 20px; flex: 1; background: #ffffff; }
         .account-title { font-size: 18px; color: #333; text-align: center; margin-bottom: 30px; }
         .features-list { width: 100%; display: flex; flex-direction: column; gap: 20px; padding: 0 10px; margin-bottom: auto; }
@@ -98,11 +94,9 @@
         .feature-text { font-size: 15px; color: #999; }
         .btn-login-big { width: 100%; background: #FDD835; color: #111; border: none; padding: 16px; border-radius: 30px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: auto; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; }
 
-        /* Google Auth */
         .google-login-container { padding: 20px 25px; display: flex; flex-direction: column; align-items: flex-start; flex: 1; background: #fff; box-sizing: border-box; }
         .google-input { width: 100%; box-sizing: border-box; border: 1px solid #dadce0; border-radius: 4px; padding: 14px 15px; font-size: 15px; color: #202124; margin-bottom: 15px; outline: none; background: transparent; }
 
-        /* Нижнее меню */
         .bottom-nav { display: flex; justify-content: space-between; align-items: flex-start; height: 70px; padding: 10px 0px 22px 0px; border-top: 1px solid #F0F0F0; background-color: #ffffff; z-index: 100; flex-shrink: 0; box-sizing: border-box; }
         .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #999999; cursor: pointer; background: transparent; border: none; flex: 1; padding: 0; -webkit-appearance: none; appearance: none; }
         .nav-item svg { width: 24px; height: 24px; margin-bottom: 4px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
@@ -111,10 +105,11 @@
         .nav-item span { font-size: 10px; font-weight: 400; white-space: nowrap; letter-spacing: -0.5px; }
         .nav-item.active span { font-weight: 700; font-size: 11px; letter-spacing: -0.5px; }
         
-        /* Папка SVG */
-        .folder-icon-container { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 0; cursor: pointer; }
-        .folder-icon-container svg { width: 100px; height: 100px; fill: #FDD835; stroke: #E6C300; stroke-width: 2; }
-        .folder-icon-container span { margin-top: 10px; font-size: 14px; color: #111; font-weight: 500; }
+        /* Экран выбора папки */
+        .folder-picker-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f2f2f6; padding: 20px; }
+        .big-folder-icon { width: 150px; height: 150px; fill: #d4d4d4; stroke: #bbb; stroke-width: 1.5; cursor: pointer; transition: transform 0.2s; }
+        .big-folder-icon:active { transform: scale(0.95); }
+        .folder-hint { margin-top: 20px; font-size: 16px; color: #666; }
     </style>
 </head>
 <body>
@@ -221,7 +216,7 @@
                         <div class="settings-item-right"><span class="settings-item-value">Вход</span><svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
                     </div>
                     <div class="settings-item" onclick="showScreen('screen-settings-region')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Регион и язык</span></div>
+                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Язык</span></div>
                         <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                 </div>
@@ -234,19 +229,13 @@
                 <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
                 <div class="header-title">Настройки загрузки</div>
             </div>
-            
-            <!-- Большая SVG папка -->
-            <div class="folder-icon-container" onclick="selectDownloadFolder()">
-                <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
-                <span>Выбрать папку для скачивания</span>
-            </div>
-
             <div class="inner-list">
-                <div class="inner-item">
+                <div class="inner-item" onclick="showScreen('screen-folder-picker')">
                     <div class="inner-text-col">
-                        <span class="inner-title">Текущая папка</span>
+                        <span class="inner-title">Папка для скачивания</span>
                         <span class="inner-subtitle" id="folder-path-text">/storage/emulated/0/snaptube/download</span>
                     </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                 </div>
                 <div class="inner-item" onclick="openModal('modal-max-tasks')">
                     <div class="inner-text-col">
@@ -269,6 +258,21 @@
                     </div>
                     <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
                 </div>
+            </div>
+        </div>
+
+        <!-- ЭКРАН ВЫБОРА ПАПКИ (НОВЫЙ) -->
+        <div id="screen-folder-picker" class="app-screen">
+            <div class="header-bar">
+                <div class="back-btn" onclick="showScreen('screen-settings-download')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
+                <div class="header-title">Snaptube</div>
+            </div>
+            <div class="folder-picker-screen">
+                <!-- Большая серая папка -->
+                <svg class="big-folder-icon" viewBox="0 0 24 24" onclick="selectDownloadFolder()">
+                    <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+                </svg>
+                <div class="folder-hint">Нажмите на папку, чтобы выбрать</div>
             </div>
         </div>
 
@@ -330,9 +334,10 @@
                     <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Mars</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
                     <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Jupiter</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
                     <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Venus</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
-                    <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Pluto</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
+                    <!-- ПРАВИЛЬНЫЙ ПОРЯДОК: УРАН, НЕПТУН, ПЛУТОН -->
                     <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Uranus</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
                     <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Neptune</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
+                    <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Pluto</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
                     <div class="inner-item theme-item" onclick="selectTheme(this)"><div style="display: flex; align-items: center; gap: 8px;"><span class="inner-title">Sailor Saturn</span><span style="font-size: 14px;">🔒</span></div><svg class="theme-check" viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #800020; stroke-width: 2; fill: none; display: none;"><path d="M20 6L9 17l-5-5"/></svg></div>
                 </div>
             </div>
@@ -393,19 +398,15 @@
             </div>
         </div>
 
-        <!-- 11. РЕГИОН И ЯЗЫК -->
+        <!-- 11. ЯЗЫК -->
         <div id="screen-settings-region" class="app-screen">
             <div class="header-bar">
                 <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
-                <div class="header-title">Регион и язык</div>
+                <div class="header-title">Язык</div>
             </div>
             <div class="inner-list" style="margin-top: 15px;">
-                <div class="inner-item" style="padding: 15px 20px; border-bottom: 1px solid #f0f0f0;">
-                    <div class="inner-text-col"><span class="inner-title">Язык</span><span class="inner-subtitle">Системный (Русский)</span></div>
-                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                </div>
                 <div class="inner-item" style="padding: 15px 20px;">
-                    <div class="inner-text-col"><span class="inner-title">Регион</span><span class="inner-subtitle">Системный (Россия)</span></div>
+                    <div class="inner-text-col"><span class="inner-title">Язык приложения</span><span class="inner-subtitle">Системный</span></div>
                     <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
                 </div>
             </div>
@@ -521,6 +522,7 @@
             try {
                 const dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
                 document.getElementById('folder-path-text').innerText = "Выбрано: " + dirHandle.name;
+                showScreen('screen-settings-download');
             } catch (error) { if (error.name !== 'AbortError') alert('Ошибка выбора.'); }
         }
 
