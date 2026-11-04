@@ -497,7 +497,56 @@
         <div class="nav-item" onclick="switchBottomTab('screen-settings', this)">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg><span>Настройки</span>
         </div>
-    </div>
+    
+        <!-- ЭКРАН НАСТРОЕК (1 В 1) -->
+        <div class="app-screen" id="screen-settings-main" style="display: none !important; flex-direction: column !important; height: 100% !important; width: 100% !important; background: #ffffff !important; position: relative !important; overflow-y: auto !important; padding-bottom: 80px !important;">
+            
+            <div style="padding: 25px 20px 10px 20px !important; font-size: 26px !important; font-weight: 700 !important; color: #222 !important; font-family: sans-serif !important;">Настройки</div>
+
+            <!-- Секция: Общие -->
+            <div style="padding: 15px 20px 5px 20px !important; font-size: 13px !important; color: #999 !important; font-family: sans-serif !important;">Общие</div>
+            
+            <!-- Настройки загрузки -->
+            <div class="settings-item" id="nav-download-settings" style="display: flex !important; align-items: center !important; padding: 15px 20px !important; cursor: pointer !important;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 16px !important; color: #333 !important; font-family: sans-serif !important;">Настройки загрузки</div>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <!-- Настройки уведомлений -->
+            <div class="settings-item" id="nav-notification-settings" style="display: flex !important; align-items: center !important; padding: 15px 20px !important; cursor: pointer !important;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 16px !important; color: #333 !important; font-family: sans-serif !important;">Настройки уведомлений</div>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <!-- Тема -->
+            <div class="settings-item" id="nav-theme-settings" style="display: flex !important; align-items: center !important; padding: 15px 20px !important; cursor: pointer !important;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 16px !important; color: #333 !important; font-family: sans-serif !important;">Тема</div>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <!-- Секция: Информация -->
+            <div style="padding: 25px 20px 5px 20px !important; font-size: 13px !important; color: #999 !important; font-family: sans-serif !important;">Информация</div>
+
+            <!-- Уч. запись -->
+            <div class="settings-item" id="nav-account-settings" style="display: flex !important; align-items: center !important; padding: 15px 20px !important; cursor: pointer !important;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 16px !important; color: #333 !important; font-family: sans-serif !important;">Уч. запись</div>
+                <div style="font-size: 14px !important; color: #bbb !important; margin-right: 10px !important; font-family: sans-serif !important;">Вход</div>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+            <!-- Регион и язык -->
+            <div class="settings-item" id="nav-region-settings" style="display: flex !important; align-items: center !important; padding: 15px 20px !important; cursor: pointer !important;">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 16px !important; color: #333 !important; font-family: sans-serif !important;">Регион и язык</div>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+
+        </div>
+</div>
 
     <script>
         function switchBottomTab(screenId, element) {
