@@ -189,41 +189,62 @@
         </div>
 
         <!-- 5. НАСТРОЙКИ -->
-        <div id="screen-settings" class="app-screen">
-            <div class="settings-header"><h1>Настройки</h1></div>
-            <div class="settings-section">
-                <div class="settings-section-title">Общие</div>
-                <div class="settings-list">
-                    <div class="settings-item" onclick="showScreen('screen-settings-download')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12"/></svg><span class="settings-item-text">Настройки загрузки</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <div id="screen-settings" class="app-screen" style="background-color: #f2f2f6 !important;">
+            <div style="padding: 30px 20px 15px 20px; background: transparent !important;">
+                <h1 style="font-size: 28px; font-weight: 800; color: #111111; margin: 0;">Настройки</h1>
+            </div>
+            
+            <div style="margin-bottom: 25px; background: transparent !important;">
+                <div style="font-size: 14px; color: #999; padding: 0 20px 10px 20px; font-weight: 400;">Общие</div>
+                <div style="background-color: #ffffff !important; border-radius: 12px; margin: 0 16px; overflow: hidden;">
+                    <div onclick="showScreen('screen-settings-download')" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; background: #ffffff !important; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <svg class="settings-item-icon" viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; flex-shrink: 0;"><path d="M12 4v9m0 0l-4-4m4 4l4-4M6 18h12"/></svg>
+                            <span style="font-size: 16px; color: #111;">Настройки загрузки</span>
+                        </div>
+                        <svg class="chevron-icon" viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
-                    <div class="settings-item" onclick="showScreen('screen-settings-notifications')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="settings-item-text">Настройки уведомлений</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    <div onclick="showScreen('screen-settings-notifications')" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; background: #ffffff !important; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <svg class="settings-item-icon" viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; flex-shrink: 0;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            <span style="font-size: 16px; color: #111;">Настройки уведомлений</span>
+                        </div>
+                        <svg class="chevron-icon" viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
-                    <div class="settings-item" onclick="showScreen('screen-settings-theme')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg><span class="settings-item-text">Тема</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    <div onclick="showScreen('screen-settings-theme')" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: #ffffff !important; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <svg class="settings-item-icon" viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; flex-shrink: 0;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+                            <span style="font-size: 16px; color: #111;">Тема</span>
+                        </div>
+                        <svg class="chevron-icon" viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                 </div>
             </div>
-            <div class="settings-section">
-                <div class="settings-section-title">Информация</div>
-                <div class="settings-list">
-                    <div class="settings-item" onclick="showScreen('screen-account')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="settings-item-text">Уч. запись</span></div>
-                        <div class="settings-item-right"><span class="settings-item-value">Вход</span><svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+            
+            <div style="margin-bottom: 25px; background: transparent !important;">
+                <div style="font-size: 14px; color: #999; padding: 0 20px 10px 20px; font-weight: 400;">Информация</div>
+                <div style="background-color: #ffffff !important; border-radius: 12px; margin: 0 16px; overflow: hidden;">
+                    <div onclick="showScreen('screen-account')" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; background: #ffffff !important; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <svg class="settings-item-icon" viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; flex-shrink: 0;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <span style="font-size: 16px; color: #111;">Уч. запись</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 15px; color: #999;">Вход</span>
+                            <svg class="chevron-icon" viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M9 18l6-6-6-6"/></svg>
+                        </div>
                     </div>
-                    <div class="settings-item" onclick="showScreen('screen-settings-region')">
-                        <div class="settings-item-left"><svg class="settings-item-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="settings-item-text">Язык</span></div>
-                        <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    <div onclick="showScreen('screen-settings-region')" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: #ffffff !important; cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <svg class="settings-item-icon" viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: #999; stroke-width: 1.8; fill: none; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span style="font-size: 16px; color: #111;">Язык</span>
+                        </div>
+                        <svg class="chevron-icon" viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M9 18l6-6-6-6"/></svg>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 6. НАСТРОЙКИ ЗАГРУЗКИ -->
         <div id="screen-settings-download" class="app-screen">
             <div class="header-bar">
                 <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
@@ -388,61 +409,23 @@
         </div>
 
         <!-- 10. ЯЗЫК -->
-        <div id="screen-settings-region" class="app-screen">
-            <div class="header-bar">
+        <div id="screen-settings-region" class="app-screen" style="background-color: #f2f2f6 !important;">
+            <div class="header-bar" style="background: transparent !important;">
                 <div class="back-btn" onclick="showScreen('screen-settings')"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></div>
-                <div class="header-title">Язык</div>
+                <div class="header-title" style="font-size: 20px; font-weight: 700; color: #111;">Язык</div>
             </div>
-            <div class="inner-list" style="margin-top: 15px;">
-                <div class="inner-item" style="padding: 15px 20px;">
-                    <div class="inner-text-col"><span class="inner-title">Язык приложения</span><span class="inner-subtitle">Системный</span></div>
-                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+            <div style="background: #fff; margin: 20px 16px 0 16px; border-radius: 12px; overflow: hidden;">
+                <div style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <span style="font-size: 16px; color: #111;">Язык приложения</span>
+                        <span style="font-size: 14px; color: #999;">Системный</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" style="width: 18px; height: 18px; stroke: #ccc; stroke-width: 2; fill: none; flex-shrink: 0;"><path d="M9 18l6-6-6-6"/></svg>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- МОДАЛКИ -->
-    <div id="modal-max-tasks" class="modal-overlay" onclick="closeModal('modal-max-tasks')">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <div class="modal-title">Макс. задач по загрузке</div>
-            <div class="slider-group"><span class="slider-label">WiFi: <span id="wifi-tasks-val">2</span> задачи</span><input type="range" id="wifi-slider" min="1" max="5" value="2" oninput="updateMaxTasks()"></div>
-            <div class="slider-group"><span class="slider-label">Мобильные данные: <span id="mobile-tasks-val">2</span> задачи</span><input type="range" id="mobile-slider" min="1" max="5" value="2" oninput="updateMaxTasks()"></div>
-            <p class="inner-subtitle" style="margin-top: 15px; margin-bottom: 0;">При увеличении количества может снизиться скорость телефона.</p>
-            <div class="modal-actions">
-                <div class="modal-btn modal-btn-cancel" onclick="closeModal('modal-max-tasks')">ОТМЕНА</div>
-                <div class="modal-btn modal-btn-ok" onclick="saveMaxTasks()">ОК</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-speed-limit" class="modal-overlay" onclick="closeModal('modal-speed-limit')">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <div class="modal-title">Лимит скорости загрузки</div>
-            <p class="modal-text">Если при загрузке телефон становится медленным, уменьши лимит.</p>
-            <div style="text-align: center; font-size: 15px; margin-bottom: 15px; font-weight: 500;" id="speed-label">Без ограничений</div>
-            <div class="slider-group"><input type="range" id="speed-slider" min="0" max="100" value="100" oninput="updateSpeedLimit()"></div>
-            <div class="modal-actions">
-                <div class="modal-btn modal-btn-cancel" onclick="closeModal('modal-speed-limit')">ОТМЕНА</div>
-                <div class="modal-btn modal-btn-ok" onclick="saveSpeedLimit()">ОК</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- НИЖНЕЕ МЕНЮ -->
-    <div class="bottom-nav">
-        <div class="nav-item active" onclick="switchBottomTab('screen-search', this)">
-            <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" /><line x1="14.5" y1="14.5" x2="20" y2="20" /></svg><span>Загрузить</span>
-        </div>
-        <div class="nav-item" onclick="switchBottomTab('screen-downloaded', this)">
-            <svg viewBox="0 0 24 24"><path d="M4 8v11a1 1 0 0 0 1 1h11" /><rect x="8" y="4" width="12" height="12" rx="1.5" /><polygon points="12,7 16,10 12,13" fill="currentColor" stroke="none" /></svg><span>Воспроизведение</span>
-        </div>
-        <div class="nav-item" onclick="switchBottomTab('screen-settings', this)">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg><span>Настройки</span>
-        </div>
-    </div>
-
-    <script>
+        
+        <script>
         function switchBottomTab(screenId, element) {
             document.querySelectorAll('.bottom-nav .nav-item').forEach(nav => nav.classList.remove('active'));
             element.classList.add('active');
