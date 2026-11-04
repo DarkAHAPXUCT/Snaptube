@@ -352,12 +352,20 @@
             <div class="account-container">
                 <div style="margin-top: 10px; margin-bottom: 30px; display: flex; justify-content: center; width: 100%;">
                     <svg viewBox="0 0 250 100" style="width: 100%; max-width: 240px; height: auto;">
+                        <!-- Желтый круг Snaptube -->
                         <circle cx="45" cy="50" r="40" fill="#FDD835" />
                         <rect x="22" y="33" width="46" height="34" rx="6" fill="#ffffff" />
                         <path d="M45 40 V52 M39 47 L45 53 L51 47 M37 60 H53" stroke="#E53935" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                        <!-- ПУНКТИРНЫЕ СТРЕЛКИ (stroke-dasharray) -->
-                        <path d="M115 42 H95 M102 35 L95 42 L102 49" stroke="#d4d4d4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,4" />
-                        <path d="M95 58 H115 M108 51 L115 58 L108 65" stroke="#d4d4d4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4,4" />
+                        
+                        <!-- ПУНКТИРНАЯ СТРЕЛКА ВЛЕВО -->
+                        <line x1="115" y1="40" x2="95" y2="40" stroke="#d4d4d4" stroke-width="2.5" stroke-dasharray="4,4" />
+                        <polyline points="102,35 95,40 102,45" stroke="#d4d4d4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                        
+                        <!-- ПУНКТИРНАЯ СТРЕЛКА ВПРАВО -->
+                        <line x1="95" y1="60" x2="115" y2="60" stroke="#d4d4d4" stroke-width="2.5" stroke-dasharray="4,4" />
+                        <polyline points="108,55 115,60 108,65" stroke="#d4d4d4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- Красный YouTube -->
                         <rect x="130" y="25" width="80" height="50" rx="14" fill="#FF0000" />
                         <path d="M155 38 L175 50 L155 62 Z" fill="#ffffff" />
                     </svg>
