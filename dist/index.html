@@ -507,19 +507,20 @@
     <!-- ЭКРАН: ВОЙТИ В YOUTUBE (ИДЕАЛЬНЫЙ) -->
     <div class="app-screen" id="screen-youtube-login">
         
-        <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
-            <div style="cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; margin-left: -10px !important;" onclick="showScreen('screen-settings')">
+        <div class="header">
+            <div class="back-btn" onclick="showScreen('screen-settings')" style="cursor: pointer !important; display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
                 <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5M12 19l-7-7 7-7"/>
                 </svg>
+                <div style="font-size: 20px !important; font-weight: 700 !important; color: #222 !important; margin-left: 10px !important;">Войти в YouTube</div>
             </div>
-            <div style="font-size: 20px !important; font-weight: 700 !important; color: #222 !important; margin-left: 10px !important;">Войти в YouTube</div>
         </div>
 
         <div class="icons-container" style="display: flex !important; align-items: center !important; justify-content: center !important; gap: 15px !important; margin-top: 40px !important; width: 100% !important;">
             
             <div class="snaptube-icon" style="width: 80px !important; height: 80px !important; background: #FDD835 !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important;">
                 <div class="snaptube-inner" style="width: 48px !important; height: 34px !important; background: #ffffff !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important;">
+                    <!-- ТРИ КВАДРАТИКА -->
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="#E53935">
                         <rect x="9" y="1" width="6" height="3.5" />
                         <rect x="9" y="6" width="6" height="3.5" />
@@ -529,7 +530,7 @@
                 </div>
             </div>
             
-            <!-- СВЕТЛЫЕ СЕРЫЕ СТРЕЛКИ (РАЗДВИНУТЫ) -->
+            <!-- СВЕТЛЫЕ СЕРЫЕ СТРЕЛКИ -->
             <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="4" y1="7" x2="20" y2="7" />
                 <polyline points="9 3 4 7 9 11" />
@@ -549,7 +550,6 @@
         </div>
 
         <div class="list" style="display: flex !important; flex-direction: column !important; gap: 25px !important; padding: 0 20px !important;">
-            <!-- 1. Синхронизация (Треугольник закрашен) -->
             <div class="list-item" style="display: flex !important; align-items: flex-start !important;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important; margin-top: 2px !important;">
                     <rect x="2" y="5" width="20" height="14" rx="4" ry="4" />
@@ -558,7 +558,6 @@
                 <div class="list-text" style="margin-left: 15px !important; font-size: 16px !important; color: #888 !important; text-align: left !important;">Синхронизация библиотеки YouTube</div>
             </div>
             
-            <!-- 2. История -->
             <div class="list-item" style="display: flex !important; align-items: flex-start !important;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important; margin-top: 2px !important;">
                     <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
@@ -568,7 +567,6 @@
                 <div class="list-text" style="margin-left: 15px !important; font-size: 16px !important; color: #888 !important; text-align: left !important;">История и список «Смотреть позже»</div>
             </div>
             
-            <!-- 3. Подписка (Человечек с бюстом) -->
             <div class="list-item" style="display: flex !important; align-items: flex-start !important;">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important; margin-top: 2px !important;">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
