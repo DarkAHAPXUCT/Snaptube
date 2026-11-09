@@ -34,39 +34,9 @@ async fn fetch_video_info(video_url: String) -> Result<String, String> {
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
-
-#[tauri::command]
-fn open_google_window(app: tauri::AppHandle) -> Result<(), String> {
-    let js = r#"
-        window.addEventListener('DOMContentLoaded', function() {
-            var header = document.createElement('div');
-            header.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:65px; background:#fff; display:flex; align-items:center; padding:0 20px; z-index:2147483647; border-bottom:1px solid #f0f0f0; box-sizing:border-box;';
-            header.innerHTML = '<div onclick="window.close()" style="cursor:pointer; display:flex; align-items:center;">' +
-                '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
-                '<span style="font-size:20px; font-weight:700; color:#222; margin-left:10px;">Войти в YouTube</span></div>';
-            document.body.prepend(header);
-            document.body.style.paddingTop = '65px';
-        });
-    "#;
-
-    tauri::WebviewWindowBuilder::new(
-        &app,
-        "google_auth",
-        tauri::WebviewUrl::External("https://accounts.google.com/ServiceLogin?service=youtube".parse().unwrap())
-    )
-    .title("Войти в YouTube")
-    .inner_size(400.0, 750.0)
-    .decorations(false) // Убираем системные рамки
-    .initialization_script(js) // Вставляем нашу SVG шапку внутрь окна
-    .build()
-    .map_err(|e| e.to_string())?;
-
-    Ok(())
-}
-
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![open_google_window, fetch_video_info])
+        .invoke_handler(tauri::generate_handler![fetch_video_info])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

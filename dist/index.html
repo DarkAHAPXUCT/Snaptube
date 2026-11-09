@@ -381,22 +381,53 @@
             </div>
         </div>
 
-        <div class="app-screen" id="screen-google-login" style="display:none; flex-direction:column; height:100%; width:100%; background:#ffffff; position:absolute; top:0; left:0; z-index:100;">
+        <div class="app-screen" id="screen-google-login">
         
-        <!-- НАША SVG ШАПКА -->
-        <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important; background:#fff; border-bottom: 1px solid #f0f0f0; flex-shrink: 0; z-index: 10;">
+        <!-- НАША ОБОЛОЧКА (ШАПКА) -->
+        <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
             <div style="cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; margin-left: -10px !important;" onclick="showScreen('screen-youtube-login')">
                 <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </div>
             <div style="font-size: 20px !important; font-weight: 700 !important; color: #222 !important; margin-left: 10px !important;">Войти в YouTube</div>
         </div>
 
-        <!-- САМ НАСТОЯЩИЙ GOOGLE -->
-        <div style="flex: 1; width: 100%; height: 100%; overflow: hidden; position: relative;">
-            <iframe src="https://accounts.google.com/ServiceLogin?service=youtube" 
-                    style="width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0; background: #fff;"
-                    allow="camera; microphone">
-            </iframe>
+        <!-- САМА ФОРМА -->
+        <div style="padding: 0 25px !important;">
+            <!-- Логотип Google -->
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" style="margin-bottom: 20px; margin-top: 20px;">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+
+            <div style="font-size: 32px; font-weight: 400; color: #202124; margin-bottom: 10px;">Вход</div>
+            <div style="font-size: 16px; color: #202124; margin-bottom: 30px;">Используйте аккаунт Google</div>
+
+            <!-- АКТИВНОЕ ПОЛЕ ВВОДА -->
+            <div style="margin-bottom: 15px;">
+                <input type="text" placeholder="Телефон или электронный адрес" style="width: 100%; height: 60px; border: 1px solid #ccc; border-radius: 4px; padding: 0 15px; font-size: 16px; color: #202124; outline: none; box-sizing: border-box; background: #fff;">
+            </div>
+
+            <div style="font-size: 14px; color: #1a73e8; font-weight: 500; margin-bottom: 40px; cursor: pointer;">Забыли адрес электронной почты?</div>
+
+            <div style="font-size: 14px; color: #202124; line-height: 1.5; margin-bottom: 40px;">
+                Не ваш компьютер? Включите гостевой режим, чтобы защитить данные в аккаунте. <span style="color: #1a73e8; font-weight: 500;">Подробнее об использовании гостевого режима</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
+                <div style="font-size: 14px; color: #1a73e8; font-weight: 500; cursor: pointer;">Создать аккаунт</div>
+                
+                <!-- КНОПКА ДАЛЕЕ (ОТКРЫВАЕТ БРАУЗЕР) -->
+                <div onclick="window.open('https://accounts.google.com/ServiceLogin?service=youtube', '_blank')" style="background: #1a73e8; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer;">Далее</div>
+            </div>
+
+            <div style="display: flex; gap: 20px; font-size: 12px; color: #555; margin-top: auto; padding-bottom: 20px;">
+                <span>Русский</span>
+                <span>Справка</span>
+                <span>Конфиденциальность</span>
+                <span>Условия</span>
+            </div>
         </div>
     </div>
 
@@ -590,7 +621,7 @@
 
         <div class="btn-container" style="margin-top: auto !important; padding: 20px !important; width: 100% !important; box-sizing: border-box !important;">
             <!-- КНОПКА ВЕДЕТ НА ЭКРАН GOOGLE -->
-            <div onclick="window.open('https://accounts.google.com/ServiceLogin?service=youtube', '_blank')" style="width: 100% !important; height: 56px !important; background: #FDD835 !important; border-radius: 28px !important; display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important;">
+            <div onclick="showScreen('screen-google-login')" style="width: 100% !important; height: 56px !important; background: #FDD835 !important; border-radius: 28px !important; display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important;">
                 <div style="font-size: 16px !important; font-weight: 700 !important; color: #222 !important;">Вход</div>
             </div>
         </div>
