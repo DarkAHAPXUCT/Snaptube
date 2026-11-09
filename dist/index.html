@@ -151,7 +151,7 @@
         </div>
     </div>
 
-    <!-- ЭКРАН 5: ВХОД В GOOGLE (1 В 1) -->
+    <!-- ЭКРАН 5: ВХОД В GOOGLE (ТОЧЬ-В-ТОЧЬ) -->
     <div class="app-screen" id="screen-youtube-login">
         
         <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
@@ -184,7 +184,8 @@
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
                 <div style="font-size: 14px; color: #1a73e8; font-weight: 500; cursor: pointer;">Создать аккаунт</div>
-                <div onclick="window.open('https://accounts.google.com/', '_blank')" style="background: #1a73e8; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer;">Далее</div>
+                <!-- КНОПКА ДАЛЕЕ (ЖЕЛТАЯ) -->
+                <div onclick="window.open('https://accounts.google.com/', '_blank')" style="background: #FDD835; color: #222; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">Далее</div>
             </div>
 
             <div style="display: flex; gap: 20px; font-size: 12px; color: #555; margin-top: auto; padding-bottom: 20px;">
@@ -222,17 +223,17 @@
 
 <script>
     // ЧИСТАЯ РАБОЧАЯ ЛОГИКА
-    function showScreen(id) {
+    window.showScreen = function(id) {
         var screens = document.querySelectorAll('.app-screen');
         for (var i = 0; i < screens.length; i++) {
             screens[i].classList.remove('active');
         }
         var target = document.getElementById(id);
         if (target) target.classList.add('active');
-    }
+    };
 
-    function switchBottomTab(screenId, el) {
-        showScreen(screenId);
+    window.switchBottomTab = function(screenId, el) {
+        window.showScreen(screenId);
         var tabs = el.parentNode.children;
         for (var i = 0; i < tabs.length; i++) {
             var svg = tabs[i].querySelector('svg');
@@ -245,9 +246,9 @@
                 if(text) { text.style.color = '#999'; text.style.fontWeight = 'normal'; text.style.fontSize = '10px'; }
             }
         }
-    }
+    };
 
-    function switchTopTab(el) {
+    window.switchTopTab = function(el) {
         var tabs = el.parentNode.children;
         for (var i = 0; i < tabs.length; i++) {
             if (tabs[i] === el) {
@@ -262,9 +263,9 @@
                 tabs[i].style.paddingBottom = '8px';
             }
         }
-    }
+    };
 
-    function toggleMobileSwitch(el) {
+    window.toggleMobileSwitch = function(el) {
         var knob = document.getElementById('toggleKnobFinal');
         if (!knob) return;
         if (el.style.background === 'rgb(126, 21, 53)' || el.style.background === '#7E1535') {
@@ -274,7 +275,7 @@
             el.style.background = '#7E1535';
             knob.style.transform = 'translateX(22px)';
         }
-    }
+    };
 </script>
 </body>
 </html>
