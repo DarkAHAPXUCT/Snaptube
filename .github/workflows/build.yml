@@ -66,7 +66,12 @@ jobs:
           keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
           EOK
 
-      - name: Build APK (Release)
+      - name: Clear Tauri Android Cache
+        run: |
+          rm -rf src-tauri/gen/android/app/src/main/assets
+          rm -rf src-tauri/gen/android/app/build
+          cargo clean
+              - name: Build APK (Release)
         run: cargo tauri android build --apk --ci --verbose --verbose --verbose
 
       - name: Sign APK (Manual)
