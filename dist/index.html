@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <!-- ЭКРАН 4: НАСТРОЙКИ ЗАГРУЗКИ (С БОЛЬШОЙ ПАПКОЙ) -->
+    <!-- ЭКРАН 4: НАСТРОЙКИ ЗАГРУЗКИ (С ПОЛУПРОЗРАЧНОЙ ПАПКОЙ) -->
     <div class="app-screen" id="screen-download-settings">
         <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
             <div style="cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; margin-left: -10px !important;" onclick="showScreen('screen-settings')">
@@ -106,13 +106,13 @@
         </div>
         
         <div style="display: flex !important; flex-direction: column !important; padding: 20px !important; gap: 32px !important;">
-            <!-- БОЛЬШАЯ, ЯРКАЯ, КЛИКАБЕЛЬНАЯ ПАПКА -->
+            <!-- ПОЛУПРОЗРАЧНАЯ ПАПКА -->
             <div style="display: flex !important; justify-content: center !important; margin-bottom: 10px;">
-                <div onclick="document.getElementById('folderInputFinal').click()" style="cursor: pointer !important; position: relative !important; width: 180px !important; height: 150px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto !important;">
-                    <svg viewBox="0 0 24 24" width="180" height="150" fill="#FDD835" style="position: absolute !important; opacity: 0.9 !important;">
+                <div onclick="document.getElementById('folderInputFinal').click()" style="cursor: pointer !important; position: relative !important; width: 140px !important; height: 110px !important; display: flex !important; align-items: center !important; justify-content: center !important;">
+                    <svg viewBox="0 0 24 24" width="140" height="110" fill="#FDD835" style="opacity: 0.3 !important; position: absolute !important;">
                         <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
                     </svg>
-                    <div style="position: relative !important; z-index: 2 !important; font-size: 14px !important; font-weight: 700 !important; color: #7a5f00 !important; margin-top: 20px !important;">Выбрать папку</div>
+                    <div style="position: relative !important; z-index: 2 !important; font-size: 13px !important; font-weight: 700 !important; color: #777 !important;">Выбрать папку</div>
                 </div>
             </div>
 
@@ -151,7 +151,7 @@
         </div>
     </div>
 
-    <!-- ЭКРАН 5: ВХОД В GOOGLE (ТОЧЬ-В-ТОЧЬ КАК НА 2 СКРИНЕ) -->
+    <!-- ЭКРАН 5: ВХОД В GOOGLE (1 В 1) -->
     <div class="app-screen" id="screen-youtube-login">
         
         <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
@@ -162,7 +162,6 @@
         </div>
 
         <div style="padding: 0 25px !important;">
-            <!-- Логотип Google -->
             <svg viewBox="0 0 24 24" width="48" height="48" fill="none" style="margin-bottom: 20px;">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -173,7 +172,6 @@
             <div style="font-size: 32px; font-weight: 400; color: #222; margin-bottom: 10px;">Вход</div>
             <div style="font-size: 16px; color: #222; margin-bottom: 30px;">Перейдите на YouTube</div>
 
-            <!-- БОЛЬШОЕ ПОЛЕ ВВОДА -->
             <div style="margin-bottom: 15px;">
                 <input type="text" placeholder="Телефон или электронный адрес" style="width: 100%; height: 60px; border: 1px solid #ccc; border-radius: 4px; padding: 0 15px; font-size: 16px; color: #222; outline: none; box-sizing: border-box;">
             </div>
