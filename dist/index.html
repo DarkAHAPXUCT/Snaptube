@@ -12,9 +12,7 @@
         .app-screen.active { display:flex; flex-direction:column; }
         .bottom-nav { position:absolute; bottom:0; left:0; width:100%; height:75px; background:#ffffff; display:flex; justify-content:space-around; align-items:center; border-top:1px solid #f0f0f0; z-index:100; padding-bottom:15px; }
         .watermark { position:absolute; z-index:0; opacity:0.8; pointer-events:none; }
-        .settings-card { background: #ffffff; border-radius: 12px; margin: 0 20px 20px 20px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-        .settings-item { display:flex; align-items:center; padding:16px 20px; cursor:pointer; border-bottom: 1px solid #f5f5f5; }
-        .settings-item:last-child { border-bottom: none; }
+        .settings-item { display:flex; align-items:center; padding:18px 20px; cursor:pointer; border-bottom: 1px solid #f5f5f5; }
         .settings-item:active { background:#f9f9f9; }
     </style>
 </head>
@@ -50,8 +48,8 @@
     <div class="app-screen" id="screen-library">
         <div style="padding: 25px 20px !important; font-size: 28px !important; font-weight: 800 !important; color: #222 !important;">Загружено</div>
         <div style="display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; flex: 1 !important; margin-top: -50px;">
-            <div style="width: 100px; height: 100px; border: 2px solid #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#d4d4d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-7-7m7 7l7-7"/></svg>
+            <div style="width: 120px; height: 120px; border: 1.5px solid #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#d4d4d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-7-7m7 7l7-7"/></svg>
             </div>
             <div style="font-size: 17px !important; color: #999 !important; margin-bottom: 25px;">Файлов пока нет</div>
             <div style="display: flex; align-items: center; justify-content: center; padding: 10px 24px; border: 1px solid #e0e0e0; border-radius: 25px; cursor: pointer;" onclick="switchBottomTab('screen-main', document.getElementById('navSearchTab'))">
@@ -61,43 +59,40 @@
         </div>
     </div>
 
-    <!-- ЭКРАН 3: НАСТРОЙКИ (С КАРТОЧКАМИ) -->
-    <div class="app-screen" id="screen-settings" style="background: #f7f7f7;">
+    <!-- ЭКРАН 3: НАСТРОЙКИ -->
+    <div class="app-screen" id="screen-settings">
         <div style="padding: 25px 20px 10px 20px !important; font-size: 28px !important; font-weight: 800 !important; color: #222 !important;">Настройки</div>
+        
         <div style="padding: 15px 20px 5px 20px !important; font-size: 14px !important; color: #999 !important;">Общие</div>
         
-        <div class="settings-card">
-            <div class="settings-item" onclick="showScreen('screen-download-settings')">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Настройки загрузки</div>
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-            <div class="settings-item">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Настройки уведомлений</div>
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-            <div class="settings-item">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Тема</div>
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
+        <div class="settings-item" onclick="showScreen('screen-download-settings')">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Настройки загрузки</div>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </div>
+        <div class="settings-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Настройки уведомлений</div>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="settings-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Тема</div>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+
+        <div style="padding: 25px 20px 5px 20px !important; font-size: 14px !important; color: #999 !important;">Информация</div>
         
-        <div style="padding: 15px 20px 5px 20px !important; font-size: 14px !important; color: #999 !important;">Информация</div>
-        
-        <div class="settings-card">
-            <div class="settings-item" onclick="showScreen('screen-youtube-login')">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Уч. запись</div>
-                <div style="font-size: 15px !important; color: #bbb !important; margin-right: 10px !important;">Вход</div>
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-            <div class="settings-item">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Язык</div>
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
+        <div class="settings-item" onclick="showScreen('screen-youtube-login')">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Уч. запись</div>
+            <div style="font-size: 15px !important; color: #bbb !important; margin-right: 10px !important;">Вход</div>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="settings-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <div style="flex: 1 !important; margin-left: 15px !important; font-size: 17px !important; color: #222 !important;">Регион и язык</div>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </div>
     </div>
 
@@ -111,13 +106,13 @@
         </div>
         
         <div style="display: flex !important; flex-direction: column !important; padding: 20px !important; gap: 32px !important;">
-            <!-- ТА САМАЯ ЖЕЛТАЯ ПАПКА -->
+            <!-- БОЛЬШАЯ, ЯРКАЯ, КЛИКАБЕЛЬНАЯ ПАПКА -->
             <div style="display: flex !important; justify-content: center !important; margin-bottom: 10px;">
-                <div onclick="document.getElementById('folderInputFinal').click()" style="cursor: pointer !important; position: relative !important; width: 140px !important; height: 110px !important; display: flex !important; align-items: center !important; justify-content: center !important;">
-                    <svg viewBox="0 0 24 24" width="140" height="110" fill="#FDD835" style="opacity: 0.3 !important; position: absolute !important;">
+                <div onclick="document.getElementById('folderInputFinal').click()" style="cursor: pointer !important; position: relative !important; width: 180px !important; height: 150px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto !important;">
+                    <svg viewBox="0 0 24 24" width="180" height="150" fill="#FDD835" style="position: absolute !important; opacity: 0.9 !important;">
                         <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
                     </svg>
-                    <div style="position: relative !important; z-index: 2 !important; font-size: 13px !important; font-weight: 700 !important; color: #777 !important;">Выбрать папку</div>
+                    <div style="position: relative !important; z-index: 2 !important; font-size: 14px !important; font-weight: 700 !important; color: #7a5f00 !important; margin-top: 20px !important;">Выбрать папку</div>
                 </div>
             </div>
 
@@ -128,7 +123,7 @@
                 </div>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important;"><polyline points="9 18 15 12 9 6"/></svg>
             </div>
-            <input type="file" id="folderInputFinal" webkitdirectory directory style="display:none !important;" onchange="document.getElementById('folderPathDisplayFinal').innerText = this.files[0] ? this.files[0].webkitRelativePath.split('/')[0] : '/storage/emulated/0/snaptube/download'">
+            <input type="file" id="folderInputFinal" webkitdirectory directory style="display:none !important;" onchange="if(this.files && this.files[0]) { document.getElementById('folderPathDisplayFinal').innerText = this.files[0].webkitRelativePath.split('/')[0]; } else { document.getElementById('folderPathDisplayFinal').innerText = '/storage/emulated/0/snaptube/download'; }">
             
             <div style="display: flex !important; align-items: center !important; justify-content: space-between !important; cursor: pointer !important;">
                 <div style="flex: 1 !important; padding-right: 15px !important;">
@@ -156,80 +151,54 @@
         </div>
     </div>
 
-    <!-- ЭКРАН 5: ИДЕАЛЬНЫЙ ВХОД В YOUTUBE (3 КВАДРАТИКА, СВЕТЛЫЕ СТРЕЛКИ) -->
+    <!-- ЭКРАН 5: ВХОД В GOOGLE (ТОЧЬ-В-ТОЧЬ КАК НА 2 СКРИНЕ) -->
     <div class="app-screen" id="screen-youtube-login">
-        <div class="header">
-            <div class="back-btn" onclick="showScreen('screen-settings')" style="cursor: pointer !important; display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-                <div style="font-size: 20px !important; font-weight: 700 !important; color: #222 !important; margin-left: 10px !important;">Войти в YouTube</div>
+        
+        <div style="display: flex !important; align-items: center !important; padding: 20px 20px 10px 20px !important;">
+            <div style="cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; margin-left: -10px !important;" onclick="showScreen('screen-settings')">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </div>
+            <div style="font-size: 20px !important; font-weight: 700 !important; color: #222 !important; margin-left: 10px !important;">Войти в YouTube</div>
         </div>
 
-        <div class="icons-container" style="display: flex !important; align-items: center !important; justify-content: center !important; gap: 15px !important; margin-top: 40px !important; width: 100% !important;">
-            <div class="snaptube-icon" style="width: 80px !important; height: 80px !important; background: #FDD835 !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important;">
-                <div class="snaptube-inner" style="width: 48px !important; height: 34px !important; background: #ffffff !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important;">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#E53935">
-                        <rect x="9" y="1" width="6" height="3.5" />
-                        <rect x="9" y="6" width="6" height="3.5" />
-                        <rect x="9" y="11" width="6" height="3" />
-                        <polygon points="4,14 20,14 12,22" />
-                    </svg>
-                </div>
-            </div>
-            
-            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="4" y1="7" x2="20" y2="7" />
-                <polyline points="9 3 4 7 9 11" />
-                <line x1="4" y1="17" x2="20" y2="17" />
-                <polyline points="15 13 20 17 15 21" />
+        <div style="padding: 0 25px !important;">
+            <!-- Логотип Google -->
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" style="margin-bottom: 20px;">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
 
-            <div class="youtube-icon" style="width: 90px !important; height: 62px !important; background: #FF0000 !important; border-radius: 18px !important; display: flex !important; align-items: center !important; justify-content: center !important;">
-                <svg viewBox="0 0 24 24" width="32" height="32" fill="#ffffff">
-                    <path d="M8 5v14l11-7z"/>
-                </svg>
-            </div>
-        </div>
+            <div style="font-size: 32px; font-weight: 400; color: #222; margin-bottom: 10px;">Вход</div>
+            <div style="font-size: 16px; color: #222; margin-bottom: 30px;">Перейдите на YouTube</div>
 
-        <div class="title" style="padding: 40px 20px 30px 20px !important; font-size: 20px !important; font-weight: 400 !important; color: #222 !important; text-align: left !important;">
-            Получи все функции YouTube в Snaptube
-        </div>
+            <!-- БОЛЬШОЕ ПОЛЕ ВВОДА -->
+            <div style="margin-bottom: 15px;">
+                <input type="text" placeholder="Телефон или электронный адрес" style="width: 100%; height: 60px; border: 1px solid #ccc; border-radius: 4px; padding: 0 15px; font-size: 16px; color: #222; outline: none; box-sizing: border-box;">
+            </div>
+            
+            <div style="font-size: 14px; color: #1a73e8; font-weight: 500; margin-bottom: 40px; cursor: pointer;">Забыли адрес электронной почты?</div>
 
-        <div class="list" style="display: flex !important; flex-direction: column !important; gap: 25px !important; padding: 0 20px !important;">
-            <div class="list-item" style="display: flex !important; align-items: flex-start !important;">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important; margin-top: 2px !important;">
-                    <rect x="2" y="5" width="20" height="14" rx="4" ry="4" />
-                    <polygon points="10,9 16,12 10,15" fill="#888" stroke="none" />
-                </svg>
-                <div class="list-text" style="margin-left: 15px !important; font-size: 16px !important; color: #888 !important; text-align: left !important;">Синхронизация библиотеки YouTube</div>
+            <div style="font-size: 14px; color: #222; line-height: 1.5; margin-bottom: 40px;">
+                Не ваш компьютер? Включите гостевой режим, чтобы защитить данные в аккаунте. <span style="color: #1a73e8; font-weight: 500;">Подробнее об использовании гостевого режима</span>
             </div>
-            <div class="list-item" style="display: flex !important; align-items: flex-start !important;">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important; margin-top: 2px !important;">
-                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                    <path d="M3 3v5h5"/>
-                    <polyline points="12 7 12 12 15 15"/>
-                </svg>
-                <div class="list-text" style="margin-left: 15px !important; font-size: 16px !important; color: #888 !important; text-align: left !important;">История и список «Смотреть позже»</div>
-            </div>
-            <div class="list-item" style="display: flex !important; align-items: flex-start !important;">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0 !important; margin-top: 2px !important;">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                </svg>
-                <div class="list-text" style="margin-left: 15px !important; font-size: 16px !important; color: #888 !important; text-align: left !important;">Подписка на новые каналы</div>
-            </div>
-        </div>
 
-        <div class="btn-container" style="margin-top: auto !important; padding: 20px !important; width: 100% !important; box-sizing: border-box !important;">
-            <div onclick="window.open('https://accounts.google.com/', '_blank')" style="width: 100% !important; height: 56px !important; background: #FDD835 !important; border-radius: 28px !important; display: flex !important; align-items: center !important; justify-content: center !important; cursor: pointer !important;">
-                <div style="font-size: 16px !important; font-weight: 700 !important; color: #222 !important;">Вход</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
+                <div style="font-size: 14px; color: #1a73e8; font-weight: 500; cursor: pointer;">Создать аккаунт</div>
+                <div onclick="window.open('https://accounts.google.com/', '_blank')" style="background: #1a73e8; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer;">Далее</div>
+            </div>
+
+            <div style="display: flex; gap: 20px; font-size: 12px; color: #555; margin-top: auto; padding-bottom: 20px;">
+                <span>Русский</span>
+                <span>Справка</span>
+                <span>Конфиденциальность</span>
+                <span>Условия</span>
             </div>
         </div>
     </div>
 
-    <!-- НИЖНЕЕ МЕНЮ -->
+    <!-- НИЖНЕЕ МЕНЮ (ЛУПА, СТОПКА, ШЕСТЕРЕНКА) -->
     <div class="bottom-nav" id="bottomNav">
         <div id="navSearchTab" style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex: 1;" onclick="switchBottomTab('screen-main', this)">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -237,8 +206,9 @@
         </div>
         <div style="display: flex; flex-direction: column; align-items: center; cursor: pointer; flex: 1;" onclick="switchBottomTab('screen-library', this)">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                <rect x="2" y="6" width="15" height="15" rx="3" ry="3"></rect>
+                <polygon points="7 11 12 14 7 17 7 11"></polygon>
+                <path d="M21 15V6a2 2 0 0 0-2-2H9"></path>
             </svg>
             <div class="nav-text" style="font-size: 10px; color: #999; margin-top: 4px;">Воспроизведение</div>
         </div>
